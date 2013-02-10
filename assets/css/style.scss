@@ -1,0 +1,717 @@
+@import "reset.css";
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+$dark:  #252525;
+$notasdark: #3d3d3d;
+$supalight: #fcfcfc;
+$shadow: #ededed;
+
+$mobile: new-breakpoint(max-width 500px 6);
+$tablet: new-breakpoint(max-width 830px min-width 501px 6);
+$desktop: new-breakpoint(min-width 831px 12);
+
+@mixin text-shadow($h, $v, $c, $b) {
+  -moz-text-shadow: $h $v $c $b;
+  -webkit-text-shadow: $h $v $c $b;
+  -o-text-shadow: $h $v $c $b;
+  text-shadow: $h $v $c $b;
+}
+html {
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  background-color: $supalight;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'proxima_nova_rgregular', sans-serif;
+  color: $dark;
+  p.seo { text-indent: -9999px; height: 0; @include hide-text;}
+}
+
+header {
+  background: $dark;
+  height: 71px;
+  margin: 0;
+  margin-bottom: 65px;
+  width: 100%;
+  .logo {
+    position: relative;
+    top: 15px;
+    height: 112px;
+    width: 100%;
+    background: transparent url('../images/logo.png') center center no-repeat;
+    margin: 0 auto;
+    text-align:center;
+  }
+}
+
+
+.tagline {
+  @include media($desktop) {
+    display: block;
+    line-height: 1.5em;
+    font-weight: normal;
+    font-size: 1.2em;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: -29px;
+    color: $notasdark;
+  }
+  @include media($tablet) {
+    display: block;
+    line-height: 1.5em;
+    font-weight: normal;
+    font-size: 1.1em;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: -29px;
+  }
+  @include media($mobile) {
+    display: block;
+    line-height: 1.5em;
+    font-weight: normal;
+    font-size: 1.1em;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: -29px;
+  }
+}
+
+section {
+  &.grid {  @include outer-container;
+  }
+  margin-bottom: 20px;
+  h1, h2, h3 {
+    font-family: "proxima_nova_rgbold", sans-serif;
+    font-size: 3.3em;
+    font-weight: normal;
+    text-align:center;
+    @include text-shadow(3px, 3px, 0px, $shadow);
+    margin-bottom: 35px;
+  }
+  h2 { margin-bottom: 25px; font-size: 3em;}
+  h3 { margin-bottom: 25px; margin-top: 15px; font-size: 2em; font-weight: normal;}
+}
+.portfolio {
+}
+.projects {
+  @include span-columns(12);
+  @include media($tablet) {
+    @include span-columns(6);
+    margin-right: 0;
+    padding: 0 15px;
+  }
+  @include media($tablet) {
+    @include span-columns(6);
+    margin-right: 0;
+    padding: 0 15px;
+  }
+  @include media($mobile) {
+    @include span-columns(6);
+    margin-right: 0;
+    padding: 0 15px;
+  }
+  a.project {
+    text-decoration: none;
+    padding:0;
+    @include media($desktop) {
+      @include span-columns(4);
+      @include nth-omega(3n);
+    }
+    @include box-shadow(3px 3px 0px $shadow);
+    @include media($tablet) {
+      @include span-columns(2);
+      @include nth-omega(3n);
+      margin-bottom: 3em;
+      @include box-shadow(0px 0px 0px transparent);
+    }
+    @include media($mobile) {
+      @include span-columns(3);
+      @include nth-omega(2n);
+      margin-bottom: 3em;
+      @include box-shadow(0px 0px 0px transparent);
+    }
+    text-align: center;
+    max-width: 219px;
+    height: 145px;
+    margin-bottom: 1.5em;
+    background-color: transparent;
+    background-position: center top;
+    background-repeat: no-repeat;
+    position: relative;
+    .new {
+      width: 65px;
+      height: 66px;
+      display: block;
+      position: absolute;
+      top: -1px;
+      left: -1px;
+      z-index: 2;
+      background: transparent url('../images/new_badge.png') top left no-repeat;
+      @include hide-text;
+    }
+    &:hover .url, &:focus .url {
+      opacity: 0.85;
+      visibility: visible;
+      z-index: 1;
+      transition-delay:0s;
+      @include transition (opacity 0.1s ease-in-out, visibility 0.1s ease-in-out);
+    }
+    .url {
+      opacity: 0;
+      visibility: hidden;
+      position: relative;
+      z-index: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: $dark;
+      font-size: 0;
+      transition-delay:0s;
+      line-height: 145px;
+      text-decoration: none;
+      color: $supalight;
+      font-size: 1em;
+      line-height: 145px;
+      text-decoration: none;
+      margin: 0 !important;
+      padding: 0 !important;
+      color: $supalight;
+      font-size: 1em;
+      @include transition (opacity 0.1s ease-in-out, visibility 0.1s ease-in-out);
+      @include media($tablet) {
+        opacity: 1;
+        visibility: visible;
+        display: inline;
+        width: auto;
+        position: absolute;
+        // color: $dark;
+        // background: transparent !important;
+        bottom: -2em;
+        left: 0;
+        right: 0;
+        height: 2em;
+        line-height: 2em;
+        text-align: center;
+        font-size: 0.8em;
+        // @include box-shadow(3px 3px 0px $shadow);
+      }
+      @include media($mobile) {
+        opacity: 1;
+        visibility: visible;
+        display: inline;
+        width: auto;
+        position: absolute;
+        // color: $dark;
+        // background: transparent !important;
+        bottom: -2em;
+        left: 0;
+        right: 0;
+        height: 2em;
+        line-height: 2em;
+        text-align: center;
+        font-size: 0.8em;
+        // @include box-shadow(3px 3px 0px $shadow);
+      }
+    }
+
+    &.preserve { background-image: url('../images/projects/preserve.png');
+      .url:hover, .url:focus, .url {
+        background-color: #47a200;
+      }}
+    &.littlebox { background-image: url('../images/projects/littlebox.png');
+      .url:hover, .url:focus, .url {
+        background-color: #a7170d;
+      }}
+    &.dexter { background-image: url('../images/projects/dexter.png');
+      .url:hover, .url:focus, .url {
+        background-color: #99180a;
+      }}
+    &.got { background-image: url('../images/projects/got.png');
+      .url:hover, .url:focus, .url {
+        background-color: #171f25;
+        font-size: 0.8em;
+        @include media($tablet) {font-size: 0.7em;}
+        @include media($mobile) {font-size: 0.7em;}
+      }}
+    &.rms { background-image: url('../images/projects/rms.png');
+      .url:hover, .url:focus, .url {
+        background-color: #0a2746;
+      }}
+    &.sleepytime { background-image: url('../images/projects/sleepytime.png');
+      .url:hover, .url:focus, .url {
+        background-color: #0a2746;
+      }}
+    &.archer { background-image: url('../images/projects/archer.png');
+      .url:hover, .url:focus, .url {
+        background-color: #3e165e;
+      }}
+    }
+  }
+
+.tools {
+  width: 100%;
+  text-align: center;
+  // height: 255px;
+  margin-bottom: 35px;
+}
+
+
+ul.hardware {
+  @include row;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+
+  li {
+    display: inline-block;
+    height: 255px;
+    width: auto;
+    // line-height: 255px;
+    margin-left: 15px;
+    margin-right: 15px;
+    position: relative;
+    left: 20px;
+    a {
+      .title {
+        display: block;
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        right: 0;
+        min-width: 80px;
+        margin: 0 auto;
+        text-align: center;
+        // padding: 10px 15px;
+        // vertical-align: middle;
+        line-height: 1.2em;
+        // background:black;
+        text-decoration: none;
+        color: lighten($dark, 50%);
+        opacity: 0;
+        visibility: hidden;
+        transition-delay:0s;
+        @include transition (opacity 0.1s ease-in-out, visibility 0.1s ease-in-out);
+      }
+      &:hover .title, &:focus .title {
+        opacity: 1;
+        visibility: visible;
+      }
+      margin: 0;
+      padding: 0;
+      position: relative;
+      vertical-align: middle;
+      display: inline-block;
+      // @include hide-text;
+      height: 255px;
+      &.pen { width: 15px; background: transparent url('../images/tools/pen.png') center center no-repeat;
+        .title {
+          left: -35px;
+          bottom: 0px;
+          text-align: center;
+        }
+      }
+      &.moleskine { width: 104px; background: transparent url('../images/tools/moleskine.png') center center no-repeat; }
+      &.mbp { width: 370px; background: transparent url('../images/tools/mbp.png') center center no-repeat;
+        .title {
+          bottom: -25px;
+        }
+      }
+      &.coffee { width: 95px; background: transparent url('../images/tools/coffee.png') center center no-repeat;
+        .title { bottom: 15px;}
+      }
+      &.mouse { width: 61px; background: transparent url('../images/tools/mouse.png') center center no-repeat;
+        .title {
+          left: -10px;
+          bottom: 29px;
+        }
+      }
+    }
+  }
+  @include media($mobile) {
+    @include outer-container;
+    padding: 0 1em;
+    li {
+      @include span-columns(3);
+      @include nth-omega(2n);
+      // width: 90%;
+      // width: 45%;
+      height: 175px;
+      text-align: center;
+      padding: 0;
+      left: 0;
+      // margin-right: 0;
+      margin-left: 0;
+      @include border-radius(15px);
+      border: 1px solid #ccc !important;
+      background: #fff !important;
+      margin-bottom: 1em;
+      a {
+        height: 100px !important;
+        line-height: 1em !important;
+        width: 100% !important;
+        top: 18px;
+        background-size: auto 100px !important;
+        display: block;
+        margin: 0 !important;
+        .title {
+          font-size: 0.9em;
+          opacity: 1 !important;
+          visibility: visible !important;
+          color: $notasdark;
+          font-family: "proxima_nova_rgbold", sans-serif;
+          font-weight: normal;
+          bottom: -35px !important;
+          left: 0 !important;
+          right: 0 !important;
+        }
+      }
+    }
+  }
+  @include media($tablet) {
+    @include outer-container;
+    padding: 0 1em;
+    li {
+      @include span-columns(2);
+      @include nth-omega(3n);
+      // width: 90%;
+      // width: 45%;
+      height: 175px;
+      text-align: center;
+      padding: 0;
+      left: 0;
+      // margin-right: 0;
+      margin-left: 0;
+      @include border-radius(15px);
+      border: 1px solid #ccc !important;
+      background: #fff !important;
+      margin-bottom: 1em;
+      a {
+        height: 100px !important;
+        line-height: 1em !important;
+        width: 100% !important;
+        top: 18px;
+        background-size: auto 100px !important;
+        display: block;
+        margin: 0 !important;
+        .title {
+          font-size: 0.9em;
+          opacity: 1 !important;
+          visibility: visible !important;
+          color: $notasdark;
+          font-family: "proxima_nova_rgbold", sans-serif;
+          font-weight: normal;
+          bottom: -35px !important;
+          left: 0 !important;
+          right: 0 !important;
+        }
+      }
+    }
+  }
+}
+ul.software {
+  @include row;
+  width: 100%;
+  text-align: center;
+  height: 35px;
+  margin-top: 15px;
+  // background:red;
+  display: block;
+  margin-bottom: 20px;
+  li {
+    margin: 0 10px;
+    @include media($tablet) {
+     margin: 0 5px;
+   }
+    @include media($mobile) {
+     margin: 0 5px;
+   }
+    // background: blue;
+    display: inline-block;
+    height: 35px;
+    width: 35px;
+    a {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      text-indent: -99999px;
+      &.ps {background: url('../images/tools/ps.png') center center no-repeat;}
+      &.ai {background: url('../images/tools/ai.png') center center no-repeat;}
+      &.spotify {background: url('../images/tools/spotify.png') center center no-repeat;}
+      &.chrome {background: url('../images/tools/chrome.png') center center no-repeat;}
+      &.sublime {background: url('../images/tools/sublime.png') center center no-repeat;}
+      &.bourbon {background: url('../images/tools/bourbon.png') center center no-repeat;}
+    }
+  }
+}
+
+
+.tidbits {
+  margin-bottom: 35px;
+  article {
+    @include span-columns(4);
+    @include media($mobile) {
+      @include span-columns(6);
+    }
+    ul li {
+      height: 24px;
+      line-height: 24px;
+      margin-bottom: 7px;
+      font-size: 1em;
+      @include media($tablet) {
+        @include span-columns(6);
+        font-size: 0.9em;
+      }
+      @include media($mobile) {
+        @include span-columns(6);
+        padding-left: 2em;
+        font-size: 1.4em;
+      }
+      a {
+        text-decoration: none;
+        color: $dark;
+        line-height: 24px;
+        height: 24px;
+        &:hover, &:focus {
+          color: $notasdark;
+        }
+        &:active {
+          position: relative;
+          top: 1px;
+        }
+        span {
+          width: 24px;
+          height: 24px;
+          background: transparent;
+          display: inline-block;
+          margin-right: 8px;
+          text-indent: -88999px;
+        }
+        &.email span { background: url('../images/icons/email.png') center center no-repeat;}
+        &.twitter { color: #00d1fe;
+          &:hover, &:focus { color: lighten(#00d1fe, 10%);}}
+          &.twitter span { background: url('../images/icons/tweet.png') center center no-repeat;}
+          &.forrst span { background: url('../images/icons/forrst.png') center center no-repeat;}
+          &.forrst { color: #366425;
+            &:hover, &:focus { color: lighten(#366425, 10%);}}
+            &.dribbble span { background: url('../images/icons/dribbble.png') center center no-repeat;}
+            &.dribbble { color: #ed548e;
+              &:hover, &:focus { color: lighten(#ed548e, 10%);}}
+            }
+          }
+        }
+        article.hobbies {
+          margin: 0 auto;
+          @include media($mobile) {
+            @include span-columns(6);
+          }
+          ul { width: 60%; margin: 0 auto;
+            @include media($mobile) {
+              @include span-columns(6);
+        // padding-left: em;
+      }
+    }
+    ul li { text-align: left;}
+    span {
+      // width: 24px;
+      height: 24px;
+      line-height: 24px;
+      // background: red;
+      display: inline-block;
+      // margin-right: 7px;
+      padding-left: 30px;
+      &.music { background: url('../images/icons/music.png') left center no-repeat;}
+      &.photography { background: url('../images/icons/photography.png') left center no-repeat;}
+      &.cs { background: url('../images/icons/coffee.png') left center no-repeat;}
+      &.steam { background: url('../images/icons/steam.png') left center no-repeat;}
+    }
+  }
+  article.skills {
+    ul {
+      @include media($mobile) {
+        padding-left: 2.7em;
+      }
+    }
+    ul li {
+      border-left: 5px solid #eee;
+      padding-left: 10px;
+    }
+  }
+}
+
+
+footer {
+  @include row;
+  height: 90px;
+  background: $dark url('../images/sig.png') center center no-repeat;
+  text-indent: -9999px;
+}
+
+
+
+@include media($mobile) {
+
+
+}
+
+@include media($tablet) {
+
+
+}
+
+// @include media($tablet) {
+
+//   /* Site-wide styles for tablet */
+
+// }
+
+@include media(-webkit-min-device-pixel-ratio 1.5) {
+
+  /* Don't forget your Site-wide Retina CSS! */
+
+  // body {
+  //   background-size: 72px 72px;
+  // }
+
+}
+
+
+@font-face {
+  font-family: 'proxima_nova_blregular';
+  src: url('../fonts/proximanova-black-webfont.eot');
+  src: url('../fonts/proximanova-black-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/proximanova-black-webfont.woff') format('woff'),
+  url('../fonts/proximanova-black-webfont.ttf') format('truetype'),
+  url('../fonts/proximanova-black-webfont.svg#proxima_nova_blregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'proxima_nova_rgbold';
+  src: url('../fonts/proximanova-bold-webfont.eot');
+  src: url('../fonts/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/proximanova-bold-webfont.woff') format('woff'),
+  url('../fonts/proximanova-bold-webfont.ttf') format('truetype'),
+  url('../fonts/proximanova-bold-webfont.svg#proxima_nova_rgbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'proxima_nova_thbold';
+  src: url('../fonts/proximanova-extrabold-webfont.eot');
+  src: url('../fonts/proximanova-extrabold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/proximanova-extrabold-webfont.woff') format('woff'),
+  url('../fonts/proximanova-extrabold-webfont.ttf') format('truetype'),
+  url('../fonts/proximanova-extrabold-webfont.svg#proxima_nova_thbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'proxima_nova_ltregular';
+  src: url('../fonts/proximanova-light-webfont.eot');
+  src: url('../fonts/proximanova-light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/proximanova-light-webfont.woff') format('woff'),
+  url('../fonts/proximanova-light-webfont.ttf') format('truetype'),
+  url('../fonts/proximanova-light-webfont.svg#proxima_nova_ltregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'proxima_nova_ltitalic';
+  src: url('../fonts/proximanova-lightitalic-webfont.eot');
+  src: url('../fonts/proximanova-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/proximanova-lightitalic-webfont.woff') format('woff'),
+  url('../fonts/proximanova-lightitalic-webfont.ttf') format('truetype'),
+  url('../fonts/proximanova-lightitalic-webfont.svg#proxima_nova_ltitalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'proxima_nova_rgregular';
+  src: url('../fonts/proximanova-reg-webfont.eot');
+  src: url('../fonts/proximanova-reg-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/proximanova-reg-webfont.woff') format('woff'),
+  url('../fonts/proximanova-reg-webfont.ttf') format('truetype'),
+  url('../fonts/proximanova-reg-webfont.svg#proxima_nova_rgregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'proxima_nova_rgitalic';
+  src: url('../fonts/proximanova-regitalic-webfont.eot');
+  src: url('../fonts/proximanova-regitalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/proximanova-regitalic-webfont.woff') format('woff'),
+  url('../fonts/proximanova-regitalic-webfont.ttf') format('truetype'),
+  url('../fonts/proximanova-regitalic-webfont.svg#proxima_nova_rgitalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'proxima_nova_ltbold';
+  src: url('../fonts/proximanova-sbold-webfont.eot');
+  src: url('../fonts/proximanova-sbold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/proximanova-sbold-webfont.woff') format('woff'),
+  url('../fonts/proximanova-sbold-webfont.ttf') format('truetype'),
+  url('../fonts/proximanova-sbold-webfont.svg#proxima_nova_ltbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+
+
+
+@font-face {
+  font-family: 'proxima_nova_ltbold_italic';
+  src: url('../fonts/proximanova-sbolditalic-webfont.eot');
+  src: url('../fonts/proximanova-sbolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/proximanova-sbolditalic-webfont.woff') format('woff'),
+  url('../fonts/proximanova-sbolditalic-webfont.ttf') format('truetype'),
+  url('../fonts/proximanova-sbolditalic-webfont.svg#proxima_nova_ltbold_italic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
