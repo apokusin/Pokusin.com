@@ -174,8 +174,9 @@ header {
   margin-bottom: 1em; }
   .count:last-child, .s_project:last-child {
     margin-right: 0; }
-  .count:nth-child(4n), .s_project:nth-child(4n) {
-    margin-right: 0; }
+  @media screen and (min-width: 480px) {
+    .count:nth-child(3n), .s_project:nth-child(3n) {
+      margin-right: 0; } }
   .count:hover img, .count:focus img, .s_project:hover img, .s_project:focus img {
     position: relative;
     top: -2px;
@@ -224,7 +225,9 @@ header {
     display: block;
     float: left;
     margin-right: 4.82916%;
-    width: 100%; }
+    width: 47.58542%; }
+    .count:nth-child(2n), .s_project:nth-child(2n) {
+      margin-right: 0; }
     .count:last-child, .s_project:last-child {
       margin-right: 0; } }
 section {
