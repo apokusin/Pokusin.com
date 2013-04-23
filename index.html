@@ -33,6 +33,8 @@
   <link rel='stylesheet' href='assets/css/reset.css'>
 <link rel='stylesheet' href='assets/css/style.css'>
   <script src='assets/js/jquery-1.8.3.min.js'></script>
+<script src='assets/js/jribbble.js'></script>
+<script src='assets/js/flickr.js'></script>
 <script src='assets/js/app.js'></script>
 
 
@@ -138,17 +140,17 @@
   <section id="side" style="background: #FFB02A">
     <div>
       <h3>Side Projects</h3>
-      <a class="s_project" href="http://colorgr.am">
+      <a target="_blank" class="s_project" href="http://colorgr.am">
         <img src="assets/colorgram.png" alt="" />
         <h4>colorgr.am</h4>
         <p>Currently in alpha stage of development, <em>colorgr.am</em> is a project I'm using to learn AngularJS. Colors are involved.</p>
       </a>
-      <a class="s_project" href="http://theinceptionbutton.com">
+      <a target="_blank" class="s_project" href="http://theinceptionbutton.com">
         <img src="assets/inception.png" alt="" />
         <h4>Inception Button</h4>
         <p>Not satisfied with current offerings, I decided to create a button that would play the famous <em>Inception</em> BWAAAA. Currently under development.</p>
       </a>
-      <a class="s_project" href="http://fuckyouandpaste.com">
+      <a target="_blank" class="s_project" href="http://fuckyouandpaste.com">
         <img src="assets/paste.png" alt="" />
         <h4>F***YouAndPaste</h4>
         <p>My very own fork of <em>HasteBin</em> that is the collaborated idea of several members of the IRC chat room: <em>#reddit-webdesign</em>.</p>
@@ -158,14 +160,28 @@
 
   <section id="social" style="background: #e36b36">
     <div>
-      <h4>Tweets</h4>
-      <h4>Dribbble</h4>
-      <h4>Flickr</h4>
-      <h4>Preserve</h4>
-      <h4>Github</h4>
-      <h4>Medium <span>(coming soon)</h4>
+      <h3>My Social Feeds</h3>
+
+      <h4>Preserve'd Bookmarks <a href="http://preserve.io/user/artur" target="_blank" class="preserve">View Preserve Profile</a></h4>
+      <div class="preserve_wrap">
+        <div id="bookmarks"></div>
+      </div>
+
+      <h4>Dribbble <a href="http://dribbble.com/apokusin" target="_blank" class="dribbble">View More Shots</a></h4>
+      <div id="dribbble"></div>
+
+      <h4>Flickr <a href="http://www.flickr.com/photos/apokusin/" target="_blank" class="flickr">View All Photos</a></h4>
+      <div id="flickr"></div>
+
+      <h4>Coming Soon:</h4>
+      <ul>
+        <li>Github Feed</li>
+        <li>Tweets</li>
+        <li>Medium Posts</li>
+      </ul>
     </div>
   </section>
+
 
   <footer>
     <div>

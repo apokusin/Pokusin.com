@@ -129,11 +129,12 @@ header {
         -o-transition: all 100ms ease-in-out;
         transition: all 100ms ease-in-out; }
         .project .description h4 a:hover, .project .description h4 a:focus, .project .description h4 a:visited:hover, .project .description h4 a:visited:focus {
-          background: rgba(255, 255, 255, 0.2);
-          color: rgba(255, 255, 255, 0.95); }
+          background: #ed7f77;
+          color: white; }
         .project .description h4 a:active, .project .description h4 a:visited:active {
           position: relative;
           top: 1px;
+          background: #d1574c;
           box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1); }
 
 .count, .s_project {
@@ -211,6 +212,111 @@ section {
   section h3 {
     font-size: 1.8em;
     color: white; }
+
+#social h4 {
+  font-size: 1.3em;
+  color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  position: relative; }
+  #social h4 a {
+    font-family: 'proxima-nova', sans-serif;
+    font-weight: 700;
+    right: 0;
+    top: -0.5em;
+    font-size: 0.7em;
+    padding: 7px 10px;
+    border-bottom: none;
+    background: rgba(255, 255, 255, 0.75);
+    color: #b95722;
+    border-radius: 4px;
+    -webkit-transition: all 100ms ease-in-out;
+    -moz-transition: all 100ms ease-in-out;
+    -ms-transition: all 100ms ease-in-out;
+    -o-transition: all 100ms ease-in-out;
+    transition: all 100ms ease-in-out;
+    box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.2);
+    position: absolute; }
+    #social h4 a:hover, #social h4 a:focus {
+      background: rgba(255, 255, 255, 0.9); }
+    #social h4 a:active {
+      top: -0.4em;
+      box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2); }
+
+#dribbble, #flickr {
+  *zoom: 1;
+  max-width: 41.25em;
+  margin-left: auto;
+  margin-right: auto; }
+  #dribbble:before, #dribbble:after, #flickr:before, #flickr:after {
+    content: " ";
+    display: table; }
+  #dribbble:after, #flickr:after {
+    clear: both; }
+  #dribbble a, #flickr a {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    border-bottom: none; }
+    #dribbble a:last-child, #flickr a:last-child {
+      margin-right: 0; }
+    #dribbble a:nth-child(3n), #flickr a:nth-child(3n) {
+      margin-right: 0; }
+    #dribbble a img, #flickr a img {
+      max-width: 100%;
+      border-radius: 5px;
+      margin-bottom: 1em;
+      box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.2);
+      -webkit-transition: all 100ms ease-in-out;
+      -moz-transition: all 100ms ease-in-out;
+      -ms-transition: all 100ms ease-in-out;
+      -o-transition: all 100ms ease-in-out;
+      transition: all 100ms ease-in-out; }
+    #dribbble a:hover img, #dribbble a:focus img, #flickr a:hover img, #flickr a:focus img {
+      position: relative;
+      top: -2px;
+      box-shadow: 0px 6px 0px rgba(0, 0, 0, 0.35); }
+    #dribbble a:active img, #flickr a:active img {
+      top: 2px;
+      box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.35); }
+
+.preserve_wrap {
+  *zoom: 1;
+  max-width: 41.25em;
+  margin-left: auto;
+  margin-right: auto; }
+  .preserve_wrap:before, .preserve_wrap:after {
+    content: " ";
+    display: table; }
+  .preserve_wrap:after {
+    clear: both; }
+  .preserve_wrap #bookmarks {
+    display: block;
+    float: left;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .preserve_wrap #bookmarks:last-child {
+      margin-right: 0; }
+    .preserve_wrap #bookmarks a {
+      display: block;
+      display: block;
+      float: left;
+      margin-right: 2.35765%;
+      width: 48.82117%;
+      padding: 10px;
+      border-bottom: none;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 0;
+      height: 70px;
+      overflow: hidden; }
+      .preserve_wrap #bookmarks a:nth-child(2n) {
+        margin-right: 0; }
+      .preserve_wrap #bookmarks a:last-child {
+        margin-right: 0; }
+      .preserve_wrap #bookmarks a:nth-child(3n), .preserve_wrap #bookmarks a:nth-child(2) {
+        background: rgba(255, 255, 255, 0.05); }
+      .preserve_wrap #bookmarks a:hover, .preserve_wrap #bookmarks a:focus {
+        background: rgba(255, 255, 255, 0.15); }
 
 footer {
   padding: 2em 0;
