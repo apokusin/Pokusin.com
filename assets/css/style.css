@@ -105,6 +105,8 @@ header {
         float: left;
         font-weight: bold;
         margin-right: 0.5em; }
+      .project .description dl dd {
+        margin-left: 0; }
     .project .description h4 {
       margin-top: 0;
       padding-top: 0;
