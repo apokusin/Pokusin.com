@@ -406,9 +406,24 @@ section {
         .preserve_wrap #bookmarks a:nth-child(2n) {
           background: rgba(255, 255, 255, 0.05); } }
 
-#contact p {
-  font-size: 1.2em;
-  font-weight: 600; }
+#contact .half {
+  display: block;
+  float: left;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  #contact .half:last-child {
+    margin-right: 0; }
+  #contact .half p, #contact .half ul li {
+    font-size: 1.2em;
+    font-weight: 600; }
+@media screen and (max-width: 480px) {
+  #contact .half {
+    display: block;
+    float: left;
+    margin-right: 4.82916%;
+    width: 100%; }
+    #contact .half:last-child {
+      margin-right: 0; } }
 
 footer {
   padding: 2em 0;
