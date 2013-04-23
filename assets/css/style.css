@@ -406,6 +406,10 @@ section {
         .preserve_wrap #bookmarks a:nth-child(2n) {
           background: rgba(255, 255, 255, 0.05); } }
 
+#contact p {
+  font-size: 1.2em;
+  font-weight: 600; }
+
 footer {
   padding: 2em 0;
   background: rgba(0, 0, 0, 0.1);
