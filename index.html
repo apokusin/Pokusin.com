@@ -5,33 +5,177 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   
-  <!-- @reload -->
-  
-  <link rel='stylesheet' href='3b0c7ec678300769da7b98c38d10f769.css'>
-  <script src='d3a86d5e73f38c6b7c426f491fb64467.js'></script>
-  
-  <link href="assets/favicon.ico" rel="shortcut icon">
+        <!-- Hammer reload -->
+          <script>
+            setInterval(function(){
+              try {
+                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
+                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
+                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
+                ws.onmessage = function(){
+                  var links = document.getElementsByTagName('link'); 
+                    for (var i = 0; i < links.length;i++) { 
+                    var link = links[i]; 
+                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) { 
+                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,''); 
+                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
+                    }
+                  }
+                }
+              }catch(e){}
+            }, 1000)
+          </script>
+        <!-- /Hammer reload -->
+      
+
+  <link rel='stylesheet' href='assets/css/reset.css'>
+<link rel='stylesheet' href='assets/css/style.css'>
+  <script src='assets/js/jquery-1.8.3.min.js'></script>
+<script src='assets/js/app.js'></script>
+
+
+  <link href="favicon.ico" rel="shortcut icon">
   <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
-  
-  <title>New Project</title>
-  
+
+  <title>Artur Pokusin | Visual Designer / Front-End Developer</title>
+
+  <script>
+
+  </script>
+
 </head>
 
 <body>
 
   <header>
-    <nav>
-  <ul>
-    <li></li>
-  </ul>
-</nav>
+    <div>
+      <h2>
+        Hey! I'm <span>Artur Pokusin</span>.
+        <!-- Twitter Follow button -->
+      </h2>
+      <p>I am a <span>Visual Designer</span> and <span>Front-End Developer</span><!--  based in <span class="loc">Sacramento, California</span> -->.<br /> Check out some of my <a href="#projects">Projects</a>, <a href="#countdowns">Countdowns</a>, or <a href="#social">Social Feeds</a> below!</p>
+    </div>
   </header>
 
-  <section>
-    <!-- Write your HTML! -->
+  <section id="projects" style="background: #02445c">
+    <div>
+      <h3>Main Projects</h3>
+      <div class="project">
+        <div class="image_area">
+          <img src="assets/preserve.png" alt="Preserve.io Screenshot" />
+        </div>
+        <div class="description">
+          <h4>Preserve.io <a target="_blank" href="http://preserve.io">Check it out</a></h4>
+          <dl>
+            <dt>My role:</dt>
+            <dd>Design &amp; Front-End Development</dd>
+          </dl>
+          <p>Preserve.io is a simple tool to keep a cached copy of your bookmarks, providing an easy list of bookmarks that can be searched and tagged.</p>
+        </div>
+      </div>
+      <div class="project">
+        <div class="image_area">
+          <img src="assets/rms.png" alt="Rate My Stance Screenshot" />
+        </div>
+        <div class="description">
+          <h4>Rate My Stance <a target="_blank" href="http://ratemystance.com">Check it out</a></h4>
+          <dl>
+            <dt>My role:</dt>
+            <dd>Design &amp; Front-End Development</dd>
+          </dl>
+          <p>Currently under development, Rate My Stance will provide a platform for 'stanced' cars to be rated and shared through a 5-star rating system.</p>
+        </div>
+      </div>
+      <div class="project">
+        <div class="image_area">
+          <img src="assets/lbox.png" alt="Little Box Design Screenshot" />
+        </div>
+        <div class="description">
+          <h4>Little Box Design <a target="_blank" href="http://Little Box Design">Check it out</a></h4>
+          <dl>
+            <dt>My role:</dt>
+            <dd>Founder</dd>
+          </dl>
+          <p>Little Box Design is a web development and design agency based in Sacramento, CA. </p>
+        </div>
+      </div>
+    </div>
   </section>
-  
+
+  <section id="countdowns" style="background: #00A79D">
+    <div>
+      <h3>TV Countdowns</h3>
+      <a class="count" href="http://gameofthronescountdown.com" target="_blank">
+        <img src="assets/got.png" alt="" />
+        <h4>Game of Thrones</h4>
+        <p>Status: <span class="status active">Active</span></p>
+      </a>
+      <a class="count" href="http://dextercountdown.com" target="_blank">
+        <img src="assets/dexter.png" alt="" />
+        <h4>Dexter</h4>
+        <p>Status: <span class="status active">Inactive</span></p>
+      </a>
+      <a class="count" href="http://archercountdown.com" target="_blank">
+        <img src="assets/archer.png" alt="" />
+        <h4>Archer</h4>
+        <p>Status: <span class="status active">Inactive</span></p>
+      </a>
+      <a class="count" href="http://breakingbadcountdown.com" target="_blank">
+        <img src="assets/breakingbad.png" alt="" />
+        <h4>Breaking Bad</h4>
+        <p>Status: <span class="status active">In Development</span></p>
+      </a>
+      <a class="count" href="http://sherlockcountdown.com" target="_blank">
+        <img src="assets/sherlock.png" alt="" />
+        <h4>Sherlock</h4>
+        <p>Status: <span class="status active">In Development</span></p>
+      </a>
+    </div>
+  </section>
+
+  <section id="side" style="background: #FFB02A">
+    <div>
+      <h3>Side Projects</h3>
+      <a class="s_project" href="http://colorgr.am">
+        <img src="assets/colorgram.png" alt="" />
+        <h4>colorgr.am</h4>
+        <p>Currently in alpha stage of development, <em>colorgr.am</em> is a project I'm using to learn AngularJS. Colors are involved.</p>
+      </a>
+      <a class="s_project" href="http://theinceptionbutton.com">
+        <img src="assets/inception.png" alt="" />
+        <h4>Inception Button</h4>
+        <p>Not satisfied with current offerings, I decided to create a button that would play the famous <em>Inception</em> BWAAAA. Currently under development.</p>
+      </a>
+      <a class="s_project" href="http://fuckyouandpaste.com">
+        <img src="assets/paste.png" alt="" />
+        <h4>F***YouAndPaste</h4>
+        <p>My very own fork of <em>HasteBin</em> that is the collaborated idea of several members of the IRC chat room: <em>#reddit-webdesign</em>.</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="social" style="background: #e36b36">
+    <div>
+      <h4>Tweets</h4>
+      <h4>Dribbble</h4>
+      <h4>Flickr</h4>
+      <h4>Preserve</h4>
+      <h4>Github</h4>
+      <h4>Medium <span>(coming soon)</h4>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <a href="http://zackfern.me">Looking for a Rails developer? Check out <span>Zack Fernandes<span>!</a>
+    </div>
+  </footer>
+
+  <script type="text/javascript" src="//use.typekit.net/moc0cdk.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 </body>
 
 </html>
