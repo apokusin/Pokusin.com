@@ -442,7 +442,7 @@ section {
 
 footer {
   padding: 2em 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: #00364b;
   text-align: center; }
   footer > div {
     *zoom: 1;
