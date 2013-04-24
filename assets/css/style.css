@@ -268,7 +268,8 @@ section {
     section h3 small {
       font-family: "proxima-nova", sans-serif;
       float: right;
-      line-height: 1.5em; }
+      line-height: 1.5em;
+      color: rgba(255, 255, 255, 0.6); }
   @media screen and (max-width: 480px) {
     section h3 {
       font-size: 2.3em; }
