@@ -77,6 +77,8 @@ header {
   .project:after {
     clear: both; }
   .project .image_area {
+    border-bottom: none;
+    display: block;
     display: block;
     float: left;
     margin-right: 2.35765%;
