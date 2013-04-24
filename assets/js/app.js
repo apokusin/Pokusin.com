@@ -4,7 +4,7 @@ $(document).ready(function(){
   $.getJSON('http://preserve.io/u/artur.json', function(data){
     var items = [];
     // How many bookmarks are we going to display?
-    var limit = 5;
+    var limit = 3;
     var bookmarks = 0;
     $.each(data.user.bookmarks, function(key, bookmark){
       if(bookmarks > limit) {
@@ -28,11 +28,11 @@ $(document).ready(function(){
     });
 
     $('#dribbble').html(html.join(''));
-  }, {page: 1, per_page: 6});
+  }, {page: 1, per_page: 3});
 
   // Flickr Photos
   $('#flickr').jflickrfeed({
-      limit: 6,
+      limit: 3,
       qstrings: {
           id: '95116542@N02'
       },

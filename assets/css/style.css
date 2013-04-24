@@ -293,6 +293,9 @@ section {
     #social h4 a:active {
       top: -0.4em;
       box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.2); }
+@media screen and (max-width: 480px) {
+  #social h4 {
+    margin-bottom: 0.5em; } }
 
 .mobile-link {
   display: none; }
@@ -340,9 +343,8 @@ section {
     border-bottom: none; }
     #dribbble a:last-child, #flickr a:last-child {
       margin-right: 0; }
-    @media screen and (min-width: 480px) {
-      #dribbble a:nth-child(3n), #flickr a:nth-child(3n) {
-        margin-right: 0; } }
+    #dribbble a:nth-child(3n), #flickr a:nth-child(3n) {
+      margin-right: 0; }
     #dribbble a img, #flickr a img {
       max-width: 100%;
       border-radius: 5px;
@@ -360,16 +362,6 @@ section {
     #dribbble a:active img, #flickr a:active img {
       top: 2px;
       box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.35); }
-  @media screen and (max-width: 480px) {
-    #dribbble a, #flickr a {
-      display: block;
-      float: left;
-      margin-right: 4.82916%;
-      width: 47.58542%; }
-      #dribbble a:last-child, #flickr a:last-child {
-        margin-right: 0; }
-      #dribbble a:nth-child(2n), #flickr a:nth-child(2n) {
-        margin-right: 0; } }
 
 .preserve_wrap {
   *zoom: 1;
