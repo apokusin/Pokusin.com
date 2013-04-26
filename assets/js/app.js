@@ -39,4 +39,13 @@ $(document).ready(function(){
       itemTemplate: '<a target="_blank" href="{{image_b}}"><img alt="{{title}}" src="{{image_m}}" /></a>'
   });
 
+  var keyCombo = 'j + k + l';
+  onDownCallback = function() {
+    $('header div h2').html("Hey! I'm <span>Artur Pokusin</span> <small>and this is Jackass!</small>");
+  };
+  onUpCallback = function() {
+    $('header div h2').html("Hey! I'm <span>Artur Pokusin</span>.");
+  };
+
+  KeyboardJS.on(keyCombo, onDownCallback, onUpCallback);
 });
