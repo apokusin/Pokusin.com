@@ -271,7 +271,8 @@ section {
       padding: 7px 13px;
       position: absolute;
       right: 0;
-      top: -10px; }
+      top: -8px;
+      font-size: 0.65em; }
   @media screen and (max-width: 480px) {
     section h3 {
       font-size: 2.3em; }

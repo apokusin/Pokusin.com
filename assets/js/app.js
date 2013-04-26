@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+
  // Loading the latest profile JSON from Preserve.
   $.getJSON('http://preserve.io/u/artur.json', function(data){
     var items = [];
@@ -48,4 +49,11 @@ $(document).ready(function(){
   };
 
   KeyboardJS.on(keyCombo, onDownCallback, onUpCallback);
+
+  $('a').click(function(){
+      $('html, body').animate({
+          scrollTop: $( $.attr(this, 'href') ).offset().top
+      }, 500);
+      return false;
+  });
 });
