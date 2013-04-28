@@ -37,7 +37,7 @@ a {
 
 header {
   width: 100%;
-  padding: 3.5em 0; }
+  padding: 5em 0; }
   header > div {
     padding-left: 20px;
     padding-right: 20px;
@@ -55,6 +55,7 @@ header {
     header > div h2 {
       font-size: 2em;
       color: rgba(255, 255, 255, 0.8);
+      margin-top: 0;
       margin-bottom: 0;
       padding-bottom: 0; }
       header > div h2 span {
