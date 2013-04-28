@@ -295,6 +295,8 @@ section {
   color: rgba(255, 255, 255, 0.8);
   width: 100%;
   position: relative; }
+  #social h4 small {
+    color: rgba(255, 255, 255, 0.5); }
   #social h4 a {
     font-family: 'proxima-nova', sans-serif;
     font-weight: 700;
