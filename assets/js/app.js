@@ -2,8 +2,8 @@ $(document).ready(function(){
 
 
  // Loading the latest profile JSON from Preserve.
-  $.getJSON('http://preserve.io/u/artur.json', function(data){
-    var items = [];
+ $.getJSON('http://preserve.io/u/artur.json', function(data){
+  var items = [];
     // How many bookmarks are we going to display?
     var limit = 3;
     var bookmarks = 0;
@@ -33,27 +33,27 @@ $(document).ready(function(){
 
   // Flickr Photos
   $('#flickr').jflickrfeed({
-      limit: 3,
-      qstrings: {
-          id: '95116542@N02'
-      },
-      itemTemplate: '<a target="_blank" href="{{image_b}}"><img alt="{{title}}" src="{{image_m}}" /></a>'
+    limit: 3,
+    qstrings: {
+      id: '95116542@N02'
+    },
+    itemTemplate: '<a target="_blank" href="{{image_b}}"><img alt="{{title}}" src="{{image_m}}" /></a>'
   });
 
   var keyCombo = 'j + k + l';
-  onDownCallback = function() {
+  onDown = function() {
     $('header div h2').html("Hey! I'm <span>Artur Pokusin</span> <small>and this is Jackass!</small>");
   };
-  onUpCallback = function() {
+  onUp = function() {
     $('header div h2').html("Hey! I'm <span>Artur Pokusin</span>.");
   };
 
-  KeyboardJS.on(keyCombo, onDownCallback, onUpCallback);
+  KeyboardJS.on(keyCombo, onDown, onUp);
 
   $('a').click(function(){
-      $('html, body').animate({
-          scrollTop: $( $.attr(this, 'href') ).offset().top
-      }, 500);
-      return false;
+    $('html, body').animate({
+      scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 500);
+    return false;
   });
 });

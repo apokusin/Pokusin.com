@@ -12,6 +12,9 @@
 // http://www.last.fm/api/show/user.getRecentTracks
 
 $(function(){
+  // Musical verbs to use in the 'jamming label'
+  var musicVerbs = ['jamming', 'grooving', 'dancing', 'listening', 'coding', 'designing'];
+  var randomVerb = musicVerbs[Math.floor(Math.random()*musicVerbs.length)];
   // Create a new API Key here: http://www.last.fm/api/account/create
   var api_key = '780d266ced9cf1ad8354c91d03c14bdd';
   // Your last.fm username. We'll use this to fetch your tracks and link to your profile.
@@ -25,7 +28,7 @@ $(function(){
     if(jQuery.type(data.recenttracks.track) === 'array') {
       // Grab the first item out of the Array.
       var nowPlaying = data.recenttracks.track[0];
-      var listening_text = 'Currently jamming to: ';
+      var listening_text = 'Currently ' + randomVerb + ' to: ';
     }
     else {
       // We don't have an Array, so just return the whole Hash.
