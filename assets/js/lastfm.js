@@ -13,7 +13,7 @@
 
 $(function(){
   // Musical verbs to use in the 'jamming label'
-  var musicVerbs = ['jamming', 'grooving', 'dancing', 'listening', 'coding', 'designing'];
+  var musicVerbs = ['jamming', 'grooving', 'dancing', 'listening', 'coding', 'designing', 'thinking', 'reading'];
   var randomVerb = musicVerbs[Math.floor(Math.random()*musicVerbs.length)];
   // Create a new API Key here: http://www.last.fm/api/account/create
   var api_key = '780d266ced9cf1ad8354c91d03c14bdd';
