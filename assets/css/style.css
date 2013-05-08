@@ -429,24 +429,46 @@ section {
         .preserve_wrap #bookmarks a:nth-child(2n) {
           background: rgba(255, 255, 255, 0.05); } }
 
-#contact .half {
-  display: block;
-  float: left;
-  margin-right: 2.35765%;
-  width: 48.82117%; }
-  #contact .half:last-child {
-    margin-right: 0; }
-  #contact .half p, #contact .half ul li {
-    font-size: 1.2em;
-    font-weight: 600; }
-@media screen and (max-width: 480px) {
+#contact {
+  padding: 3em 0; }
+  #contact div {
+    text-align: center; }
+    #contact div a {
+      text-decoration: none;
+      border-bottom: none;
+      padding: 0 0.4em;
+      font-size: 3em;
+      opacity: 0.8;
+      display: block;
+      display: block;
+      float: left;
+      margin-right: 2.35765%;
+      width: 23.23176%;
+      -webkit-transition: opacity 100 ease-in-out;
+      -moz-transition: opacity 100 ease-in-out;
+      transition: opacity 100 ease-in-out; }
+      #contact div a:last-child {
+        margin-right: 0; }
+      #contact div a:hover, #contact div a:focus {
+        opacity: 1; }
   #contact .half {
     display: block;
     float: left;
-    margin-right: 4.82916%;
-    width: 100%; }
+    margin-right: 2.35765%;
+    width: 48.82117%; }
     #contact .half:last-child {
-      margin-right: 0; } }
+      margin-right: 0; }
+    #contact .half p, #contact .half ul li {
+      font-size: 1.2em;
+      font-weight: 600; }
+  @media screen and (max-width: 480px) {
+    #contact .half {
+      display: block;
+      float: left;
+      margin-right: 4.82916%;
+      width: 100%; }
+      #contact .half:last-child {
+        margin-right: 0; } }
 
 footer {
   padding: 2em 0;
