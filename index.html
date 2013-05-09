@@ -29,6 +29,10 @@
   <script type="text/javascript" src="//use.typekit.net/moc0cdk.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
+  <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+  typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+  b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+  mixpanel.init("a3681c1d5aed7df8930bb7c92a8ac02c");</script><!-- end Mixpanel -->
 </head>
 
 <body>
@@ -158,29 +162,29 @@
     <div>
       <h3>My Social Feeds<small>Creative and other feeds of mine</small></h3>
 
-      <h4>Preserve Feed <small>My Bookmarks</small> <a href="http://preserve.io/user/artur" target="_blank" class="preserve">View Preserve Profile</a></h4>
+      <h4>Preserve Feed <small>My Bookmarks</small> <a onclick="mixpanel.track("Preserve Profile Link");" href="http://preserve.io/user/artur" target="_blank" class="preserve">View Preserve Profile</a></h4>
       <div class="preserve_wrap">
         <div id="bookmarks"></div>
       </div>
-      <a href="http://preserve.io/user/artur" target="_blank" class="mobile-link preserve">View Preserve Profile &raquo;</a>
+      <a onclick="mixpanel.track("Preserve Profile Link");" href="http://preserve.io/user/artur" target="_blank" class="mobile-link preserve">View Preserve Profile &raquo;</a>
 
-      <h4>Dribbble <small>Design Snapshots</small> <a href="http://dribbble.com/apokusin" target="_blank" class="dribbble">View More Shots</a></h4>
+      <h4>Dribbble <small>Design Snapshots</small> <a onclick="mixpanel.track("Dribbble Shots Link");" href="http://dribbble.com/apokusin" target="_blank" class="dribbble">View More Shots</a></h4>
       <div id="dribbble"></div>
-      <a href="http://dribbble.com/apokusin" target="_blank" class="mobile-link dribbble">View More Shots &raquo;</a>
+      <a onclick="mixpanel.track("Dribbble Shots Link");" href="http://dribbble.com/apokusin" target="_blank" class="mobile-link dribbble">View More Shots &raquo;</a>
 
-      <h4>Flickr <small>Photos I've taken</small> <a href="http://www.flickr.com/photos/apokusin/" target="_blank" class="flickr">View All Photos</a></h4>
+      <h4>Flickr <small>Photos I've taken</small> <a onclick="mixpanel.track("Flickr Link");" href="http://www.flickr.com/photos/apokusin/" target="_blank" class="flickr">View All Photos</a></h4>
       <div id="flickr"></div>
-      <a href="http://www.flickr.com/photos/apokusin/" target="_blank" class="mobile-link flickr">View All Photos &raquo;</a>
+      <a onclick="mixpanel.track("Flickr Link");" href="http://www.flickr.com/photos/apokusin/" target="_blank" class="mobile-link flickr">View All Photos &raquo;</a>
 
     </div>
   </section>
 
   <section id="contact" style="background: #00445d;">
     <div>
-      <a href="mailto:contact@pokusin.com" class="contact-icon icon-mail"></a>
-      <a href="http://twitter.com/apokusin" class="contact-icon icon-twitter"></a>
-      <a href="http://dribbble.com/apokusin" class="contact-icon icon-dribbble"></a>
-      <a href="http://github.com/apokusin" class="contact-icon icon-github"></a>
+      <a href="mailto:contact@pokusin.com" onclick="mixpanel.track("Email Icon");" class="contact-icon icon-mail"></a>
+      <a href="http://twitter.com/apokusin" onclick="mixpanel.track("Twitter Link");" class="contact-icon icon-twitter"></a>
+      <a href="http://dribbble.com/apokusin" onclick="mixpanel.track("Dribbble Link");" class="contact-icon icon-dribbble"></a>
+      <a href="http://github.com/apokusin" onclick="mixpanel.track("Github Link");" class="contact-icon icon-github"></a>
       <!-- <div class="half">
         <h3>Contact Me</h3>
         <p>Send me an email at <a href="mailto:contact@pokusin.com">contact@pokusin.com</a>!</p>
@@ -201,11 +205,11 @@
 
   <footer>
     <div>
-      <a href="http://zackfern.me">Looking for a Rails developer? Check out <span>Zack Fernandes<span>!</a>
+      <a href="http://zackfern.me" onclick="mixpanel.track("Zack Fernandes Site");">Looking for a Rails developer? Check out <span>Zack Fernandes<span>!</a>
     </div>
   </footer>
 
-  <script src='0080630738d79082e49f2fc4a82ab777.js'></script>
+  <script src='0e8f03e2c641944be5c6317bc7e0dfcf.js'></script>
 
   <script type="text/javascript">
 
