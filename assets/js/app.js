@@ -51,17 +51,15 @@ $(document).ready(function(){
   KeyboardJS.on(keyCombo, onDown, onUp);
 
   $('a').click(function(){
-    $('html, body').animate({
-      scrollTop: $( $.attr(this, 'href') ).offset().top
-    }, 500);
-    return false;
-  });
-
-  $('a').click(function() {
     if ($(this).data('track')) {
-      alert($(this).data('track'));
-      // mixpanel.track($(this).data('track'));
+      mixpanel.track($(this).data('track'));
+    } else if ($(this).hasClass('nav')) {
+      $('html, body').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+      }, 500);
+      return false;
     }
   });
+
 
 });
