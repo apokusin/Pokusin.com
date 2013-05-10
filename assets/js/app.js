@@ -57,4 +57,11 @@ $(document).ready(function(){
     return false;
   });
 
+  $('a').click(function() {
+    if ($(this).data('track')) {
+      alert($(this).data('track'));
+      // mixpanel.track($(this).data('track'));
+    }
+  });
+
 });
