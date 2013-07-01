@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 
  // Loading the latest profile JSON from Preserve.
- $.getJSON('http://preserve.io/u/artur.json', function(data){
+ $.getJSON('https://preserve.io/u/artur.json', function(data){
   var items = [];
     // How many bookmarks are we going to display?
     var limit = 3;
