@@ -152,8 +152,6 @@ header {
           background: #ed7f77;
           color: white; }
         .project .description h4 a:active, .project .description h4 a:visited:active {
-          position: relative;
-          top: 1px;
           background: #d1574c;
           box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1); }
   @media screen and (max-width: 480px) {
