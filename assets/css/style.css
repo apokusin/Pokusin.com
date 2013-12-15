@@ -5,7 +5,10 @@
 
 /* Write your CSS! */
 html {
-  height: 100%; }
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
 
 body {
   background: #e75f58;
