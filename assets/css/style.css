@@ -147,7 +147,7 @@ header {
         position: absolute;
         /*display: none;*/
         right: 0;
-        top: 0;
+        top: -.2em;
         /*background: #e75f58;*/
         border: 2px solid rgba(255,255,255,0.5);
         padding: 0.3em 0.7em;
