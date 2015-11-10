@@ -55,7 +55,7 @@
 </head>
 <body>
   <a href="https://twitter.com/apokusin">
-    <img style="border-radius: 50%; overflow: hidden; text-align: center; margin: 0 auto;" src="https://gravatar.com/avatar/25b8108f22fc2f177b74437f2d219f2d?s=300" width="100" height="100"/>
+    <img id="avatar" style="border-radius: 50%; overflow: hidden; text-align: center; margin: 0 auto;" src="https://gravatar.com/avatar/25b8108f22fc2f177b74437f2d219f2d?s=300" width="100" height="100"/>
   </a>
   <h1><strong>Artur Pokusin</strong></h1>
   <p id="description" style="letter-spacing: 0.02em; font-size: 0.9em; text-transform: uppercase;">Design Lead @ <a href="https://charge.co">Charge</a></p>
@@ -77,18 +77,25 @@
   // sekret easter-egg stuff
   // If you reverse-engineer this, congrats. Even a caveman could do it.
   var descriptionElement = document.getElementById('description');
+  var avatarElement = document.getElementById('avatar');
   var originalHTML = descriptionElement.innerHTML;
+  var originalAvatar = descriptionElement.src;
   var newHTML = "Dirty Immigrant";
+  var newAvatar = "http://pokus.in/LYBR.png";
   var tapCount = 0;
   document.addEventListener('click', function() {
     tapCount += 1;
     if (tapCount === 10) {
       descriptionElement.innerHTML = newHTML;
+      avatarElement.src = newAvatar;
     } else if (tapCount > 10 ) {
       descriptionElement.innerHTML = originalHTML;
+      avatarElement.src = originalAvatar;
       tapCount = 0;
     } else {
+      // reset
       descriptionElement.innerHTML = originalHTML;
+      avatarElement.src = originalAvatar;
     }
   });
   </script>
