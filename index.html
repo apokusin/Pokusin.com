@@ -3,12 +3,24 @@
 <head>
   <title>Artur Pokusin, designer in California.</title>
   <style>
+     * {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
     body {
       font-family: sans-serif;
       text-align: center;
       font-size: 100%;
       color: #727272;
-      padding: 15% 1em 2em;
+      padding: 0;
+      margin: 0;
+      height: 100%;
     }
     strong {
       color: #111;
@@ -19,13 +31,74 @@
     h1 {
       margin-bottom: 0em;
     }
-    p {
-      margin-bottom: 15%;
-    }
 
-    p iframe {
+    .container {
+      height: 100%;
+      width: 960px;
+      max-width: 100%;
       margin: 0 auto;
     }
+
+    .container:after {
+      /* Or @extend clearfix */
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .container--half {
+      float: left;
+      width: 50%;
+      height: 100%;
+      position: relative;
+    }
+
+    .container-well {
+      background: #fafafa;
+    }
+
+    .container--half-padded {
+      padding-left: 2em;
+    }
+
+    .container--half--content {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      transform: translateY(-50%);
+      margin: 0;
+      padding: 0;
+    }
+
+    .container--half--content-image {
+      display: block;
+    }
+
+    @media screen and (max-width: 600px) {
+      .container--half {
+        float: none !important;
+        clear: both;
+        width: 100% !important;
+        height: initial !important;
+        padding-right: 0 !important;
+      }
+
+      .container-well {
+        padding-top: 3em;
+        padding-bottom: 3em;
+      }
+
+      .container--half--content {
+        position: static !important;
+        transform: none !important;
+      }
+
+      .container--half-padded {
+        padding-top: 1em;
+        padding-left: 0 !important;
+      }
+    }
+
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -52,15 +125,25 @@
   <meta property="og:type" content="website">
 </head>
 <body>
-  <a href="https://twitter.com/apokusin">
-    <img id="avatar" style="border-radius: 12px; overflow: hidden; text-align: center; margin: 0 auto;" src="https://gravatar.com/avatar/25b8108f22fc2f177b74437f2d219f2d?s=300" width="100" height="100"/>
-  </a>
-  <h1><strong>Artur Pokusin</strong></h1>
-  <p id="description" style="letter-spacing: 0.02em; font-size: 0.9em; text-transform: uppercase;">Design Lead @ <a href="https://charge.co">Charge</a></p>
-  <p>
-    <a class="twitter-timeline" href="https://twitter.com/apokusin" data-widget-id="617924795439558656">Tweets by @apokusin</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-  </p>
+  <div class="container">
+    <section class="container--half container-well" style="background: #fafafa">
+      <div class="container--half--content">
+        <a class="container--half--content-image" href="https://twitter.com/apokusin">
+          <img id="avatar" style="border-radius: 12px; overflow: hidden; text-align: center; margin: 0 auto;" src="https://gravatar.com/avatar/25b8108f22fc2f177b74437f2d219f2d?s=300" width="100" height="100"/>
+        </a>
+        <h1><strong>Artur Pokusin</strong></h1>
+        <p id="description" style="letter-spacing: 0.02em; font-size: 0.9em; text-transform: uppercase;">Design Lead @ <a href="https://charge.co">Charge</a></p>
+      </div>
+    </section>
+    <section class="container--half container--half-padded">
+      <div class="container--half--content">
+        <p>
+          <a class="twitter-timeline" href="https://twitter.com/apokusin" data-widget-id="617924795439558656">Tweets by @apokusin</a>
+        </p>
+      </div>
+    </section>
+  </div>
+  <script async>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -78,21 +161,18 @@
   var avatarElement = document.getElementById('avatar');
   var originalHTML = descriptionElement.innerHTML;
   var originalAvatar = avatarElement.src;
-  var newHTML = "Dirty Immigrant";
-  var newAvatar = "http://pokus.in/LYBR.png";
   var tapCount = 0;
   document.addEventListener('click', function() {
     tapCount += 1;
-    if (tapCount === 10) {
-      descriptionElement.innerHTML = newHTML;
-      avatarElement.src = newAvatar;
-    } else if (tapCount > 10 ) {
-      descriptionElement.innerHTML = originalHTML;
-      avatarElement.src = originalAvatar;
-      tapCount = 0;
+    console.log(tapCount);
+    if (tapCount >= 10 && tapCount <= 15) {
+      // ten taps for sekret sauce
+      descriptionElement.innerHTML = "Dirty Immigrant";
+      avatarElement.src = "http://pokus.in/LYBR.png";
     } else {
       descriptionElement.innerHTML = originalHTML;
       avatarElement.src = originalAvatar;
+      tapCount = 0;
     }
   });
   </script>
