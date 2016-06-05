@@ -94,6 +94,45 @@
       }
     }
 
+    .link-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .link-list li {
+      line-height: 1.5em;
+    }
+
+    .link-list li a {
+      color: #6a90a0;
+      text-decoration: none;
+      background: #fefefe;
+      width: 100%;
+      max-width: 150px;
+      /* box-shadow: 0px 2px 2px rgba(0,0,0,0.05), 0px 2px 12px rgba(0,0,0,0.05); */
+      font-size: 0.7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 0 auto 1em;
+      border-radius: 3px;
+      display: block;
+      padding: 0.75em 1em;
+      transition: all 100ms ease-out;
+      outline: 0;
+    }
+
+    .link-list li a:hover,
+    .link-list li a:focus {
+      /* color: black; */
+      background: white;
+      box-shadow:  0px 2px 24px rgba(0,0,0,0.1);
+    }
+
+    .link-list li a:active {
+      box-shadow: 0px 2px 12px rgba(0,0,0,0.2);
+    }
+
   </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -128,6 +167,11 @@
         </a>
         <h1><strong>Artur Pokusin</strong></h1>
         <p id="description" style="letter-spacing: 0.02em; font-size: 0.9em; text-transform: uppercase;">Design Lead @ <a href="https://charge.co">Charge</a></p>
+        <ul class="link-list">
+          <li><a target="_blank" href="https://twitter.com/apokusin">Tweets</a></li>
+          <li><a target="_blank" href="https://dribbble.com/apokusin">Designs</a></li>
+          <li><a target="_blank" href="https://vsco.co/playfulcyanide">Photos</a></li>
+        </ul>
       </div>
     </section>
     <section class="container--half container--half-padded">
