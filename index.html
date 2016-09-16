@@ -32,15 +32,15 @@
 <body id="global-container">
   <div class="container-center-page">
     <main role="main">
-      <h1 class="title">Artur <span class="text-tighter">Pokusin</span></h1>
-      <p class="subtitle">Designer / Developer</p>
-      <nav role="navigation" class="link-list">
-        <a href="" class="text-blue link-blue">Latest work</a>
-        <a href="" class="text-green link-green">Archives</a>
-        <a href="" class="text-orange link-orange">About me</a>
+      <h1 class="title animated-intro-slide">Artur <span class="text-tighter">Pokusin</span></h1>
+      <p class="subtitle animated-intro-slide">Designer / Developer</p>
+      <nav role="navigation" class="link-list animated-intro-slide">
+        <div class="link link-blue animated-intro-fade"><a href="">Latest work</a></div>
+        <div class="link link-green animated-intro-fade"><a href="">Archives</a></div>
+        <div class="link link-orange animated-intro-fade"><a href="">About me</a></div>
       </nav>
     </main>
-    <ul class="link-list-pillbox">
+    <ul class="link-list-pillbox animated-intro-fade">
       <li>
         <!-- @TODO obfuscate an email and insert into anchor `href` attribute -->
         <a href="" target="_blank">Email</a>
@@ -53,7 +53,7 @@
       </li>
     </ul>
   </div>
-  <footer role="contentinfo" class="page-footer">
+  <footer role="contentinfo" class="page-footer animated-intro-fade">
     Copyright on the twelfth of September in the year of our Lord, two thousand and sixteen, all rights reserved.
   </footer>
 
@@ -70,12 +70,19 @@
   <script>
     // look at you, looking at my code
     // https://www.youtube.com/watch?v=NPwyyjtxlzU
+    var container = document.getElementById('global-container');
+    container.classList.add('init');
 
-    document.getElementById('global-container').classList.add('init');
+
     function init() {
       window.removeEventListener("load", init, false);
-      console.log('init');
-      document.getElementById('global-container').classList.add('ready');
+
+      container.classList.add('ready');
+
+      window.addEventListener("beforeunload", function (event) {
+        container.classList.remove('ready');
+      });
+
     }
 
     window.addEventListener('load', init);
