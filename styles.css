@@ -12,6 +12,7 @@ body {
   font-size: 24px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
 }
 
 #global-container.init {
@@ -36,9 +37,14 @@ body {
   text-align: center;
   position: relative;
   z-index: 1;
-  animation-delay: 0;
-
 }
+
+.title a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.page-title {margin: 0;padding: 0;font-size: 1.5rem;height: 12vh;display: flex;flex-direction: column;justify-content: flex-end;align-items: stretch;font-weight: normal;font-size: 2.5rem;padding-bottom: 2rem;box-sizing: border-box;margin-left: 0;padding-left: 4rem;font-weight: 700;border-bottom: 2px solid #eee;background: white;}
 
 .subtitle {
   font-size: 2rem;
@@ -96,8 +102,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: stretch;
   height: 100%;
+  align-items: stretch;
 }
 
 .page-footer {
@@ -128,7 +134,7 @@ body {
 }
 
 .link-list .link a {
-  font-family: "Whitney SSm SC A", "Whitney SSm SC B", sans-serif;
+  font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
   text-decoration: none;
   font-size: 2.25rem;
   font-weight: 700;
@@ -184,45 +190,43 @@ body {
   background-image: url('/link-arrow-right-orange.svg');
 }
 
-.link-list-pillbox {
+.link-list-contact {
     animation-delay: 1350ms;
     list-style-type: none;
     padding: 0;
     width: 100%;
-    border: 3px solid #f5f5f5;
     border-radius: 5rem;
     height: 46px;
     display: flex;
     flex-direction: row;
     padding-right: 10px;
-    max-width: 354px;
+    max-width: 500px;
     margin: 0 auto;
     box-sizing: border-box;
 }
 
-.link-list-pillbox li {
+.link-list-contact li {
     text-align: center;
     line-height: 40px;
     flex: 1;
 }
 
-.link-list-pillbox li a {
-    text-decoration: none;
-    font-family: "Whitney SSm SC A", "Whitney SSm SC B", sans-serif;
-    font-size: 18px;
-    font-weight: 500;
-    color: inherit;
-    transition: all 200ms ease-out;
-    opacity: 0.8;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-transform: lowercase;
+.link-list-contact li a {
+  text-decoration: none;
+  font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: inherit;
+  transition: all 200ms ease-out;
+  opacity: 0.8;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-.link-list-pillbox li a:after {
+.link-list-contact li a:after {
   content: '';
   background: transparent url('/link-arrow-right-small.svg') center center no-repeat;
   display: inline-block;
@@ -236,8 +240,8 @@ body {
   width: 10px;
   }
 
-.link-list-pillbox li a:hover, .link-list-pillbox li focus {
-    transform: scale(1.15);
+.link-list-contact li a:hover, .link-list-contact li focus {
+    transform: scale(1.05);
     transition: all 100ms linear;
     opacity: 1;
 }
@@ -245,30 +249,30 @@ body {
 /* Animations */
 
 
-#global-container.ready .animated-intro-slide {
+/* #global-container.ready .animated-intro-slide {
   animation-name: slideUpIn;
   animation-duration: 1000ms;
   animation-timing-function: cubic-bezier(0, 0, 0.17, 0.99);
   animation-fill-mode: forwards;
   visibility: hidden;
-}
+} */
 
-#global-container.ready .animated-intro-pop {
+/* #global-container.ready .animated-intro-pop {
   animation-name: popIn;
   animation-duration: 1000ms;
   animation-timing-function: cubic-bezier(0, 0, 0.17, 0.99);
   animation-fill-mode: forwards;
   visibility: hidden;
-}
+} */
 
-#global-container.ready .animated-intro-fade {
+/* #global-container.ready .animated-intro-fade {
   animation-name: fadeIn;
   animation-duration: 2000ms;
   animation-timing-function: cubic-bezier(0, 0, 0.17, 0.99);
   animation-fill-mode: forwards;
   visibility: hidden;
 }
-
+ */
 
 @keyframes slideUpIn {
   0% {
@@ -311,6 +315,215 @@ body {
     transform: scale(1);
   }
 }
+
+/* Product page styling */
+.container-site-nav {
+    height: 100%;
+    border-right: 2px solid #eee;
+    position: relative;
+    width: 17.5rem;
+    flex: initial;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    position: fixed;
+    z-index: 5;
+    background: white;
+}
+
+.container-site-nav .link-list-contact {
+    display: block;
+    height: auto;
+    padding: 0;
+    margin: 0;
+}
+
+.container-site-nav .link-list-contact li a {text-align: left;display: block;padding-left: 2rem;font-size: 1rem;}
+
+.container-site-nav footer.page-footer {
+    position: absolute;
+    display: block;
+    line-height: 1.5em;
+    font-size: 10px;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.site-nav-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.container-site-nav .link-list .link a {
+    font-size: 1.2rem;
+    opacity: 0.75;
+    padding: 0.8rem 0 0.8rem 2rem;
+}
+
+.container-site-nav .title {
+    font-size: 1.8rem;
+    margin-top: 5vh;
+    text-align: left;
+    padding-left: 2rem;
+}
+
+.container-site-nav .link-list .link:after {
+    width: 10px;
+    top: 0px;
+    right: 2rem;
+    opacity: 0;
+    position: absolute;
+}
+
+.container-site-nav .link-list .link.current-link a, .container-site-nav .link-list .link.current-link:after {
+    opacity: 1;
+}
+
+.main-content {
+    flex: 1;
+    background: hsla(0,0%,95%,1);
+    margin-left: 17.5rem;
+    height: 100%;
+}
+
+.block-item {
+    box-sizing: border-box;
+    padding-top: 11vh;
+    padding-bottom: 11vh;
+    background-image: url('https://manage.charge.co/images/lady-phone-light.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: white;
+    margin: 4rem;
+    border-radius: 0.3rem;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    border: none;
+}
+
+.container-site-nav .link-list {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.block-item .block-content {
+    box-sizing: border-box;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.page-title-blue {color: #3981ED;}
+
+.block-item .block-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.button {
+    font-weight: bold;
+    font-size: 1rem;
+    text-decoration: none;
+    padding: 1rem;
+    border-radius:  30px;
+    color: #2984e9;
+    margin-right: 1rem;
+}
+
+.button.button-primary {
+    background: white;
+    box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+}
+
+.block-item .block-description {
+    font-size: 1rem;
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    color: inherit;
+    line-height: 1.5em;
+    max-width: 600px;
+}
+
+.block-item .block-subtitle {
+    font-size: 1.5rem;
+    margin-top: 0.5em;
+    margin-bottom: 1.5em;
+    color: inherit;
+    letter-spacing: -0.015em;
+}
+
+.block-item .block-actions {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+body.content-page {
+    background: #f3f3f3;
+}
+
+.block-item.charge-wireless {
+    background: url('https://charge.co/assets/images/products/mobile-data/lady-phone.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    background-color: #000000;
+}
+
+.block-item.bolt-dialer {
+    background: url('/bolt-dialer-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color: white;
+    background-color: #000000;
+}
+
+.block-item.preserve {
+    background: url('/preserve-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: #000000;
+}
+
+
+.bolt-dialer .button {
+  border-radius: 3px;
+  background: white;
+  color: #000;
+}
+
+.charge-wireless .button {
+    background: #f56600;
+    color: white;
+}
+
+.charge-messenger .button {
+    border: 2px solid #f56600;
+    color: #f56600;
+    box-shadow: none;
+    border-radius:  6px;
+}
+
+article.block-item.charge-messenger {
+    background: white url('https://cdn.brandisty.com/img?id=5536d4067310e8702c0000a3&w=1400');
+    background-size: cover;
+}
+
+article.block-item.overlay-light:after {content: '';z-index: 0;display: block;position: absolute;background: white;width: 100%;height: 100%;top: 0;right: 0;left: 0;bottom: 0;opacity: 0.95;}
+
 
 /* Media Queries */
 
@@ -358,20 +571,21 @@ body {
     top: -360%;
   }
   
-  .link-list, .link-list-pillbox {
+  .link-list, .link-list-contact {
     margin-top: 10vh;
   }
 
-  .link-list-pillbox {
+  .link-list-contact {
     border-color: transparent;
     padding: 0;
     margin: 0 auto;
     border: none;
+    max-width: 310px;
     text-indent: -8vw;
   }
 
-  .link-list-pillbox li a {
-    font-size: 1rem;
+  .link-list-contact li a {
+    font-size: 0.9rem;
   }
 
   .link-list .link {
@@ -398,7 +612,7 @@ body {
 
   .page-footer {
     line-height: 1.5em;
-    opacity: 0.5;
+    opacity: 0.25;
     position: static;
     margin-top: 9vh;
     box-sizing: border-box;
@@ -407,4 +621,68 @@ body {
     padding-right: 5vw;
     margin-bottom: 1vh;
   }
+}
+
+@media screen and (min-width: 1800px) {
+  .container-site-nav {
+    width: 21rem;
+  }
+
+  .main-content {margin-left: 21rem;}
+  
+  .block-item {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .block-item .block-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .block-item .block-header {
+    flex: 1;
+    padding-right: 1rem;
+    box-sizing: border-box;
+    max-width: 520px;
+    min-width: 430px;
+  }
+
+  .block-item .block-subtitle {
+    margin-bottom: 0;
+  }
+  
+  .block-item .block-description {
+    /* padding-left: 2rem; */
+    box-sizing: border-box;
+    max-width: 800px;
+    margin: 0;
+    flex: 2;
+    font-size: 1.2rem;
+  }
+
+  .block-item .block-actions {
+    margin-left: 2rem;
+    display: flex;
+    flex: 1;
+    padding: 0;
+    margin-top: 0;
+    justify-content: center;
+    height: 100%;
+  }
+}
+
+
+.block-description a {
+    color: inherit;
+}
+
+.preserve a.button.button-primary {
+    color: white;
+    background: #91b328;
+    border-radius:  0;
+    box-shadow: none;
 }

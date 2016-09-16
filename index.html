@@ -25,8 +25,8 @@
   <meta property="og:url" content="http://pokusin.com">
   <meta property="og:description" content="A designer/developer in California">
   <meta property="og:type" content="website">
-  <link rel="stylesheet" href="/normalize.css">
   <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7839872/7150772/css/fonts.css" />
+  <link rel="stylesheet" href="/normalize.css">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body id="global-container">
@@ -35,12 +35,12 @@
       <h1 class="title animated-intro-slide">Artur <span class="text-tighter">Pokusin</span></h1>
       <p class="subtitle animated-intro-slide">Designer / Developer</p>
       <nav role="navigation" class="link-list animated-intro-slide">
-        <div class="link link-blue animated-intro-fade"><a href="">Latest work</a></div>
-        <div class="link link-green animated-intro-fade"><a href="">Archives</a></div>
-        <div class="link link-orange animated-intro-fade"><a href="">About me</a></div>
+        <div class="link link-blue animated-intro-fade"><a href="/latest-work.html">Latest work</a></div>
+        <div class="link link-green animated-intro-fade"><a href="/archives.html">Archives</a></div>
+        <div class="link link-orange animated-intro-fade"><a href="/about-me.html">About me</a></div>
       </nav>
     </main>
-    <ul class="link-list-pillbox animated-intro-fade">
+    <ul class="link-list-contact animated-intro-fade">
       <li>
         <!-- @TODO obfuscate an email and insert into anchor `href` attribute -->
         <a href="" target="_blank">Email</a>
@@ -70,18 +70,18 @@
   <script>
     // look at you, looking at my code
     // https://www.youtube.com/watch?v=NPwyyjtxlzU
-    var container = document.getElementById('global-container');
-    container.classList.add('init');
+//     var container = document.getElementById('global-container');
+//     container.classList.add('init');
 
 
     function init() {
-      window.removeEventListener("load", init, false);
+//       window.removeEventListener("load", init, false);
 
-      container.classList.add('ready');
+//       container.classList.add('ready');
 
-      window.addEventListener("beforeunload", function (event) {
-        container.classList.remove('ready');
-      });
+//       window.addEventListener("beforeunload", function (event) {
+//         container.classList.remove('ready');
+//       });
 
     }
 
