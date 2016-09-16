@@ -32,7 +32,7 @@
 <body id="global-container">
   <div class="container-center-page">
     <main role="main">
-      <h1 class="title">Artur Pokusin</h1>
+      <h1 class="title">Artur <span class="text-tighter">Pokusin</span></h1>
       <p class="subtitle">Designer / Developer</p>
       <nav role="navigation" class="link-list">
         <a href="" class="text-blue link-blue">Latest work</a>
@@ -43,13 +43,13 @@
     <ul class="link-list-pillbox">
       <li>
         <!-- @TODO obfuscate an email and insert into anchor `href` attribute -->
-        <a href="">Email</a>
+        <a href="" target="_blank">Email</a>
       </li>
       <li>
-        <a href="https://twitter.com/apokusin">Twitter</a>
+        <a href="https://twitter.com/apokusin" target="_blank">Twitter</a>
       </li>
       <li>
-        <a href="https://dribbble.com/apokusin">Dribbble</a>
+        <a href="https://dribbble.com/apokusin" target="_blank">Dribbble</a>
       </li>
     </ul>
   </div>
@@ -70,7 +70,7 @@
   <script>
     // look at you, looking at my code
     // https://www.youtube.com/watch?v=NPwyyjtxlzU
-    
+
     document.getElementById('global-container').classList.add('init');
     function init() {
       window.removeEventListener("load", init, false);
