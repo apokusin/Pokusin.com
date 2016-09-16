@@ -11,6 +11,18 @@ body {
   color: rgba(0,0,0,0.87);
 }
 
+#global-container.init {
+    visibility: hidden;
+    opacity: 0;
+}
+
+#global-container.ready {
+    opacity: 1;
+    transition: all 100ms linear;
+    visibility: visible;
+}
+
+
 .title {
   font-weight: 700;
   font-size: 4.125rem;
@@ -31,6 +43,7 @@ body {
   overflow: visible;
   margin-top: 0.3em;
   text-rendering: optimizeLegibility;
+  letter-spacing: -0.05em;
 }
 
 /* Layout */
