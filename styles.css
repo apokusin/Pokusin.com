@@ -124,6 +124,7 @@ body {
 .link-list .link {
   margin: 0;
   transition: all 200ms ease-out;
+  position: relative;
 }
 
 .link-list .link a {
@@ -134,39 +135,53 @@ body {
   color: inherit;
   display: block;
   padding: 1.5vh 0;
+  position: relative;
 }
 
 .link-list .link:hover, .link-list .link:focus {
   transform: scale(1.05);
   transition: all 75ms cubic-bezier(0.4, 0, 1, 1);
-  opacity: 1;
   outline: 0;
 }
 
-.link-list .link:hover, .link-list .link:focus {
+.link-list .link:after {
+  content: '';
+  width: 20px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: absolute;
+  height: 45px;
+  top: 1.5vh;
+  right: 0;
+  background-size: 100% auto;
 }
 
-
 .link-blue {
-  background: transparent url('/link-arrow-right-blue.svg') right center no-repeat;
-  background-size: auto 26px;
   animation-delay: 850ms;
   color: #3981ED;
 }
 
+.link-blue:after {
+  background-image: url('/link-arrow-right-blue.svg');
+}
+
 .link-green {
-  background: transparent url('/link-arrow-right-green.svg') right center no-repeat;
-  background-size: auto 26px;
   animation-delay: 1000ms;
   color: #56B863;
+}
 
+.link-green:after {
+  background:url('/link-arrow-right-green.svg');
 }
 
 .link-orange {
-  background: transparent url('/link-arrow-right-orange.svg') right center no-repeat;
-  background-size: auto 26px;
   animation-delay: 1150ms;
   color: #F78D3F;
+}
+
+.link-orange:after {
+  background-image: url('/link-arrow-right-orange.svg');
 }
 
 .link-list-pillbox {
@@ -350,7 +365,7 @@ body {
   .link-list-pillbox {
     border-color: transparent;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
     border: none;
     text-indent: -8vw;
   }
@@ -365,12 +380,16 @@ body {
     margin-right: 0;
   }
 
+  .link-list .link:after {
+    top: 2.7vh;
+    height: 1.75rem;
+    margin-right: 10vw;
+    width: 16px;
+  }
+
   .link-list .link a {
-    padding-left: 10vw;
     box-sizing: border-box;
-    padding-top: 2.5vh;
-    padding-bottom: 2.5vh;
-    padding-right: 10vw;
+    padding: 2.5vh 10vw;
   }
   .link-list .link a {
     font-size: inherit;
