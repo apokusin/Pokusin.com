@@ -13,6 +13,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 18px;
+  backface-visibility: hidden;
+  /* transform: translateZ(0); */
+  background: #f3f3f3;
 }
 
 #global-container.init {
@@ -44,7 +47,7 @@ body {
   color: inherit;
 }
 
-.page-title {margin: 0;padding: 0;font-size: 1.5rem;height: 10vh;display: flex;flex-direction: column;justify-content: flex-end;align-items: stretch;font-weight: normal;font-size: 2.5rem;padding-bottom: 2rem;box-sizing: border-box;margin-left: 0;padding-left: 4rem;font-weight: 700;border-bottom: 2px solid #eee;background: white;}
+.page-title {margin: 0;padding: 0;font-size: 1.5rem;height: 18vh;display: flex;flex-direction: column;justify-content: flex-end;align-items: stretch;font-weight: normal;font-size: 2.5rem;padding-bottom: 2rem;box-sizing: border-box;margin-left: 0;padding-left: 4rem;font-weight: 700;/* border-bottom: 2px solid #eee; *//* background: white; */}
 
 .subtitle {
   font-size: 2rem;
@@ -319,7 +322,7 @@ body {
 /* Product page styling */
 .container-site-nav {
     height: 100%;
-    border-right: 2px solid #eee;
+    /* border-right: 2px solid #eee; */
     position: relative;
     width: 17.5rem;
     flex: initial;
@@ -329,7 +332,8 @@ body {
     align-items: stretch;
     position: fixed;
     z-index: 5;
-    background: white;
+    /* background: white; */
+    padding-top: 7vh;
 }
 
 .container-site-nav .link-list-contact {
@@ -337,6 +341,7 @@ body {
     height: auto;
     padding: 0;
     margin: 0;
+    transition: all 500ms ease-in;
 }
 
 .container-site-nav .link-list-contact li a {text-align: left;display: block;padding-left: 2rem;font-size: 1rem;}
@@ -367,7 +372,7 @@ body {
 
 .container-site-nav .title {
     font-size: 1.8rem;
-    margin-top: 5vh;
+    margin-top: 5rem;
     text-align: left;
     padding-left: 2rem;
 }
@@ -389,20 +394,21 @@ body {
     background: hsla(0,0%,95%,1);
     margin-left: 17.5rem;
     height: 100%;
+    padding-top: 0vh;
 }
 
 .block-item {
     box-sizing: border-box;
-    padding-top: 11vh;
-    padding-bottom: 11vh;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
     background-image: url('https://manage.charge.co/images/lady-phone-light.jpg');
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: white;
     margin: 4rem;
-    border-radius: 0.3rem;
-    box-shadow: 0px 1px 3px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.2), 0px 1px 36px rgba(0,0,0,0.05);
     position: relative;
     overflow: hidden;
     border: none;
@@ -416,8 +422,8 @@ body {
 
 .block-item .block-content {
     box-sizing: border-box;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-left: 7vw;
+    padding-right: 7vw;
     position: relative;
     z-index: 1;
 }
@@ -433,26 +439,30 @@ body {
 
 .button {
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 1.1rem;
     text-decoration: none;
     padding: 1rem;
     border-radius:  30px;
     color: #2984e9;
     margin-right: 1rem;
+    display: flex;
+    align-items: center;
 }
 
 .button.button-primary {
     background: white;
     box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
+    transition: all 200ms ease-out;
 }
 
 .block-item .block-description {
     font-size: 1rem;
-    margin-top: 0.5em;
+    margin-top: 2rem;
     margin-bottom: 1.5em;
     color: inherit;
     line-height: 1.5em;
     max-width: 600px;
+    opacity: 0.7;
 }
 
 .block-item .block-subtitle {
@@ -464,7 +474,7 @@ body {
 }
 
 .block-item .block-actions {
-    margin-top: 2rem;
+    margin-top: 3rem;
     display: flex;
     flex-direction: row;
 }
@@ -474,7 +484,7 @@ body.content-page {
 }
 
 .block-item.charge-wireless {
-    background: url('https://charge.co/assets/images/products/mobile-data/lady-phone.jpg');
+    background: url('/charge-mobile-carrier-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -496,7 +506,7 @@ body.content-page {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-color: #000000;
+    background-color: white;
 }
 
 
@@ -520,13 +530,9 @@ body.content-page {
 }
 
 article.block-item.charge-messenger {
-    background: white url('https://cdn.brandisty.com/img?id=5536d4067310e8702c0000a3&w=1400');
+    background-image: url('/charge-messenger-bg.gif');
     background-size: cover;
 }
-
-article.block-item.overlay-light:after {content: '';z-index: 0;display: block;position: absolute;background: white;width: 100%;height: 100%;top: 0;right: 0;left: 0;bottom: 0;opacity: 0.95;}
-
-
 
 .block-description a {
     color: inherit;
@@ -547,8 +553,9 @@ article.block-item.overlay-light:after {content: '';z-index: 0;display: block;po
     =: flex
     margin-top: 1;
     display: block;
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-bottom: 0;
+    max-width: 700px;
 }
 
 .snippet-list {
@@ -559,6 +566,8 @@ article.block-item.overlay-light:after {content: '';z-index: 0;display: block;po
     margin: 0;
     align-items: center;
     justify-content: flex-start;
+    position: relative;
+    left: -0.8rem;
 }
 
 .snippet-list .snippet {
@@ -570,25 +579,88 @@ article.block-item.overlay-light:after {content: '';z-index: 0;display: block;po
 
 .snippet button {
     border: none;
-    background: rgba(0,0,0,0.95);
-    color: white;
+    background: transparent;
+    color: rgba(255,255,255,0.8);
     text-align: left;
-    font-weight: 600;
+    font-weight: 700;
     padding: 0.75rem;
     margin: 0;
     cursor: pointer;
     font-size: 0.9rem;
     border-radius: 4px;
+    transition: all 200ms ease-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .snippet button:after {
     content:  '';
-    width: 15px;
-    height: 11px;
+    width: 10px;
+    height: 12px;
     background: transparent url('/link-arrow-right-small.svg') center center no-repeat;
     display: inline-block;
+    padding: 0;
+    margin: 0;
     margin-left: 4px;
+    /* position: absolute; */
 }
+
+
+.button:after {content: '';width: 10px;height: 12px;background: transparent url('/link-arrow-right-small.svg') center center no-repeat;margin-left: 4px;background-size: 100% 100%;}
+
+.snippet button:hover, .snippet button:focus {
+    transform: scale(1.1);
+    color: white;
+    transition: all 100ms ease-in;
+}
+
+a.button.button-primary:hover, a.button.button-primary:focus {
+    transform: scale(1.1);
+    transition: all 100ms ease-in;
+}
+
+.bolt-dialer a.button.button-primary:after {
+    background-image: url('/link-arrow-right-small.svg');
+}
+
+.charge-messenger a.button.button-primary:after {
+    background-image: url('/link-arrow-right-mask.png');
+    background-color: #f56600;
+}
+
+.block-snippets .snippets-title {
+    color: white;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 1.5rem;
+    margin-top: 3.4rem;
+    opacity: 0.5;
+}
+
+.button:hover, .button:focus {
+    cursor: pointer;
+}
+
+.block-snippets.snippets-dark .snippet button {
+    color: rgba(0,0,0,.75);
+    font-weight: 600;
+}
+
+.block-snippets.snippets-dark .snippets-title {
+    color: black;
+}
+
+.block-snippets.snippets-dark .snippet button:hover, .block-snippets.snippets-dark .snippet button:focus {
+    color: black;
+}
+
+
 
 
 /* Media Queries */
@@ -724,28 +796,140 @@ article.block-item.overlay-light:after {content: '';z-index: 0;display: block;po
   }
   
   .block-item .block-description {
-    /* padding-left: 2rem; */
     box-sizing: border-box;
     max-width: 800px;
     margin: 0;
     flex: 2;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    margin-top: 2rem;
   }
 
   .block-item .block-actions {
-    margin-left: 2rem;
     display: flex;
     flex: 1;
     padding: 0;
-    margin-top: 0;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
   }
 
-  .block-snippets {
-
-  }
-  .snippet-list {flex-direction: column;align-items: flex-start;}
+  .block-snippets {margin-top: 0;margin-left: 8rem;width: 400px;}
+  .block-snippets .snippets-title { margin-top: 0; }
+  .snippet-list {
+    flex-direction: column;
+    align-items: flex-start;
+    }
   .snippet-list .snippet {
   }
+
 }
+
+#page-navigation {
+    opacity: 1;
+    transition: all 250ms ease-out;
+}
+
+#page-navigation.faded {
+    opacity: 0.95;
+    transition: all 500ms ease-out;
+}
+
+#page-navigation.faded .link {
+    color: #797979;
+}
+
+#page-navigation.active .link:after {
+    background-image: url('/link-arrow-right-small.svg') !important;
+}
+
+#page-navigation.active .link:after {
+    background-image: url('/link-arrow-right-small.svg');
+}
+
+#page-navigation.faded .link:after {
+    background-image: url('/link-arrow-right-small.svg');
+}
+
+#page-navigation.faded .link-list-contact {
+    opacity: 0.65;
+    transition: all 100ms ease-in;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 6;
+    background: rgba(0,0,0,0.8);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.modal .modal-nav {
+    flex: initial;
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal .modal-nav .button {
+  background: white;
+  border: none;
+}
+
+.modal .modal-nav .button-previous:after {
+  display: none;
+}
+
+.modal .modal-nav .button-previous:before {
+  content:  '';
+  width: 10px;
+  height: 12px;
+  background: transparent url('/link-arrow-left-small.svg') center center no-repeat;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  margin-right: 4px;
+}
+
+.modal .modal-content {background: white;margin: 0;padding: 0;overflow: hidden;border-radius: 5px;box-shadow: 0px 2px 4px rgba(0,0,0,0.5), 0px 1px 48px rgba(0,0,0,0.35);height: 90vh;}
+
+.modal .modal-hero-area {margin: 0;max-height: 33vh;overflow: hidden;}
+
+.modal .modal-hero-area img {
+    max-width: 100%;
+}
+
+.modal .modal-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal .modal-content .modal-text {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.modal .modal-subtitle {
+    text-align: center;
+    letter-spacing: -0.025em;
+    opacity: 0.5;
+    margin: 0;
+}
+
+.modal .modal-title {
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: -0.07rem;
+    margin: 0.5em 0 0 0;

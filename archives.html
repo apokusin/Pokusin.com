@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-  <title>Artur's archived work</title>
+  <title>Artur's latest work</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Artur is a designer/developer in California">
@@ -9,7 +9,7 @@
   <meta name="author" content="Artur Pokusin">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="apokusin">
-  <meta name="twitter:title" content="Artur's archived work">
+  <meta name="twitter:title" content="Artur's latest work">
   <meta name="twitter:description" content="Artur is a designer/developer in California">
   <meta name="twitter:image:src" content="https://gravatar.com/avatar/25b8108f22fc2f177b74437f2d219f2d?s=400">
   <meta name="twitter:label1" content="Designer?"/>
@@ -20,7 +20,7 @@
   <meta name="twitter:data3" content="Yup"/>
   <meta name="twitter:label4" content="Narc?"/>
   <meta name="twitter:data4" content="Nope"/>
-  <meta property="og:title" content="Artur's archived work">
+  <meta property="og:title" content="Artur's latest work">
   <meta property="og:site_name" content="Artur Pokusin">
   <meta property="og:url" content="http://pokusin.com">
   <meta property="og:description" content="Artur is a designer/developer in California">
@@ -29,9 +29,9 @@
   <link rel="stylesheet" href="/normalize.css">
   <link rel="stylesheet" href="/styles.css">
 </head>
-<body id="global-container">
+<body id="global-container" class="content-page">
   <div class="site-nav-wrapper">
-    <div class="container-site-nav">
+    <div id="page-navigation" class="container-site-nav faded">
       <div role="navigation">
         <h1 class="title"><a href="/">Artur <span class="text-tighter">Pokusin</span></a></h1>
         <nav role="navigation" class="link-list">
@@ -57,18 +57,18 @@
       </footer>
     </div>
     <main role="main" class="main-content">
-      <h2 class="page-title text-green">Archives</h2>
-<!--       <article class="block-item">
+      <article class="block-item preserve">
         <div class="block-content">
-          <h3 class="block-title">Charge: Mobile Phone Carrier</h3>
-          <p>Design Lead</p>
-          <p>A data-first cellular provider based in San Francisco, California. I am responsible for all things design, and most front-end development.</p>
-          <div>
-            <a href="/work/charge-carrier" class="button button-primary">Feature snippets</a>
-            <a href="https://charge.co" class="button">visits</a>
-          </div>
+          <header class="block-header">
+            <h3 class="block-title">Preserve.io</h3>
+            <p class="block-subtitle">Designer</p>
+            <p class="block-description">A bookmarking tool that hopes to eliminate the 404. Whenever you add a bookmark to Preserve, we store a copy of that site on our servers. I take care of design/front-end while my roommate <a href="http://zackfern.me" target="_blank">Zack</a> handles development.</p>
+            <div class="block-actions">
+              <a href="https://preserve.io" target="_blank" class="button button-primary">Check it out</a>
+            </div>
+          </header>
         </div>
-      </article> -->
+      </article>
     </main>
   </div>
 
@@ -82,15 +82,6 @@
     ga('send', 'pageview');
 
   </script>
-  <script>
-    // look at you, looking at my code
-    // https://www.youtube.com/watch?v=NPwyyjtxlzU
-
-    function init() {
-      window.removeEventListener("load", init, false);
-    }
-
-    window.addEventListener('load', init);
-  </script>
+  <script src="/product-page.js"></script>
 </body>
 </html>
