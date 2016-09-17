@@ -44,7 +44,7 @@ body {
   color: inherit;
 }
 
-.page-title {margin: 0;padding: 0;font-size: 1.5rem;height: 12vh;display: flex;flex-direction: column;justify-content: flex-end;align-items: stretch;font-weight: normal;font-size: 2.5rem;padding-bottom: 2rem;box-sizing: border-box;margin-left: 0;padding-left: 4rem;font-weight: 700;border-bottom: 2px solid #eee;background: white;}
+.page-title {margin: 0;padding: 0;font-size: 1.5rem;height: 10vh;display: flex;flex-direction: column;justify-content: flex-end;align-items: stretch;font-weight: normal;font-size: 2.5rem;padding-bottom: 2rem;box-sizing: border-box;margin-left: 0;padding-left: 4rem;font-weight: 700;border-bottom: 2px solid #eee;background: white;}
 
 .subtitle {
   font-size: 2rem;
@@ -406,6 +406,7 @@ body {
     position: relative;
     overflow: hidden;
     border: none;
+    min-height: 33vh;
 }
 
 .container-site-nav .link-list {
@@ -457,7 +458,7 @@ body {
 .block-item .block-subtitle {
     font-size: 1.5rem;
     margin-top: 0.5em;
-    margin-bottom: 1.5em;
+    margin-bottom: 0.5em;
     color: inherit;
     letter-spacing: -0.015em;
 }
@@ -508,6 +509,7 @@ body.content-page {
 .charge-wireless .button {
     background: #f56600;
     color: white;
+    border-radius: 4px;
 }
 
 .charge-messenger .button {
@@ -523,6 +525,70 @@ article.block-item.charge-messenger {
 }
 
 article.block-item.overlay-light:after {content: '';z-index: 0;display: block;position: absolute;background: white;width: 100%;height: 100%;top: 0;right: 0;left: 0;bottom: 0;opacity: 0.95;}
+
+
+
+.block-description a {
+    color: inherit;
+}
+
+.preserve a.button.button-primary {
+    color: white;
+    background: #91b328;
+    border-radius:  0;
+    box-shadow: none;
+}
+
+.block-header {
+    margin-bottom: 1.5em;
+}
+
+.block-snippets {
+    =: flex
+    margin-top: 1;
+    display: block;
+    margin-top: 2rem;
+    margin-bottom: 0;
+}
+
+.snippet-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.snippet-list .snippet {
+    /* flex: 1; */
+    flex-shrink: 3;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+}
+
+.snippet button {
+    border: none;
+    background: rgba(0,0,0,0.95);
+    color: white;
+    text-align: left;
+    font-weight: 600;
+    padding: 0.75rem;
+    margin: 0;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 4px;
+}
+
+.snippet button:after {
+    content:  '';
+    width: 15px;
+    height: 11px;
+    background: transparent url('/link-arrow-right-small.svg') center center no-repeat;
+    display: inline-block;
+    margin-left: 4px;
+}
 
 
 /* Media Queries */
@@ -633,6 +699,8 @@ article.block-item.overlay-light:after {content: '';z-index: 0;display: block;po
   .block-item {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
   .block-item .block-content {
@@ -673,16 +741,11 @@ article.block-item.overlay-light:after {content: '';z-index: 0;display: block;po
     justify-content: center;
     height: 100%;
   }
-}
 
+  .block-snippets {
 
-.block-description a {
-    color: inherit;
-}
-
-.preserve a.button.button-primary {
-    color: white;
-    background: #91b328;
-    border-radius:  0;
-    box-shadow: none;
+  }
+  .snippet-list {flex-direction: column;align-items: flex-start;}
+  .snippet-list .snippet {
+  }
 }
