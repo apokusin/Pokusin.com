@@ -71,7 +71,7 @@
             <h4 class="snippets-title">Design excerpts</h4>
             <ul class="snippet-list">
               <li class="snippet">
-                <button>Marketing pages</button>
+                <button id="show-modal">Marketing pages</button>
               </li>
               <li class="snippet">
                 <button>Onboarding experience</button>
@@ -158,7 +158,7 @@
       </article>
     </main>
   </div>
-  <div class="modal">
+  <div id="modal" class="modal">
     <div class="modal-content-wrapper">
       <div class="modal-content">
         <figure class="modal-hero-area">
@@ -167,15 +167,17 @@
         <div class="modal-text">
           <h3 class="modal-subtitle">Charge: Mobile Carrier</h3>
           <h4 class="modal-title">Marketing pages</h4>
-
+          <p>This sis a ofiajweofiajwoeifaowejfoawiejfoawiejfoai owai fjaowiefj oaweij foaweijf aw</p>
+          <p>aowiejfoaiwej faweij fwaoeif joawiejf oaiwefjoaiwejf oawiejf oaijwe fa</p>
+          <p>awpeofiajwpefoiajwepfiajpwoeif ewpo ijfapwo ijfepaw ijfpaweijpfawj efpawe aw e</p>
         </div>
       </div>
     </div>
     <div class="modal-nav">
-      <button class="button button-back">Previous</button>
-      <button class="button button-next">Next</button>
-      <hr class="divider" />
-      <button class="button button-close">Close</button>
+      <button class="button button-back popIn delay-1">Previous</button>
+      <button class="button button-next popIn delay-2">Next</button>
+      <hr class="divider fadeIn delay-3" />
+      <button id="close-modal" class="button button-close popIn delay-4">Close</button>
     </div>
   </div>
 
@@ -190,5 +192,22 @@
 
   </script>
   <script src="/product-page.js"></script>
+  <script>
+  (function() {
+    var modal = document.getElementById('modal'); // make this something programmatic
+    var hideModalEl = document.getElementById('close-modal');
+    var showModalEl = document.getElementById('show-modal');
+    function showModal() {
+      modal.classList.add('active');
+    }
+
+    function hideModal() {
+      modal.classList.remove('active');
+    }
+
+    showModalEl.addEventListener('mousedown', showModal);
+    hideModalEl.addEventListener('mousedown', hideModal);
+  })();
+  </script>
 </body>
 </html>

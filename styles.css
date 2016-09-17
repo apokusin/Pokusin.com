@@ -281,7 +281,7 @@ body {
   0% {
     opacity: 0;
     visibility: hidden;
-    transform: translateY(50%)
+    transform: translateY(33%)
   }
   100% {
     opacity: 1;
@@ -358,10 +358,12 @@ body {
 .site-nav-wrapper {
     display: flex;
     flex-direction: row;
-    align-items: stretch;
-    justify-content: flex-start;
+    align-items: flex-start;
     height: 100%;
+    max-width: 1840px;
+    margin: 0 auto;
     box-sizing: border-box;
+    justify-content: space-between;
 }
 
 .container-site-nav .link-list .link a {
@@ -614,6 +616,7 @@ article.block-item.charge-messenger {
     transform: scale(1.1);
     color: white;
     transition: all 100ms ease-in;
+    outline: 0;
 }
 
 a.button.button-primary:hover, a.button.button-primary:focus {
@@ -766,7 +769,7 @@ a.button.button-primary:hover, a.button.button-primary:focus {
     width: 21rem;
   }
 
-  .main-content {margin-left: 21rem;}
+  .main-content {margin-left: 19rem;}
   
   .block-item {
     display: flex;
@@ -861,7 +864,7 @@ a.button.button-primary:hover, a.button.button-primary:focus {
   left: 0;
   bottom: 0;
   z-index: 6;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.85);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -870,6 +873,9 @@ a.button.button-primary:hover, a.button.button-primary:focus {
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 200ms linear;
 }
 
 .modal .button-back:after {
@@ -887,12 +893,13 @@ a.button.button-primary:hover, a.button.button-primary:focus {
   margin-right: 4px;
 }
 
-.modal .modal-content {background: white;margin: 0;padding: 0;overflow: hidden;border-radius: 5px;box-shadow: 0px 2px 4px rgba(0,0,0,0.5), 0px 1px 48px rgba(0,0,0,0.35);height: 90vh;}
+.modal .modal-content {background: white;margin: 0;padding: 0;overflow: hidden;border-radius: 5px;box-shadow: 0px 2px 4px rgba(0,0,0,0.5), 0px 1px 48px rgba(0,0,0,0.35);height: 90vh;width: 100%;max-width: 1024px;}
 
-.modal .modal-hero-area {margin: 0;max-height: 33vh;overflow: hidden;}
+.modal .modal-hero-area {margin: 0;max-height: 33vh;overflow: hidden;border-bottom: 1px solid rgba(0,0,0,0.1);display: block;}
 
 .modal .modal-hero-area img {
     max-width: 100%;
+    width: 100%;
 }
 
 .modal .modal-content-wrapper {
@@ -904,13 +911,23 @@ a.button.button-primary:hover, a.button.button-primary:focus {
     flex: 8;
     padding-left: 5vh;
     padding-right: 5vh;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .modal .modal-content .modal-text {
-    padding-left: 3rem;
-    padding-right: 3rem;
+    /* padding-left: 15rem; */
+    /* padding-right: 15rem; */
     margin-top: 3rem;
     margin-bottom: 3rem;
+    overflow: auto;
+}
+
+.modal .modal-content .modal-text p {
+  line-height: 1.8em;
+  margin-bottom: 2rem;
+  padding-left: 15rem;
+  padding-right: 15rem;
 }
 
 .modal .modal-subtitle {
@@ -924,7 +941,7 @@ a.button.button-primary:hover, a.button.button-primary:focus {
     text-align: center;
     font-size: 2.5rem;
     letter-spacing: -0.07rem;
-    margin: 0.5em 0 0 0;
+    margin: 0.5em 0 1em 0;
 }
 
 .modal .modal-nav {flex: 2;display: flex;align-items: center;justify-content: center;margin-bottom: 5vh;}
@@ -981,3 +998,55 @@ button.button.button-close {}
 .modal .modal-nav .button.button-back:after {
     background-image: url('/link-arrow-left-small-light.svg');
 }
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 200ms linear;
+}
+
+.modal.active .modal-content-wrapper {
+    animation-name: slideUpIn;
+    animation-duration: 500ms;
+    animation-timing-function: cubic-bezier(0, 0, 0, 0.98);
+    animation-delay: 300ms;
+    animation-fill-mode: forwards;
+    overflow: auto;
+}
+
+.modal.active .modal-nav .popIn {
+    animation-name: popIn;
+    animation-duration: 400ms;
+    animation-timing-function: ease-out;
+    /* animation-delay: 500ms; */
+    animation-fill-mode: forwards;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal.active .modal-nav .fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 300ms;
+    animation-timing-function: ease-out;
+    animation-delay: 500ms;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal.active .modal-nav .delay-1 {
+  animation-delay: 700ms;
+}
+
+.modal.active .modal-nav .delay-2 {
+  animation-delay: 800ms;
+}
+
+.modal.active .modal-nav .delay-3 {
+  animation-delay: 900ms;
+}
+
+.modal.active .modal-nav .delay-4 {
+  animation-de;
+  animation-delay: 1000ms;
+  
