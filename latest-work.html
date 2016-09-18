@@ -199,10 +199,12 @@
     var showModalEl = document.getElementById('show-modal');
     function showModal() {
       modal.classList.add('active');
+      document.body.classList.add('stop-scrolling');
     }
 
     function hideModal() {
       modal.classList.remove('active');
+      document.body.classList.remove('stop-scrolling');
     }
 
     showModalEl.addEventListener('mousedown', showModal);

@@ -18,6 +18,10 @@ body {
   background: #f3f3f3;
 }
 
+body.stop-scrolling {
+  overflow: hidden;
+}
+
 #global-container.init {
   visibility: hidden;
   opacity: 0;
@@ -893,9 +897,9 @@ a.button.button-primary:hover, a.button.button-primary:focus {
   margin-right: 4px;
 }
 
-.modal .modal-content {background: white;margin: 0;padding: 0;overflow: hidden;border-radius: 5px;box-shadow: 0px 2px 4px rgba(0,0,0,0.5), 0px 1px 48px rgba(0,0,0,0.35);height: 90vh;width: 100%;max-width: 1024px;}
+.modal .modal-content {background: white;margin: 0;padding: 0;overflow: auto;border-radius: 5px;box-shadow: 0px 2px 4px rgba(0,0,0,0.5), 0px 1px 48px rgba(0,0,0,0.35);height: 90vh;width: 100%;max-width: 1024px;}
 
-.modal .modal-hero-area {margin: 0;max-height: 33vh;overflow: hidden;border-bottom: 1px solid rgba(0,0,0,0.1);display: block;}
+.modal .modal-hero-area {margin: 0;max-height: 29vh;overflow: hidden;/* border-bottom: 1px solid rgba(0,0,0,0.1); */display: block;padding: 0;}
 
 .modal .modal-hero-area img {
     max-width: 100%;
@@ -926,8 +930,8 @@ a.button.button-primary:hover, a.button.button-primary:focus {
 .modal .modal-content .modal-text p {
   line-height: 1.8em;
   margin-bottom: 2rem;
-  padding-left: 15rem;
-  padding-right: 15rem;
+  padding-left: 15vw;
+  padding-right: 15vw;
 }
 
 .modal .modal-subtitle {
@@ -977,8 +981,8 @@ a.button.button-primary:hover, a.button.button-primary:focus {
 }
 
 .modal .modal-nav .button.button-close {
-    color: #a60000;
-    border-color: #5a0000;
+    color: #f20000;
+    border-color: #621b1b;
 }
 
 button.button.button-close {}
@@ -1047,6 +1051,5 @@ button.button.button-close {}
 }
 
 .modal.active .modal-nav .delay-4 {
-  animation-de;
   animation-delay: 1000ms;
-  
+}
