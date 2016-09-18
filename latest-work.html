@@ -222,7 +222,8 @@
         'messengerNotificationSounds': {
           'project': 'Charge Messenger',
           'title': 'Notification sounds',
-          'descriptionHTML': '<p>We played with a few notification sounds. Play with them!</p>'
+//           'figureHTML': '',
+          'descriptionHTML': '<p>We played with a few notification sounds. Play with them!</p> <iframe src="/charge-messenger-notification-sounds.html"></iframe>'
         }
       };
 
@@ -260,7 +261,6 @@
 
 
       var excerptSource = document.getElementById('excerpt-template').text;
-//       console.log('source', excerptSource);
 
       var excerptTemplate = Handlebars.compile(excerptSource);
 
@@ -268,7 +268,6 @@
       function showExcerpt(id) {
 //      display excerpt in a programmatic way
         var data = excerpts[id];
-        console.log(id, data);
         if (data) {
           if (!document.body.classList.contains('modal-active')) {
             displayModalOverlay();
@@ -277,7 +276,6 @@
           modalContainer.innerHTML = html;
           document.getElementById('close-modal').addEventListener('click', hideModalOverlay);
         }
-  
       }
 
 

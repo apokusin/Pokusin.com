@@ -899,7 +899,7 @@ a.button.button-primary:hover, a.button.button-primary:focus {
 
 .modal .modal-content {background: white;margin: 0;padding: 0;overflow-y: auto;border-radius: 5px;box-shadow: 0px 2px 4px rgba(0,0,0,0.5), 0px 1px 48px rgba(0,0,0,0.35);height: 90vh;width: 100%;max-width: 1024px;}
 
-.modal .modal-hero-area {margin: 0;max-height: 46vh;overflow: hidden;/* border-bottom: 1px solid rgba(0,0,0,0.1); */display: block;padding: 0;border-top-left-radius: 4px;border-top-right-radius: 3px;}
+.modal .modal-hero-area {margin: 0;max-height: 46vh;overflow: hidden;border-bottom: 1px solid rgba(0,0,0,0.1);display: block;padding: 0;border-top-left-radius: 4px;border-top-right-radius: 3px;background: #f3f3f3;}
 
 .modal .modal-hero-area img {
     max-width: 100%;
@@ -1079,3 +1079,18 @@ button.button.button-close {}
     transform: none;
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+.modal-hero-area iframe {
+  width: 100%;
+  overflow: hidden;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-text iframe {
+    border: none;
+    width: 100%;
+}
