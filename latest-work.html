@@ -69,22 +69,22 @@
             <h4 class="snippets-title">Design excerpts</h4>
             <ul class="snippet-list">
               <li class="snippet">
-                <button data-excerpt-id="chargeWirelessMarketing" class="modal-trigger">Marketing pages</button>
+                <button data-excerpt-index="0" class="modal-trigger">Marketing pages</button>
               </li>
 <!--               <li class="snippet">
-                <button data-excerpt-id="chargeWirelessOnboarding" class="modal-trigger">Onboarding experience</button>
+                <button data-excerpt-index="chargeWirelessOnboarding" class="modal-trigger">Onboarding experience</button>
               </li>
               <li class="snippet">
-                <button data-excerpt-id="chargeWirelessOrderSIM" class="modal-trigger">Order a SIM card</button>
+                <button data-excerpt-index="chargeWirelessOrderSIM" class="modal-trigger">Order a SIM card</button>
               </li>
               <li class="snippet">
-                <button data-excerpt-id="chargeWirelessActivateDevice" class="modal-trigger">Activate a device</button>
+                <button data-excerpt-index="chargeWirelessActivateDevice" class="modal-trigger">Activate a device</button>
               </li>
               <li class="snippet">
-                <button data-excerpt-id="chargeWirelessReferrals" class="modal-trigger">Referrals</button>
+                <button data-excerpt-index="chargeWirelessReferrals" class="modal-trigger">Referrals</button>
               </li>
               <li class="snippet">
-                <button data-excerpt-id="chargeWirelessSIMDelivery" class="modal-trigger">SIM card delivery</button>
+                <button data-excerpt-index="chargeWirelessSIMDelivery" class="modal-trigger">SIM card delivery</button>
               </li> -->
             </ul>
           </footer>
@@ -104,7 +104,7 @@
             <h4 class="snippets-title">Design excerpts</h4>
             <ul class="snippet-list">
               <li class="snippet">
-                <button data-excerpt-id="messengerNotificationSounds" class="modal-trigger">Notification sounds</button>
+                <button data-excerpt-index="1" class="modal-trigger">Notification sounds</button>
               </li>
 <!--               <li class="snippet">
                 <button>Message bubble design</button>
@@ -186,8 +186,8 @@
         </div>
       </div>
       <div class="modal-nav">
-        <button class="button button-back popIn delay-1" data-excerpt-id="{{ prevUrl }}">Previous</button>
-        <button class="button button-next popIn delay-2" data-excerpt-id="{{ nextUrl }}">Next</button>
+        <button id="previous" class="button button-back popIn delay-1"x data-excerpt-index="{{ prevIndex }}">Previous</button>
+        <button id="next" class="button button-next popIn delay-2" data-excerpt-index="{{ nextIndex }}">Next</button>
         <hr class="divider fadeIn delay-3" />
         <button id="close-modal" class="button button-close popIn delay-4">Close</button>
       </div>
@@ -196,55 +196,53 @@
 
   <script>
   (function() {
-      
 
-      var excerpts = {
-        'chargeWirelessMarketing': '/excerpts/charge-wireless-marketing-pages.html',
-        'messengerNotificationSounds': '/excerpts/charge-messenger-notification-sounds.html'
-      };
+      var excerpts = [
+        '/excerpts/charge-wireless-marketing-pages.html',
+        '/excerpts/charge-messenger-notification-sounds.html'
+      ];
 
       var allExcerptTriggers = document.querySelectorAll('.modal-trigger');
 
-      function setTrigger(el) {
-        el.addEventListener("click", function() {
-          var self = this;
-          var previousTrigger = document.querySelector('.last-triggered');
-          if (previousTrigger) {
-            previousTrigger.classList.remove('last-triggered');
-          }
-
-          self.classList.add('last-triggered');
-          
-          var url = excerpts[self.dataset.excerptId];
-          var nextUrl, previousUrl;
-
-          if (prevEl) {
-            previousUrl = prevEl.dataset.excerptId;
-          }
-          if (nextEl) {
-            nextUrl = nextEl.dataset.excerptId;
-          }
-          var config = {
-            'url': url,
-            'nextUrl': nextUrl,
-            'previousUrl': previousUrl
-          }
-          showExcerpt(config);
-        });
+      function setTrigger(element) {
+        if (element && element.dataset.excerptIndex > -1 && element.dataset.excerptIndex < excerpts.length) {
+          var index = parseInt(element.dataset.excerptIndex);
+          element.addEventListener("click", function() {
+            var excerptUrl = excerpts[index];
+            if (excerptUrl) {
+              var config = {
+                'url': excerptUrl,
+                'nextIndex': index + 1,
+                'prevIndex': index - 1
+              }
+              showExcerpt(config);
+            }
+          });
+        } else {
+          element.setAttribute('disabled', 'true');
+        }
       }
 
       function setExcerptTriggers() {
         for (var i = 0; i < allExcerptTriggers.length; i++) {
-
-          var el = allExcerptTriggers[i];
-          var nextEl = allExcerptTriggers[i + 1];
-          var prevEl = allExcerptTriggers[i - 1];
-
-          setTrigger(el, nextEl, prevEl);
+          setTrigger(allExcerptTriggers[i]);
         }
       }
       setExcerptTriggers();
 
+      function updateNav() {
+        var nextElTrigger = document.getElementById('next');
+        var prevElTrigger = document.getElementById('previous');
+        function disableTransitions() {
+          document.getElementById('modalContainer').classList.add('no-transition');
+        }
+
+        nextElTrigger.addEventListener("click", disableTransitions);
+        prevElTrigger.addEventListener("click", disableTransitions);
+
+        setTrigger(nextElTrigger);
+        setTrigger(prevElTrigger);
+      }
 
 //       MODAL code
 
@@ -262,6 +260,7 @@
       }
 
       function hideModalOverlay() {
+        document.getElementById('modalContainer').classList.remove('no-transition');
         modalContainer.classList.remove('active');
         document.body.classList.remove('modal-active');
       }
@@ -275,8 +274,8 @@
       function showExcerpt(config) {
         var data = {
           'url': config.url,
-          'nextUrl': config.nextUrl,
-          'prevUrl': config.prevUrl
+          'nextIndex': config.nextIndex,
+          'prevIndex': config.prevIndex
         };
         if (!document.body.classList.contains('modal-active')) {
           displayModalOverlay();
@@ -285,11 +284,7 @@
         modalContainer.innerHTML = html;
         document.getElementById('close-modal').addEventListener('click', hideModalOverlay);
         //         set previous/next listeners
-       var nextElTrigger = document.getElementById('next');
-       var prevElTrigger = document.getElementById('previous');
-       setTrigger(nextElTrigger);
-       setTrigger(prevElTrigger);
-
+        updateNav();
 
       }
 
