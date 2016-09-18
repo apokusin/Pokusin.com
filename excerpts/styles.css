@@ -1,0 +1,56 @@
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: transparent;
+}
+
+.excerpt-text {
+    overflow: auto;
+    background: white;
+    width: 100%;
+    /* height: 100%; */
+    padding: 10vh 0;
+    box-sizing: border-box;
+}
+
+.excerpt-text p {
+  line-height: 1.8em;
+  margin-bottom: 2rem;
+  padding-left: 15vw;
+  padding-right: 15vw;
+}
+
+.excerpt-subtitle {
+    text-align: center;
+    letter-spacing: -0.025em;
+    opacity: 0.5;
+    margin: 0;
+}
+
+.excerpt-title {
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: -0.07rem;
+    margin: 0.5em 0 1em 0;
+}
+
+
+a {
+    color: inherit;
+}
+
+.content-container {
+  text-align: center;
+  margin: 0 auto;
+}

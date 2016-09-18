@@ -897,7 +897,7 @@ a.button.button-primary:hover, a.button.button-primary:focus {
   margin-right: 4px;
 }
 
-.modal .modal-content {background: white;margin: 0;padding: 0;overflow-y: auto;border-radius: 5px;box-shadow: 0px 2px 4px rgba(0,0,0,0.5), 0px 1px 48px rgba(0,0,0,0.35);height: 90vh;width: 100%;max-width: 1024px;}
+.modal .modal-content {background: white;margin: 0;padding: 0;overflow-y: auto;border-radius: 5px;box-shadow: 0px 2px 4px rgba(0,0,0,0.5), 0px 1px 48px rgba(0,0,0,0.35);height: 90vh;width: 100%;max-width: 1024px;display: flex;justify-content: stre;align-items: center;flex-direction: column;border-radius: 5px;overflow: hidden;}
 
 .modal .modal-hero-area {margin: 0;max-height: 46vh;overflow: hidden;border-bottom: 1px solid rgba(0,0,0,0.1);display: block;padding: 0;border-top-left-radius: 4px;border-top-right-radius: 3px;background: #f3f3f3;}
 
@@ -919,36 +919,6 @@ a.button.button-primary:hover, a.button.button-primary:focus {
     padding-right: 5vh;
     opacity: 0;
     visibility: hidden;
-}
-
-.modal .modal-content .modal-text {
-    /* padding-left: 15rem; */
-    /* padding-right: 15rem; */
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    overflow: auto;
-    background: white;
-}
-
-.modal .modal-content .modal-text p {
-  line-height: 1.8em;
-  margin-bottom: 2rem;
-  padding-left: 15vw;
-  padding-right: 15vw;
-}
-
-.modal .modal-subtitle {
-    text-align: center;
-    letter-spacing: -0.025em;
-    opacity: 0.5;
-    margin: 0;
-}
-
-.modal .modal-title {
-    text-align: center;
-    font-size: 2.5rem;
-    letter-spacing: -0.07rem;
-    margin: 0.5em 0 1em 0;
 }
 
 .modal .modal-nav {flex: 2;display: flex;align-items: center;justify-content: center;margin-bottom: 5vh;}
@@ -1081,16 +1051,12 @@ button.button.button-close {}
     cursor: not-allowed;
 }
 
-.modal-hero-area iframe {
+.modal-content iframe {
   width: 100%;
   overflow: hidden;
   border: none;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.modal-text iframe {
-    border: none;
-    width: 100%;
+  /* align-items: center; */
+  height: 100%;
 }
