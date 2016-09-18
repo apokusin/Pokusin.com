@@ -161,8 +161,17 @@
   </div>
 
   <div id="modalContainer" class="modal">
-    <!--   "iiinput. NEED IIIINPUT"  -->
-    <!--                - JONNY 5    -->
+    <div class="modal-content-wrapper">
+      <div class="modal-content">
+        <iframe id="excerptUrl" src></iframe>
+      </div>
+    </div>
+    <div class="modal-nav">
+      <button id="previous" class="button button-back popIn delay-1" disabled="true">Previous</button>
+      <button id="next" class="button button-next popIn delay-2" disabled="true">Next</button>
+      <hr class="divider fadeIn delay-3" />
+      <button id="close-modal" class="button button-close popIn delay-4">Close</button>
+    </div>
   </div>
 
   <script>
@@ -178,20 +187,6 @@
   <script src="/product-page.js"></script>
   <script src="/handlebars.min.js"></script>
 
-
-  <script id="excerpt-template" type="text/x-handlebars-template">
-      <div class="modal-content-wrapper">
-        <div class="modal-content">
-          <iframe src="{{ url }}"></iframe>
-        </div>
-      </div>
-      <div class="modal-nav">
-        <button id="previous" class="button button-back popIn delay-1"x data-excerpt-index="{{ prevIndex }}">Previous</button>
-        <button id="next" class="button button-next popIn delay-2" data-excerpt-index="{{ nextIndex }}">Next</button>
-        <hr class="divider fadeIn delay-3" />
-        <button id="close-modal" class="button button-close popIn delay-4">Close</button>
-      </div>
-    </div>
   </script>
 
   <script>
@@ -203,20 +198,23 @@
       ];
 
       var allExcerptTriggers = document.querySelectorAll('.modal-trigger');
+      var nextElTrigger = document.getElementById('next');
+      var prevElTrigger = document.getElementById('previous');
+            
+
 
       function setTrigger(element) {
         if (element && element.dataset.excerptIndex > -1 && element.dataset.excerptIndex < excerpts.length) {
+          element.removeAttribute('disabled');
           var index = parseInt(element.dataset.excerptIndex);
           element.addEventListener("click", function() {
-            var excerptUrl = excerpts[index];
-            if (excerptUrl) {
-              var config = {
-                'url': excerptUrl,
-                'nextIndex': index + 1,
-                'prevIndex': index - 1
-              }
-              showExcerpt(config);
-            }
+            nextElTrigger.setAttribute('data-excerpt-index', index+1);
+            prevElTrigger.setAttribute('data-excerpt-index', index-1);
+            
+            setTrigger(nextElTrigger);
+            setTrigger(prevElTrigger);
+
+            showExcerpt(excerpts[index]);
           });
         } else {
           element.setAttribute('disabled', 'true');
@@ -231,17 +229,7 @@
       setExcerptTriggers();
 
       function updateNav() {
-        var nextElTrigger = document.getElementById('next');
-        var prevElTrigger = document.getElementById('previous');
-        function disableTransitions() {
-          document.getElementById('modalContainer').classList.add('no-transition');
-        }
 
-        nextElTrigger.addEventListener("click", disableTransitions);
-        prevElTrigger.addEventListener("click", disableTransitions);
-
-        setTrigger(nextElTrigger);
-        setTrigger(prevElTrigger);
       }
 
 //       MODAL code
@@ -252,6 +240,7 @@
       function displayModalOverlay() {
         modalContainer.classList.add('active');
         document.body.classList.add('modal-active');
+        document.getElementById('close-modal').addEventListener('click', hideModalOverlay);
         document.body.addEventListener('keydown', function(event){
           if (event.keyCode === 27) {
             hideModalOverlay();
@@ -266,26 +255,12 @@
       }
 
 
-      var excerptSource = document.getElementById('excerpt-template').text;
-
-      var excerptTemplate = Handlebars.compile(excerptSource);
-
-
-      function showExcerpt(config) {
-        var data = {
-          'url': config.url,
-          'nextIndex': config.nextIndex,
-          'prevIndex': config.prevIndex
-        };
+      function showExcerpt(url) {
         if (!document.body.classList.contains('modal-active')) {
           displayModalOverlay();
         }
-        var html = excerptTemplate(data);
-        modalContainer.innerHTML = html;
-        document.getElementById('close-modal').addEventListener('click', hideModalOverlay);
+        document.getElementById('excerptUrl').setAttribute('src', url);
         //         set previous/next listeners
-        updateNav();
-
       }
 
   })();
