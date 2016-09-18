@@ -1,34 +1,32 @@
-<!doctype html>
-<html>
-<head>
-  <title>Artur's latest work</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Artur is a designer/developer in California">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Artur Pokusin">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="apokusin">
-  <meta name="twitter:title" content="Artur's latest work">
-  <meta name="twitter:description" content="Artur is a designer/developer in California">
-  <meta name="twitter:image:src" content="https://gravatar.com/avatar/25b8108f22fc2f177b74437f2d219f2d?s=400">
-  <meta name="twitter:label1" content="Designer?"/>
-  <meta name="twitter:data1" content="Yup"/>
-  <meta name="twitter:label2" content="Scared of the dark?"/>
-  <meta name="twitter:data2" content="Nope"/>
-  <meta name="twitter:label3" content="Engineer?"/>
-  <meta name="twitter:data3" content="Yup"/>
-  <meta name="twitter:label4" content="Narc?"/>
-  <meta name="twitter:data4" content="Nope"/>
-  <meta property="og:title" content="Artur's latest work">
-  <meta property="og:site_name" content="Artur Pokusin">
-  <meta property="og:url" content="http://pokusin.com">
-  <meta property="og:description" content="Artur is a designer/developer in California">
-  <meta property="og:type" content="website">
-  <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7839872/7150772/css/fonts.css" />
-  <link rel="stylesheet" href="/normalize.css">
-  <link rel="stylesheet" href="/styles.css">
-</head>
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>Artur's latest work</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Artur is a designer/developer in California">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Artur Pokusin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="apokusin">
+<meta name="twitter:title" content="Artur's latest work">
+<meta name="twitter:description" content="Artur is a designer/developer in California">
+<meta name="twitter:image:src" content="https://gravatar.com/avatar/25b8108f22fc2f177b74437f2d219f2d?s=400">
+<meta name="twitter:label1" content="Designer?"/>
+<meta name="twitter:data1" content="Yup"/>
+<meta name="twitter:label2" content="Scared of the dark?"/>
+<meta name="twitter:data2" content="Nope"/>
+<meta name="twitter:label3" content="Engineer?"/>
+<meta name="twitter:data3" content="Yup"/>
+<meta name="twitter:label4" content="Narc?"/>
+<meta name="twitter:data4" content="Nope"/>
+<meta property="og:title" content="Artur's latest work">
+<meta property="og:site_name" content="Artur Pokusin">
+<meta property="og:url" content="http://pokusin.com">
+<meta property="og:description" content="Artur is a designer/developer in California">
+<meta property="og:type" content="website">
+<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7839872/7150772/css/fonts.css" />
+<link rel="stylesheet" href="/normalize.css">
+<link rel="stylesheet" href="/styles.css">
+
 <body id="global-container" class="content-page">
   <div class="site-nav-wrapper">
     <div id="page-navigation" class="container-site-nav faded">
@@ -184,12 +182,12 @@
   <script id="excerpt-template" type="text/x-handlebars-template">
       <div class="modal-content-wrapper">
         <div class="modal-content">
-          <iframe src="{{ contentURL }}"></iframe>
+          <iframe src="{{ url }}"></iframe>
         </div>
       </div>
       <div class="modal-nav">
-        <button class="button button-back popIn delay-1">Previous</button>
-        <button class="button button-next popIn delay-2">Next</button>
+        <button class="button button-back popIn delay-1" data-excerpt-id="{{ prevUrl }}">Previous</button>
+        <button class="button button-next popIn delay-2" data-excerpt-id="{{ nextUrl }}">Next</button>
         <hr class="divider fadeIn delay-3" />
         <button id="close-modal" class="button button-close popIn delay-4">Close</button>
       </div>
@@ -201,26 +199,48 @@
       
 
       var excerpts = {
-        //  schema:
-        //  - project
-        //  - title
-        //  - figureHTML
-        //  - descriptionHTML
-        'chargeWirelessMarketing': {
-          'contentURL': '/excerpts/charge-wireless-marketing-pages.html' 
-        },
-        'messengerNotificationSounds': {
-          'contentURL': '/excerpts/charge-messenger-notification-sounds.html'
-        }
+        'chargeWirelessMarketing': '/excerpts/charge-wireless-marketing-pages.html',
+        'messengerNotificationSounds': '/excerpts/charge-messenger-notification-sounds.html'
       };
 
+      var allExcerptTriggers = document.querySelectorAll('.modal-trigger');
+
+      function setTrigger(el) {
+        el.addEventListener("click", function() {
+          var self = this;
+          var previousTrigger = document.querySelector('.last-triggered');
+          if (previousTrigger) {
+            previousTrigger.classList.remove('last-triggered');
+          }
+
+          self.classList.add('last-triggered');
+          
+          var url = excerpts[self.dataset.excerptId];
+          var nextUrl, previousUrl;
+
+          if (prevEl) {
+            previousUrl = prevEl.dataset.excerptId;
+          }
+          if (nextEl) {
+            nextUrl = nextEl.dataset.excerptId;
+          }
+          var config = {
+            'url': url,
+            'nextUrl': nextUrl,
+            'previousUrl': previousUrl
+          }
+          showExcerpt(config);
+        });
+      }
+
       function setExcerptTriggers() {
-        var allTriggerElements = document.querySelectorAll('.modal-trigger');
-        for (var i = 0; i < allTriggerElements.length; i++) {
-          var element = allTriggerElements[i];
-          element.addEventListener("click", function() {
-            showExcerpt(this.dataset.excerptId);
-          });
+        for (var i = 0; i < allExcerptTriggers.length; i++) {
+
+          var el = allExcerptTriggers[i];
+          var nextEl = allExcerptTriggers[i + 1];
+          var prevEl = allExcerptTriggers[i - 1];
+
+          setTrigger(el, nextEl, prevEl);
         }
       }
       setExcerptTriggers();
@@ -238,7 +258,7 @@
           if (event.keyCode === 27) {
             hideModalOverlay();
           }
-        })
+        });
       }
 
       function hideModalOverlay() {
@@ -252,44 +272,27 @@
       var excerptTemplate = Handlebars.compile(excerptSource);
 
 
-      function showExcerpt(id) {
-//      display excerpt in a programmatic way
-        var data = excerpts[id];
-        if (data) {
-          if (!document.body.classList.contains('modal-active')) {
-            displayModalOverlay();
-          }
-          var html = excerptTemplate(data);
-          modalContainer.innerHTML = html;
-          document.getElementById('close-modal').addEventListener('click', hideModalOverlay);
+      function showExcerpt(config) {
+        var data = {
+          'url': config.url,
+          'nextUrl': config.nextUrl,
+          'prevUrl': config.prevUrl
+        };
+        if (!document.body.classList.contains('modal-active')) {
+          displayModalOverlay();
         }
+        var html = excerptTemplate(data);
+        modalContainer.innerHTML = html;
+        document.getElementById('close-modal').addEventListener('click', hideModalOverlay);
+        //         set previous/next listeners
+       var nextElTrigger = document.getElementById('next');
+       var prevElTrigger = document.getElementById('previous');
+       setTrigger(nextElTrigger);
+       setTrigger(prevElTrigger);
+
+
       }
 
-
-
-
-
-
-
-
-
-
-
-//     function constructExcerpt(modalName) {
-      
-//       var result = excerptTemplate(modals[modalName]);
-
-//       document.body.append(result);
-//     }
-
-    function showModal() {
-
-//       var hideModalEl = document.getElementById('close-modal');
-//       hideModalEl.addEventListener('mousedown', hideModal);
-    }
-
-//     showModalEl.addEventListener('mousedown', showModal);
   })();
   </script>
 </body>
-</html>

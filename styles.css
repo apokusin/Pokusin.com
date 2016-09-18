@@ -1026,19 +1026,19 @@ button.button.button-close {}
 }
 
 .modal.active .modal-nav .delay-1 {
-  animation-delay: 700ms;
-}
-
-.modal.active .modal-nav .delay-2 {
   animation-delay: 800ms;
 }
 
-.modal.active .modal-nav .delay-3 {
+.modal.active .modal-nav .delay-2 {
   animation-delay: 900ms;
 }
 
-.modal.active .modal-nav .delay-4 {
+.modal.active .modal-nav .delay-3 {
   animation-delay: 1000ms;
+}
+
+.modal.active .modal-nav .delay-4 {
+  animation-delay: 1100ms;
 }
 
 .preserve .button:after {

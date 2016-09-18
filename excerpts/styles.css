@@ -9,26 +9,34 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* overflow: hidden; */
   background: transparent;
 }
 
 .excerpt-text {
-    overflow: auto;
-    background: white;
-    width: 100%;
-    /* height: 100%; */
-    padding: 10vh 0;
-    box-sizing: border-box;
+  overflow: auto;
+  background: white;
+  width: 100%;
+  /* height: 100%; */
+  padding: 10vh 0;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  animation: fadeIn;
+  animation-duration: 500ms;
+  animation-delay: 300ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in;
 }
 
 .excerpt-text p {
   line-height: 1.8em;
-  margin-bottom: 2rem;
   padding-left: 15vw;
   padding-right: 15vw;
+  max-width: 600px;
+  margin: 0 auto 2rem;
 }
 
 .excerpt-subtitle {
@@ -54,4 +62,5 @@ a {
 .content-container {
   text-align: center;
   margin: 0 auto;
+  margin-top: 4rem;
 }
