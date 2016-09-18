@@ -244,6 +244,10 @@
         document.body.addEventListener('keydown', function(event){
           if (event.keyCode === 27) {
             hideModalOverlay();
+          } else if (event.keyCode === 39) {
+            document.getElementById('next').click();
+          } else if (event.keyCode === 37) {
+            document.getElementById('previous').click();
           }
         });
       }
