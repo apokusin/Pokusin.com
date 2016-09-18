@@ -18,7 +18,7 @@ body {
   background: #f3f3f3;
 }
 
-body.stop-scrolling {
+body.modal-active {
   overflow: hidden;
 }
 
@@ -285,7 +285,7 @@ body.stop-scrolling {
   0% {
     opacity: 0;
     visibility: hidden;
-    transform: translateY(33%)
+    transform: translateY(10%)
   }
   100% {
     opacity: 1;
@@ -897,13 +897,15 @@ a.button.button-primary:hover, a.button.button-primary:focus {
   margin-right: 4px;
 }
 
-.modal .modal-content {background: white;margin: 0;padding: 0;overflow: auto;border-radius: 5px;box-shadow: 0px 2px 4px rgba(0,0,0,0.5), 0px 1px 48px rgba(0,0,0,0.35);height: 90vh;width: 100%;max-width: 1024px;}
+.modal .modal-content {background: white;margin: 0;padding: 0;overflow-y: auto;border-radius: 5px;box-shadow: 0px 2px 4px rgba(0,0,0,0.5), 0px 1px 48px rgba(0,0,0,0.35);height: 90vh;width: 100%;max-width: 1024px;}
 
-.modal .modal-hero-area {margin: 0;max-height: 29vh;overflow: hidden;/* border-bottom: 1px solid rgba(0,0,0,0.1); */display: block;padding: 0;}
+.modal .modal-hero-area {margin: 0;max-height: 46vh;overflow: hidden;/* border-bottom: 1px solid rgba(0,0,0,0.1); */display: block;padding: 0;border-top-left-radius: 4px;border-top-right-radius: 3px;}
 
 .modal .modal-hero-area img {
     max-width: 100%;
     width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .modal .modal-content-wrapper {
@@ -925,6 +927,7 @@ a.button.button-primary:hover, a.button.button-primary:focus {
     margin-top: 3rem;
     margin-bottom: 3rem;
     overflow: auto;
+    background: white;
 }
 
 .modal .modal-content .modal-text p {
@@ -1053,3 +1056,26 @@ button.button.button-close {}
 .modal.active .modal-nav .delay-4 {
   animation-delay: 1000ms;
 }
+
+.preserve .button:after {
+  background-image: url('/link-arrow-right-small-light.svg');
+}
+
+.charge-wireless .button:after {
+    background-image: url('/link-arrow-right-small-light.svg');
+}
+
+
+
+.snippet button:disabled {
+    opacity: 0.5;
+}
+
+.snippet button:disabled:after {
+    display: none;
+}
+
+.snippet button:disabled:hover, .snippet button:disabled:focus {
+    transform: none;
+    opacity: 0.5;
+    cursor: not-allowed;

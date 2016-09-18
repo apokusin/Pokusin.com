@@ -71,22 +71,22 @@
             <h4 class="snippets-title">Design excerpts</h4>
             <ul class="snippet-list">
               <li class="snippet">
-                <button id="show-modal">Marketing pages</button>
+                <button data-excerpt-id="chargeWirelessMarketing" class="modal-trigger">Marketing pages</button>
               </li>
               <li class="snippet">
-                <button>Onboarding experience</button>
+                <button data-excerpt-id="chargeWirelessOnboarding" class="modal-trigger">Onboarding experience</button>
               </li>
               <li class="snippet">
-                <button>Order a SIM card</button>
+                <button data-excerpt-id="chargeWirelessOrderSIM" class="modal-trigger">Order a SIM card</button>
               </li>
               <li class="snippet">
-                <button>Activate a device</button>
+                <button data-excerpt-id="chargeWirelessActivateDevice" class="modal-trigger">Activate a device</button>
               </li>
               <li class="snippet">
-                <button>Referrals</button>
+                <button data-excerpt-id="chargeWirelessReferrals" class="modal-trigger">Referrals</button>
               </li>
               <li class="snippet">
-                <button>SIM card delivery</button>
+                <button data-excerpt-id="chargeWirelessSIMDelivery" class="modal-trigger">SIM card delivery</button>
               </li>
             </ul>
           </footer>
@@ -106,7 +106,7 @@
             <h4 class="snippets-title">Design excerpts</h4>
             <ul class="snippet-list">
               <li class="snippet">
-                <button>Notification sounds</button>
+                <button data-excerpt-id="messengerNotificationSounds" class="modal-trigger">Notification sounds</button>
               </li>
               <li class="snippet">
                 <button>Message bubble design</button>
@@ -133,13 +133,16 @@
             <h3 class="block-title">Bolt Phone Dialer</h3>
             <p class="block-subtitle">Design Lead</p>
             <p class="block-description">A free cross-platform, multi-device messaging app which helps move your phone number by providing a way to text anywhere you have internet. We built Charge Messenger to work on iOS, Android, and the web.</p>
-            <div class="block-actions">
+<!--             <div class="block-actions">
               <a href="/work/charge-carrier" class="button button-primary">Check it out</a>
-            </div>
+            </div> -->
           </header>
           <footer class="block-snippets">
             <h4 class="snippets-title">Design excerpts</h4>
             <ul class="snippet-list">
+              <li class="snippet">
+                <button>Android app</button>
+              </li>
               <li class="snippet">
                 <button>Press kit</button>
               </li>
@@ -158,27 +161,10 @@
       </article>
     </main>
   </div>
-  <div id="modal" class="modal">
-    <div class="modal-content-wrapper">
-      <div class="modal-content">
-        <figure class="modal-hero-area">
-          <img src="/charge-messenger-bg.jpg" alt="">
-        </figure>
-        <div class="modal-text">
-          <h3 class="modal-subtitle">Charge: Mobile Carrier</h3>
-          <h4 class="modal-title">Marketing pages</h4>
-          <p>This sis a ofiajweofiajwoeifaowejfoawiejfoawiejfoai owai fjaowiefj oaweij foaweijf aw</p>
-          <p>aowiejfoaiwej faweij fwaoeif joawiejf oaiwefjoaiwejf oawiejf oaijwe fa</p>
-          <p>awpeofiajwpefoiajwepfiajpwoeif ewpo ijfapwo ijfepaw ijfpaweijpfawj efpawe aw e</p>
-        </div>
-      </div>
-    </div>
-    <div class="modal-nav">
-      <button class="button button-back popIn delay-1">Previous</button>
-      <button class="button button-next popIn delay-2">Next</button>
-      <hr class="divider fadeIn delay-3" />
-      <button id="close-modal" class="button button-close popIn delay-4">Close</button>
-    </div>
+
+  <div id="modalContainer" class="modal">
+    <!--   "iiinput. NEED IIIINPUT"  -->
+    <!--                - JONNY 5    -->
   </div>
 
   <script>
@@ -192,23 +178,132 @@
 
   </script>
   <script src="/product-page.js"></script>
+  <script src="/handlebars.min.js"></script>
+
+
+  <script id="excerpt-template" type="text/x-handlebars-template">
+      <div class="modal-content-wrapper">
+        <div class="modal-content">
+          <figure class="modal-hero-area">
+            {{{ figureHTML }}}
+          </figure>
+          <div class="modal-text">
+            <h3 class="modal-subtitle">{{ project }}</h3>
+            <h4 class="modal-title">{{ title }}</h4>
+            {{{ descriptionHTML }}}
+          </div>
+        </div>
+      </div>
+      <div class="modal-nav">
+        <button class="button button-back popIn delay-1">Previous</button>
+        <button class="button button-next popIn delay-2">Next</button>
+        <hr class="divider fadeIn delay-3" />
+        <button id="close-modal" class="button button-close popIn delay-4">Close</button>
+      </div>
+    </div>
+  </script>
+
   <script>
   (function() {
-    var modal = document.getElementById('modal'); // make this something programmatic
-    var hideModalEl = document.getElementById('close-modal');
-    var showModalEl = document.getElementById('show-modal');
+      
+
+      var excerpts = {
+        //  schema:
+        //  - project
+        //  - title
+        //  - figureHTML
+        //  - descriptionHTML
+        'chargeWirelessMarketing': {
+          'project': 'Charge: Mobile Carrier',
+          'title': 'Marketing pages',
+          'figureHTML': '<img src="/charge-wireless-marketing-pages.jpg" alt="">',
+          'descriptionHTML': '<p>Plenty of marketing pages to go around!</p>'
+        },
+        'messengerNotificationSounds': {
+          'project': 'Charge Messenger',
+          'title': 'Notification sounds',
+          'descriptionHTML': '<p>We played with a few notification sounds. Play with them!</p>'
+        }
+      };
+
+      function setExcerptTriggers() {
+        var allTriggerElements = document.querySelectorAll('.modal-trigger');
+        for (var i = 0; i < allTriggerElements.length; i++) {
+          var element = allTriggerElements[i];
+          element.addEventListener("click", function() {
+            showExcerpt(this.dataset.excerptId);
+          });
+        }
+      }
+      setExcerptTriggers();
+
+
+//       MODAL code
+
+      var modalContainer = document.getElementById('modalContainer');
+
+
+      function displayModalOverlay() {
+        modalContainer.classList.add('active');
+        document.body.classList.add('modal-active');
+        document.body.addEventListener('keydown', function(event){
+          if (event.keyCode === 27) {
+            hideModalOverlay();
+          }
+        })
+      }
+
+      function hideModalOverlay() {
+        modalContainer.classList.remove('active');
+        document.body.classList.remove('modal-active');
+      }
+
+
+      var excerptSource = document.getElementById('excerpt-template').text;
+//       console.log('source', excerptSource);
+
+      var excerptTemplate = Handlebars.compile(excerptSource);
+
+
+      function showExcerpt(id) {
+//      display excerpt in a programmatic way
+        var data = excerpts[id];
+        console.log(id, data);
+        if (data) {
+          if (!document.body.classList.contains('modal-active')) {
+            displayModalOverlay();
+          }
+          var html = excerptTemplate(data);
+          modalContainer.innerHTML = html;
+          document.getElementById('close-modal').addEventListener('click', hideModalOverlay);
+        }
+  
+      }
+
+
+
+
+
+
+
+
+
+
+
+//     function constructExcerpt(modalName) {
+      
+//       var result = excerptTemplate(modals[modalName]);
+
+//       document.body.append(result);
+//     }
+
     function showModal() {
-      modal.classList.add('active');
-      document.body.classList.add('stop-scrolling');
+
+//       var hideModalEl = document.getElementById('close-modal');
+//       hideModalEl.addEventListener('mousedown', hideModal);
     }
 
-    function hideModal() {
-      modal.classList.remove('active');
-      document.body.classList.remove('stop-scrolling');
-    }
-
-    showModalEl.addEventListener('mousedown', showModal);
-    hideModalEl.addEventListener('mousedown', hideModal);
+//     showModalEl.addEventListener('mousedown', showModal);
   })();
   </script>
 </body>
