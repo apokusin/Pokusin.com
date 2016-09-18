@@ -422,14 +422,14 @@ body.modal-active {
     box-sizing: border-box;
     padding-top: 7vh;
     padding-bottom: 7vh;
-    background-image: url('https://manage.charge.co/images/lady-phone-light.jpg');
+    /* background-image: url('https://manage.charge.co/images/lady-phone-light.jpg'); */
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: white;
     margin: 4rem;
     border-radius: 5px;
-    box-shadow: 0px 1px 3px rgba(0,0,0,0.2), 0px 1px 36px rgba(0,0,0,0.05);
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.1), 0px 1px 36px rgba(0,0,0,0.035);
     position: relative;
     overflow: hidden;
     border: none;
@@ -476,6 +476,7 @@ body.modal-active {
     background: white;
     box-shadow: 0px 2px 3px rgba(0,0,0,0.1);
     transition: all 200ms ease-out;
+    border: 2px solid;
 }
 
 .block-item .block-description {
@@ -543,6 +544,7 @@ body.content-page {
     background: #f56600;
     color: white;
     border-radius: 4px;
+    border: none;
 }
 
 .charge-messenger .button {
@@ -847,19 +849,25 @@ a.button.button-primary:hover, a.button.button-primary:focus {
 
 }
 
-#page-navigation {
-    opacity: 1;
-    transition: all 250ms ease-out;
-}
-
 #page-navigation.faded {
     opacity: 0.95;
     transition: all 500ms ease-out;
 }
 
-#page-navigation.faded .link {
-    color: #797979;
+#page-navigation {
+  opacity: 1;
+  transition: all 250ms ease-out;
 }
+
+#page-navigation.faded .link {
+  color: #797979;
+}
+
+#page-navigation .link {
+  opacity: 1;
+  transition: all 250ms ease-out;
+}
+
 
 #page-navigation.active .link:after {
     background-image: url('/link-arrow-right-small.svg') !important;

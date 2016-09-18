@@ -60,7 +60,22 @@ a {
 }
 
 .content-container {
-  text-align: center;
   margin: 0 auto;
   margin-top: 4rem;
+}
+
+.excerpt-text .excerpt-figure img {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.excerpt-text .excerpt-figure {
+    box-sizing: border-box;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.content-container.content-center {
+    text-align: center;
 }
