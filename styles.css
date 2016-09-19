@@ -1101,12 +1101,13 @@ a.button.button-primary.button-archives {
 
 .actions .button {
   display: flex;
-  height: 100%;
   width: 100%;
   padding: 0;
   padding-left: 4vw;
   padding-right: 7vw;
   margin-right: 0;
+  height: 15vh;
+  min-height: 100%;
 }
 
 

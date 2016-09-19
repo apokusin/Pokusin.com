@@ -2,7 +2,6 @@
 // https://www.youtube.com/watch?v=NPwyyjtxlzU
 
 function init() {
-  console.log('init should be loaded now uh idk why it hasnt?', window);
   window.removeEventListener('load', init, false);
   var elementToHide = document.getElementById('page-navigation');
 

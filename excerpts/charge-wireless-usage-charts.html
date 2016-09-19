@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/excerpts/styles.css">
 
-<div class="excerpt-text">
+<div id="contentContainer" class="excerpt-text">
   <h3 class="excerpt-subtitle">Charge: Mobile Carrier</h3>
   <h4 class="excerpt-title">Usage Charts</h4>
   <p>Most customers will log in to their management dashboard to either fix a problem or check their recent usage. In order for a customer to see a meaningful amount of data, I opted for two designs. One design for large displays and one for mobile devices.</p>
@@ -15,3 +15,13 @@
     <img src="/excerpts/usage-charts.jpg" alt="">
   </figure>
 </div>
+
+<script>
+function init() {
+  window.removeEventListener('load', init, false);
+  document.getElementById('contentContainer').scrollIntoView();
+}
+
+window.addEventListener('load', init, false);
+
+</script>
