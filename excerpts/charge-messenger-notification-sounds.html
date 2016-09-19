@@ -166,6 +166,11 @@
       <span class="notificationIcon" id="notificationIcon">0</span>
       Notification sounds
         
+    
+    
+    
+    
+    
     </span>
   </h4>
   <p>Charge Messenger plays a cheery alert sound when a new message is received. I wanted something more distinct than the default iMessage sound, so I decided to use my musical ability to come up with something unique.</p>
@@ -175,6 +180,11 @@
     . Play around with them!
   
     
+  
+  
+  
+  
+  
   <div class="content-container content-center">
     <button class="round-button--large" id="buttonNotificationJingleA">
       <span class="round-button-play">
@@ -205,9 +215,12 @@
     </button>
   </div>
 </div>
+<div class="visualizer-area">
+  <canvas id="visualizer"></canvas>
+</div>
 <script>
   var a = document.querySelector('excerpt-title');
-  var context, jingleABuffer, jingleBBuffer, jingleCBuffer;
+  var context, analyser, dataArray, visualizerEl, WIDTH, HEIGHT, drawVisual, bufferLength, jingleABuffer, jingleBBuffer, jingleCBuffer, visualizerCanvas;
   window.addEventListener('load', init, false);
   function init() {
     try {
@@ -216,6 +229,7 @@
       loadJingleA();
       loadJingleB();
       loadJingleC();
+      setupVisualizer();
     } catch (e) {
       console.log('Web Audio API not supported.');
     }
@@ -276,7 +290,46 @@
   jingleElementC.addEventListener('click', function() {
     playSound(JingleCBuffer);
   });
+  function setupVisualizer() {
+    console.log('setupVisualizer');
+    analyser = context.createAnalyser();
+    WIDTH = window.innerWidth;
+    HEIGHT = 300;
+    visualizerEl = document.getElementById('visualizer');
+    visualizerEl.width = WIDTH;
+    visualizerEl.height = HEIGHT;
+    visualizerCanvas = visualizerEl.getContext("2d");
+    analyser.fftSize = 2048;
+    bufferLength = analyser.frequencyBinCount;
+    dataArray = new Uint8Array(bufferLength);
+    visualizerCanvas.clearRect(0, 0, WIDTH, HEIGHT);
+  }
+  function draw() {
+    console.log('draw', draw);
+    drawVisual = requestAnimationFrame(draw);
+    analyser.getByteTimeDomainData(dataArray);
+    visualizerCanvas.fillStyle = 'rgb(230, 20, 210)';
+    visualizerCanvas.fillRect(0, 0, WIDTH, HEIGHT);
+    visualizerCanvas.lineWidth = 2;
+    visualizerCanvas.strokeStyle = 'rgb(40, 95, 95)';
+    visualizerCanvas.beginPath();
+    var sliceWidth = WIDTH * 1.0 / bufferLength;
+    var x = 0;
+    for (var i = 0; i < bufferLength; i++) {
+      var v = dataArray[i] / 128.0;
+      var y = v * HEIGHT / 2;
+      if (i === 0) {
+        visualizerCanvas.moveTo(x, y);
+      } else {
+        visualizerCanvas.lineTo(x, y);
+      }
+      x += sliceWidth;
+    }
+    visualizerCanvas.lineTo(visualizerEl.width, visualizerEl.height / 2);
+    visualizerCanvas.stroke();
+  }
   function playSound(buffer) {
+
     notificationElement.classList.add('active');
     notificationElement.classList.add('emphasize');
     document.getElementById('notificationIconContainer').addEventListener('click', function() {
@@ -297,9 +350,16 @@
     source.buffer = buffer;
     // tell the source which sound to play
     source.connect(context.destination);
+    analyser.connect(context.destination);
+    draw();
     // connect the source to the context's destination (the speakers)
     source.start(0);
     // play the source now
     //                                            // note: on older systems, may have to use deprecated noteOn(time);
+    source.addEventListener('ended', clearVisualizer);
+  }
+
+  function clearVisualizer() {
+    analyser
   }
 </script>
