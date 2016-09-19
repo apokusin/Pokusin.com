@@ -73,16 +73,17 @@ body.modal-active {
   letter-spacing: -0.055em;
 }
 
+/* Global BGO color palette, utility classes */
 .text-blue {
-  color: #3981ED;
+  color: #3981ED !important;
 }
 
 .text-green {
-  color: #56B863;
+  color: #56B863 !important;
 }
 
 .text-orange {
-  color: #F78D3F;
+  color: #F78D3F !important;
 }
 
 .subtitle::after {
@@ -1382,4 +1383,14 @@ a.button.button-primary.button-archives {
   .snippet-list .snippet {
   }
 
+}
+
+
+.block-content .link-list {
+  padding-left: 1rem;
+  line-height: 1.4em;
+}
+
+.block-content .link-list li {
+  padding-bottom: 0.5em;
 }

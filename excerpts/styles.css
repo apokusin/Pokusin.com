@@ -131,3 +131,8 @@ em.text-yellow {
     font-size: 1rem;
   }
 }
+
+.excerpt-figure a {
+  display: block;
+  max-width: 100%;
+}
