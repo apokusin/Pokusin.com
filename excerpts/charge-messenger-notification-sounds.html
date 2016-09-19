@@ -233,7 +233,7 @@
 
     function loadJingleA() {
       var request = new XMLHttpRequest();
-      request.open('GET', 'https://artur.pokusin.com/misc/JingleA.mp3', true);
+      request.open('GET', '/audio/JingleA.mp3', true);
       request.responseType = 'arraybuffer';
       request.onload = function() {
         context.decodeAudioData(request.response, function(buffer) {
@@ -250,7 +250,7 @@
     }
     function loadJingleB() {
       var request = new XMLHttpRequest();
-      request.open('GET', 'https://artur.pokusin.com/misc/JingleB.mp3', true);
+      request.open('GET', '/audio/JingleB.mp3', true);
       request.responseType = 'arraybuffer';
       request.onload = function() {
         context.decodeAudioData(request.response, function(buffer) {
@@ -267,7 +267,7 @@
     }
     function loadJingleC() {
       var request = new XMLHttpRequest();
-      request.open('GET', 'https://artur.pokusin.com/misc/JingleC.mp3', true);
+      request.open('GET', '/audio/JingleC.mp3', true);
       request.responseType = 'arraybuffer';
       request.onload = function() {
         context.decodeAudioData(request.response, function(buffer) {
