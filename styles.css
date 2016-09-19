@@ -1109,18 +1109,19 @@ a.button.button-primary.button-archives {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 2rem;
+  left: 0.75rem;
 }
 
 .actions .button {
   display: flex;
   width: 100%;
   padding: 0;
-  padding-left: 4vw;
+  padding-left: 7vw;
   padding-right: 7vw;
   margin-right: 0;
   height: 15vh;
   min-height: 100%;
+  position: relative;
 }
 
 
@@ -1406,4 +1407,7 @@ a.button.button-primary.button-archives {
 }
 
 .block-content .link-list li {
+  color: rgba(0,0,0,0.54);
   padding-bottom: 0.5em;
+  padding-bottom: 0.5em;
+}
