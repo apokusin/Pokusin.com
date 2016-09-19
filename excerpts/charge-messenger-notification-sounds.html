@@ -206,6 +206,7 @@
   <canvas id="visualizer"></canvas>
 </div>
 <script>
+(function() {
   var a = document.querySelector('excerpt-title');
   var context, analyser, dataArray, visualizerEl, WIDTH, HEIGHT, drawVisual, bufferLength, jingleABuffer, jingleBBuffer, jingleCBuffer, visualizerCanvas;
   var shouldEndDraw = false;
@@ -228,6 +229,9 @@
     request.onload = function() {
       context.decodeAudioData(request.response, function(buffer) {
         JingleABuffer = buffer;
+        document.getElementById('buttonNotificationJingleA').addEventListener('click', function() {
+          playSound(JingleABuffer);
+        });
       }, function(e) {
         console.log('error loading jingles');
       });
@@ -242,6 +246,9 @@
     request.onload = function() {
       context.decodeAudioData(request.response, function(buffer) {
         JingleBBuffer = buffer;
+        document.getElementById('buttonNotificationJingleB').addEventListener('click', function() {
+          playSound(JingleBBuffer);
+        });
       }, function(e) {
         console.log('error loading jingles');
       });
@@ -256,6 +263,9 @@
     request.onload = function() {
       context.decodeAudioData(request.response, function(buffer) {
         JingleCBuffer = buffer;
+        document.getElementById('buttonNotificationJingleC').addEventListener('click', function() {
+          playSound(JingleCBuffer);
+        });
       }, function(e) {
         console.log('error loading jingles');
       });
@@ -263,20 +273,9 @@
     ;
     request.send();
   }
-  var jingleElementA = document.getElementById('buttonNotificationJingleA');
-  var jingleElementB = document.getElementById('buttonNotificationJingleB');
-  var jingleElementC = document.getElementById('buttonNotificationJingleC');
   var notificationElement = document.getElementById('notificationIcon');
   var notificationCount = 0;
-  jingleElementA.addEventListener('click', function() {
-    playSound(JingleABuffer);
-  });
-  jingleElementB.addEventListener('click', function() {
-    playSound(JingleBBuffer);
-  });
-  jingleElementC.addEventListener('click', function() {
-    playSound(JingleCBuffer);
-  });
+
   function setupVisualizer() {
     console.log('setupVisualizer');
     analyser = context.createAnalyser();
@@ -355,4 +354,5 @@
     };
   }
 
+})();
 </script>
