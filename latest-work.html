@@ -28,6 +28,15 @@
 <link rel="stylesheet" href="/styles.css">
 <body id="global-container" class="content-page">
   <div class="site-nav-wrapper">
+    <div id="mobile-navigation">
+      <div class="actions">
+        <a href="/" class="button button-back">Back</a>
+      </div>
+      <div class="labels">
+        <p class="title">Artur <span class="text-tighter">Pokusin</span></p>
+        <p class="subtitle text-blue">Latest work</p>
+      </div>
+    </div>
     <div id="page-navigation" class="container-site-nav">
       <div role="navigation">
         <h1 class="title">
@@ -178,11 +187,11 @@
         <iframe id="excerptUrlFrame" src></iframe>
       </div>
     </div>
-    <div class="modal-nav">
-      <button id="previous" class="button button-back popIn delay-1" disabled="true">Previous</button>
-      <button id="next" class="button button-next popIn delay-2" disabled="true">Next</button>
+    <div id="modalNav" class="modal-nav">
+      <button id="previous" class="modalNavButton button button-back popIn delay-1" disabled="true">Previous</button>
+      <button id="next" class="modalNavButton button button-next popIn delay-2" disabled="true">Next</button>
       <hr class="divider fadeIn delay-3"/>
-      <button id="close-modal" class="button button-close popIn delay-4">Close</button>
+      <button id="modalClose" class="button button-close popIn delay-4">Close</button>
     </div>
   </div>
   <script src="/product-page.js"></script>
@@ -192,21 +201,43 @@
       var allExcerptTriggers = document.querySelectorAll('.modal-trigger');
       var nextElTrigger = document.getElementById('next');
       var prevElTrigger = document.getElementById('previous');
-      function setTrigger(element) {
-        var self = element;
-        if (self && self.dataset.excerptIndex > -1 && self.dataset.excerptIndex < excerpts.length) {
-          self.removeAttribute('disabled');
-          var index = parseInt(self.dataset.excerptIndex);
-          self.addEventListener("click", function() {
-            nextElTrigger.setAttribute('data-excerpt-index', index + 1);
-            prevElTrigger.setAttribute('data-excerpt-index', index - 1);
-            setTrigger(nextElTrigger);
-            setTrigger(prevElTrigger);
-            showExcerpt(excerpts[index]);
-          });
-        } else {
-          self.setAttribute('disabled', 'true');
+
+      function keyboardHandler(event) {
+        handleKeyboardNav(event.keyCode);
+      }
+
+      function handleNavClick(event) {
+        var target = event.target;
+        if (target.dataset.excerptIndex) {
+          showExcerpt(parseInt(target.dataset.excerptIndex));
         }
+      }
+
+      function setTrigger(element) {
+          var index = parseInt(element.dataset.excerptIndex);
+          element.addEventListener('click', function() {
+              showExcerpt(index);
+          }, false);
+      }
+      function updateNav(index) {
+        var nextIndex = index + 1;
+        var prevIndex = index -1;
+        
+        if (nextIndex > -1 && nextIndex < excerpts.length) {
+          nextElTrigger.removeAttribute('disabled');
+          nextElTrigger.setAttribute('data-excerpt-index', nextIndex);
+        } else {
+          nextElTrigger.setAttribute('disabled', 'true');
+        }
+
+        if (prevIndex > -1 && prevIndex < excerpts.length) {
+          prevElTrigger.removeAttribute('disabled');
+          prevElTrigger.setAttribute('data-excerpt-index', prevIndex);
+        } else {
+          prevElTrigger.setAttribute('disabled', 'true');
+        }
+
+
       }
       function setExcerptTriggers() {
         for (var i = 0; i < allExcerptTriggers.length; i++) {
@@ -214,9 +245,7 @@
         }
       }
       setExcerptTriggers();
-      function updateNav() {}
       //       MODAL code
-      var modalContainer = document.getElementById('modalContainer');
       function handleKeyboardNav(keyCode) {
         if (keyCode === 27) {
           hideModalOverlay();
@@ -226,30 +255,38 @@
           document.getElementById('previous').click();
         }
       }
+      var modalContainer = document.getElementById('modalContainer');
+      var modalNav = document.getElementById('modalNav');
+      var modalClose = document.getElementById('modalClose');
+
       function displayModalOverlay() {
         modalContainer.classList.add('active');
         document.body.classList.add('modal-active');
-        document.getElementById('close-modal').addEventListener('click', hideModalOverlay);
-        document.body.addEventListener('keydown', function(event) {
-          handleKeyboardNav(event.keyCode);
-        });
+        modalNav.addEventListener('click', handleNavClick, true);
+        modalClose.addEventListener('click', hideModalOverlay);
+        document.body.addEventListener('keydown', keyboardHandler, false);
       }
       function hideModalOverlay() {
-        document.getElementById('modalContainer').classList.remove('no-transition');
-        modalContainer.classList.remove('active');
         document.body.classList.remove('modal-active');
+        modalContainer.classList.remove('active');
+        modalNav.removeEventListener('click', handleNavClick, false);
+        modalClose.removeEventListener('click', hideModalOverlay, false);
+        document.body.removeEventListener('keydown', keyboardHandler, false);
       }
-      function showExcerpt(url) {
+      var excerptFrame = document.getElementById('excerptUrlFrame');
+      
+      function showExcerpt(index) {
+        var url = excerpts[index];
         if (!document.body.classList.contains('modal-active')) {
           displayModalOverlay();
         }
-        var frame = document.getElementById('excerptUrlFrame');
+        updateNav(index);
         modalContainer.classList.add('loading');
-        frame.setAttribute('src', url);
-        frame.onload = function() {
+        excerptFrame.setAttribute('src', url);
+        excerptFrame.onload = function() {
           modalContainer.classList.remove('loading');
-        }
-        ;
+          this.onload = '';
+        };
       }
     }
     window.addEventListener('load', function load(event) {
