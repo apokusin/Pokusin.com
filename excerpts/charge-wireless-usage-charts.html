@@ -19,7 +19,7 @@
 <script>
 function init() {
   window.removeEventListener('load', init, false);
-  document.getElementById('contentContainer').scrollIntoView();
+  document.querySelector('.excerpt-text').scrollTop = 0;
 }
 
 window.addEventListener('load', init, false);
