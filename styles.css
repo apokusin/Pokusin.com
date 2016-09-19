@@ -991,7 +991,7 @@ button.button.button-close {}
     transform: scale(1.1);
     transition: all 100ms ease-in;
     opacity: 1;
-    border-color: inherit !important;
+    border-color: white;
     outline: 0;
 }
 
@@ -1129,4 +1129,8 @@ button.button.button-close {}
 
 a.button.button-primary.button-archives {
     color: green;
+}
+
+.modal-nav .button.button-close:hover, .modal-nav .button.button-close:focus {
+    border-color: #f20000;
 }

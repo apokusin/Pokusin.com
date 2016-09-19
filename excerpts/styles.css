@@ -79,3 +79,15 @@ a {
 .content-container.content-center {
     text-align: center;
 }
+
+@media screen and (max-height: 768px) {
+  body {
+    font-size:14px
+  }
+  .excerpt-text p {
+    max-width: 500px;
+  }
+  .excerpt-text .excerpt-figure {
+      max-width: 80%
+  }
+}
