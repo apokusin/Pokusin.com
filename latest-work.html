@@ -208,10 +208,11 @@
 
 
       function setTrigger(element) {
-        if (element && element.dataset.excerptIndex > -1 && element.dataset.excerptIndex < excerpts.length) {
-          element.removeAttribute('disabled');
-          var index = parseInt(element.dataset.excerptIndex);
-          element.addEventListener("click", function() {
+        var self = element;
+        if (self && self.dataset.excerptIndex > -1 && self.dataset.excerptIndex < excerpts.length) {
+          self.removeAttribute('disabled');
+          var index = parseInt(self.dataset.excerptIndex);
+          self.addEventListener("click", function() {
             nextElTrigger.setAttribute('data-excerpt-index', index+1);
             prevElTrigger.setAttribute('data-excerpt-index', index-1);
             
@@ -221,7 +222,7 @@
             showExcerpt(excerpts[index]);
           });
         } else {
-          element.setAttribute('disabled', 'true');
+          self.setAttribute('disabled', 'true');
         }
       }
 
@@ -277,17 +278,7 @@
         frame.onload = function() {
           modalContainer.classList.remove('loading');
         };
-        //         set previous/next listeners
       }
-//       set listener for iframe keyboard nav
-       window.addEventListener("message", receiveMessage, false);
-       function receiveMessage(event) {
-         if (event.origin !== window.location.origin) {
-           return;
-         }
-         var keyCode = event;
-         handleKeyboardNav(keyCode);
-       }
 
   })();
   </script>
