@@ -1173,6 +1173,7 @@ a.button.button-primary.button-archives {
     top: 0;
     z-index: 5;
     background: white;
+    border-bottom: 1px solid #eee;
   }
   .content-page .site-nav-wrapper {
     display: block;
