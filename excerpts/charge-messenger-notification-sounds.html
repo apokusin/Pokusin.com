@@ -202,22 +202,19 @@
   <p><em class="text-yellow">The second</em> is an electric piano, which I tweaked to sound more metallic. This one was removed in favor of the third and final sound.</p>
   <p><em class="text-green">The third</em> is the same electric piano as the second, but with a more full sound. I reduced the metallic sound and added a subtle echo, which ended up coming through much better on real phone speakers.</p>
 </div>
-<div class="visualizer-area">
-  <canvas id="visualizer"></canvas>
-</div>
 <script>
 (function() {
   var a = document.querySelector('excerpt-title');
-  var context, analyser, dataArray, visualizerEl, WIDTH, HEIGHT, drawVisual, bufferLength, jingleABuffer, jingleBBuffer, jingleCBuffer, visualizerCanvas;
+  var context;
   var shouldEndDraw = false;
   window.addEventListener('load', init, false);
   function init() {
     try {
+      window.AudioContext = window.AudioContext || window.webkitAudioContext;
       context = new AudioContext();
       loadJingleA();
       loadJingleB();
       loadJingleC();
-      setupVisualizer();
     } catch (e) {
       console.log('Web Audio API not supported.');
     }
@@ -228,15 +225,14 @@
     request.responseType = 'arraybuffer';
     request.onload = function() {
       context.decodeAudioData(request.response, function(buffer) {
-        JingleABuffer = buffer;
+        var JingleABuffer = buffer;
         document.getElementById('buttonNotificationJingleA').addEventListener('click', function() {
           playSound(JingleABuffer);
         });
       }, function(e) {
         console.log('error loading jingles');
       });
-    }
-    ;
+    };
     request.send();
   }
   function loadJingleB() {
@@ -245,15 +241,14 @@
     request.responseType = 'arraybuffer';
     request.onload = function() {
       context.decodeAudioData(request.response, function(buffer) {
-        JingleBBuffer = buffer;
+        var JingleBBuffer = buffer;
         document.getElementById('buttonNotificationJingleB').addEventListener('click', function() {
           playSound(JingleBBuffer);
         });
       }, function(e) {
         console.log('error loading jingles');
       });
-    }
-    ;
+    };
     request.send();
   }
   function loadJingleC() {
@@ -262,65 +257,22 @@
     request.responseType = 'arraybuffer';
     request.onload = function() {
       context.decodeAudioData(request.response, function(buffer) {
-        JingleCBuffer = buffer;
+        console.log('decoded C');
+        var JingleCBuffer = buffer;
         document.getElementById('buttonNotificationJingleC').addEventListener('click', function() {
           playSound(JingleCBuffer);
         });
       }, function(e) {
         console.log('error loading jingles');
       });
-    }
-    ;
+    };
     request.send();
   }
   var notificationElement = document.getElementById('notificationIcon');
   var notificationCount = 0;
 
-  function setupVisualizer() {
-    console.log('setupVisualizer');
-    analyser = context.createAnalyser();
-    WIDTH = window.innerWidth;
-    HEIGHT = 300;
-    visualizerEl = document.getElementById('visualizer');
-    visualizerEl.width = WIDTH;
-    visualizerEl.height = HEIGHT;
-    visualizerCanvas = visualizerEl.getContext("2d");
-    analyser.fftSize = 512;
-    bufferLength = analyser.frequencyBinCount;
-    dataArray = new Uint8Array(bufferLength);
-    visualizerCanvas.clearRect(0, 0, WIDTH, HEIGHT);
-  }
-  function draw() {
-    if (shouldEndDraw) {
-       visualizerEl.setAttribute('style', 'opacity: 0');
-//       requestAnimationFrame(draw);
-      return;
-    }
-    visualizerEl.setAttribute('style', 'opacity: 1');
-    drawVisual = requestAnimationFrame(draw);
-    analyser.getByteTimeDomainData(dataArray);
-    visualizerCanvas.fillStyle = '#fff';
-    visualizerCanvas.fillRect(0, 0, WIDTH, HEIGHT);
-    visualizerCanvas.lineWidth = 15;
-    visualizerCanvas.strokeStyle = '#ccc';
-    visualizerCanvas.beginPath();
-    var sliceWidth = WIDTH * 1.0 / bufferLength;
-    var x = 0;
-    for (var i = 0; i < bufferLength; i++) {
-      var v = dataArray[i] / 128.0;
-      var y = v * HEIGHT;
-      if (i === 0) {
-        visualizerCanvas.moveTo(x, y);
-      } else {
-        visualizerCanvas.lineTo(x, y);
-      }
-      x += sliceWidth;
-    }
-    visualizerCanvas.lineTo(visualizerEl.width, visualizerEl.height);
-    visualizerCanvas.stroke();
-  }
+
   function playSound(buffer) {
-    shouldEndDraw = false;
     notificationElement.classList.add('active');
     notificationElement.classList.add('emphasize');
     document.getElementById('notificationIconContainer').addEventListener('click', function() {
@@ -337,21 +289,9 @@
       notificationElement.classList.remove('emphasize');
     }, 200);
     var source = context.createBufferSource();
-    // creates a sound source
     source.buffer = buffer;
-    // tell the source which sound to play
     source.connect(context.destination);
-    source.connect(analyser);
-    analyser.connect(context.destination);
-    draw();
-    // connect the source to the context's destination (the speakers)
     source.start(0);
-    // play the source now
-    //                                            // note: on older systems, may have to use deprecated noteOn(time);
-    source.onended = function() {
-      shouldEndDraw = true;
-      console.log('clear', drawVisual);
-    };
   }
 
 })();
