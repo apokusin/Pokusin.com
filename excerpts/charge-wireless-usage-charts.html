@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<title>Charge Wireless: Usage Charts</title>
+<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7839872/7150772/css/fonts.css" />
+<link rel="stylesheet" href="/normalize.css">
+<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="/excerpts/styles.css">
+
+<div id="contentContainer" class="excerpt-text">
+  <h3 class="excerpt-subtitle">Charge: Mobile Carrier</h3>
+  <h4 class="excerpt-title">Usage Charts</h4>
+  <p>Most customers will log in to their management dashboard to either fix a problem or check their recent usage. In order for a customer to see a meaningful amount of data, I opted for two designs. One design for large displays and one for mobile devices.</p>
+  <p>Both versions are extremely similar, but the mobile version is slightly simplified. Instead of showing <strong>x</strong> and <strong>y</strong> axis labels, I show a simpler version of the chart. However, a customer will likely be looking at this chart trying to identify usage patterns or spikes. The mobile version of the chart makes sure to allow for this by identifying high-usage and low-usage days. This way a customer still have a rough idea of when their usage spiked, and how severely.</p>
+  <figure class="excerpt-figure">
+    <img src="/excerpts/usage-charts.jpg" alt="">
+  </figure>
+</div>
+
+<script>
+function init() {
+  window.removeEventListener('load', init, false);
+  document.querySelector('.excerpt-text').scrollTop = 0;
+}
+
+window.addEventListener('load', init, false);
+
+</script>

@@ -1,0 +1,138 @@
+html {
+  /* height: 100%; */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+body {
+  /* height: 100%; */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* overflow: hidden; */
+  background: transparent;
+}
+
+.excerpt-text {
+  overflow: auto;
+  /* background: white; */
+  width: 100%;
+  /* height: 100%; */
+  padding: 4rem 0 0;
+  box-sizing: border-box;
+}
+
+.excerpt-text p {
+  line-height: 1.8em;
+  padding-left: 15vw;
+  padding-right: 15vw;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.excerpt-subtitle {
+    text-align: center;
+    letter-spacing: -0.025em;
+    opacity: 0.5;
+    margin: 0;
+}
+
+.excerpt-title {
+    text-align: center;
+    font-size: 2.5rem;
+    letter-spacing: -0.07rem;
+    margin: 0.5em 0 1em 0;
+    width: auto;
+}
+
+
+a {
+    color: inherit;
+}
+
+.content-container {
+  margin: 0 auto;
+  margin-top: 4rem;
+}
+
+.excerpt-text .excerpt-figure img {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.excerpt-text .excerpt-figure {
+    box-sizing: border-box;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 4rem;
+    margin-top: 3rem;
+}
+
+.content-container.content-center {
+    text-align: center;
+}
+
+@media screen and (max-height: 768px) {
+  body {
+    font-size:14px
+  }
+  .excerpt-text p {
+    max-width: 500px;
+  }
+  .excerpt-text .excerpt-figure {
+      max-width: 80%
+  }
+}
+
+.visualizer-area {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 300px;
+  z-index: -1;
+}
+
+em.text-red {
+  color: #ff0000;
+  font-weight: bold;
+  font-style: initial;
+}
+
+em.text-green {
+  color: #6bd300;
+  font-weight: bold;
+  font-style: initial;
+}
+
+em.text-yellow {
+  color: #ffc502;
+  font-weight: bold;
+  font-style: initial;
+}
+
+@media screen and (max-width: 600px) {
+  .excerpt-title {
+    font-size: 1.7rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .excerpt-text .excerpt-figure {
+    max-width: 90%;
+  }
+  .excerpt-text p {
+    padding-left: 8vw;
+    padding-right: 8vw;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+.excerpt-figure a {
+  display: block;
+  max-width: 100%;
+}
