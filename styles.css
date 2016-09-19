@@ -470,6 +470,7 @@ body.modal-active {
     margin-right: 1rem;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .button.button-primary {
@@ -914,17 +915,19 @@ a.button.button-primary:hover, a.button.button-primary:focus {
 }
 
 .modal .button-back:before {
-  content:  '';
+  content: '';
   width: 10px;
   height: 12px;
   background: transparent url('/link-arrow-left-small-light.svg') center center no-repeat;
-  display: inline-block;
+  display: block;
   padding: 0;
   margin: 0;
   margin-right: 4px;
+  vertical-align: baseline;
+  flex: 1;
 }
 
-.modal .modal-content {background: white;margin: 0;padding: 0;overflow-y: auto;border-radius: 5px;box-shadow: 0px 2px 4px rgba(0,0,0,0.5), 0px 1px 48px rgba(0,0,0,0.35);height: 90vh;width: 100%;/* max-width: 1024px; */display: flex;justify-content: stre;align-items: center;flex-direction: column;border-radius: 0;/* overflow: hidden; */}
+.modal .modal-content {background: white;margin: 0;padding: 0;overflow-y: auto;border-radius: 5px;box-shadow: 0px 2px 4px rgba(0,0,0,0.5), 0px 1px 48px rgba(0,0,0,0.35);height: 90vh;width: 100%;/* max-width: 1024px; */display: flex;align-items: center;flex-direction: column;border-radius: 0;/* overflow: hidden; */}
 
 .modal .modal-hero-area {margin: 0;max-height: 46vh;overflow: hidden;border-bottom: 1px solid rgba(0,0,0,0.1);display: block;padding: 0;border-top-left-radius: 4px;border-top-right-radius: 3px;background: #f3f3f3;}
 
@@ -988,7 +991,6 @@ a.button.button-primary:hover, a.button.button-primary:focus {
 button.button.button-close {}
 
 .modal-nav .button:hover, .modal-nav .button:focus {
-    transform: scale(1.1);
     transition: all 100ms ease-in;
     opacity: 1;
     border-color: white;
@@ -1133,4 +1135,18 @@ a.button.button-primary.button-archives {
 
 .modal-nav .button.button-close:hover, .modal-nav .button.button-close:focus {
     border-color: #f20000;
+}
+
+#modalContainer.loading .modal-content iframe {
+    opacity: 0;
+}
+
+iframe#excerptUrlFrame.loading:before {content: '';width: 24px;height: 24px;background: red;position: absolute;z-index: 7;}
+
+#modalContainer.loading .modal-content:before {content: '';position: absolute;left: 0;right: 0;top: 0;bottom: 0;width: 64px;height: 64px;background: white url('/loading.gif') center center no-repeat;background-size: 64px 64px;display: flex;height: 100%;width: 100%;animation-name: popIn;animation-duration: 100ms;animation-timing-function: ease-out;animation-delay: 300ms;opacity: 0;visibility: hidden;animation-fill-mode: forwards;}
+
+#modalContainer.loading .modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

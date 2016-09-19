@@ -166,7 +166,7 @@
   <div id="modalContainer" class="modal">
     <div class="modal-content-wrapper">
       <div class="modal-content">
-        <iframe id="excerptUrl" src></iframe>
+        <iframe id="excerptUrlFrame" src></iframe>
       </div>
     </div>
     <div class="modal-nav">
@@ -267,7 +267,12 @@
         if (!document.body.classList.contains('modal-active')) {
           displayModalOverlay();
         }
-        document.getElementById('excerptUrl').setAttribute('src', url);
+        var frame = document.getElementById('excerptUrlFrame');
+        modalContainer.classList.add('loading');
+        frame.setAttribute('src', url);
+        frame.onload = function() {
+          modalContainer.classList.remove('loading');
+        };
         //         set previous/next listeners
       }
 
