@@ -282,6 +282,7 @@
         }
         updateNav(index);
         modalContainer.classList.add('loading');
+        excerptFrame.contentWindow.document.body.innerHTML = ''; // clear frame contents so scrolling isn't broken dear god i hope this works it's 6am
         excerptFrame.setAttribute('src', url);
         excerptFrame.onload = function() {
           modalContainer.classList.remove('loading');
