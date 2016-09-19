@@ -590,7 +590,7 @@ article.block-item.charge-messenger {
 }
 
 .block-snippets {
-    =: flex
+    display: flex
     margin-top: 1;
     display: block;
     margin-top: 4rem;
