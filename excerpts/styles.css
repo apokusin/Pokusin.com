@@ -96,3 +96,21 @@ a {
   height: 300px;
   z-index: -1;
 }
+
+em.text-red {
+  color: #ff0000;
+  font-weight: bold;
+  font-style: initial;
+}
+
+em.text-green {
+  color: #6bd300;
+  font-weight: bold;
+  font-style: initial;
+}
+
+em.text-yellow {
+  color: #ffc502;
+  font-weight: bold;
+  font-style: initial;
+}
