@@ -1,165 +1,186 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <title>Charge Messenger: Notification Sounds</title>
-<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7839872/7150772/css/fonts.css" />
+<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7839872/7150772/css/fonts.css"/>
 <link rel="stylesheet" href="/normalize.css">
 <link rel="stylesheet" href="/styles.css">
 <link rel="stylesheet" href="/excerpts/styles.css">
 <style>
-.round-button--large {
-  width: 72px;
-  height: 72px;
-  display: inline-block;
-  border-radius: 50%;
-  font-size: 24px;
-  line-height: 24px;
-  background: transparent;
-  border: none;
-  margin: 0;
-  margin-right: 4rem;
-  padding: 0;
-  cursor: pointer;
-  outline: 0;
-  -webkit-transition: all 100ms ease-in;
-  transition: all 100ms ease-in;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  font-family: inherit;
-  box-shadow: none;
-  fill: #ff0000;
-
-}
-@media screen and (max-width: 600px) {
   .round-button--large {
-    margin-right: 2rem;
+    width: 72px;
+    height: 72px;
+    display: inline-block;
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 24px;
+    background: transparent;
+    border: none;
+    margin: 0;
+    margin-right: 4rem;
+    padding: 0;
+    cursor: pointer;
+    outline: 0;
+    -webkit-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    font-family: inherit;
+    box-shadow: none;
+    fill: #ff0000;
   }
-}
-.round-button--large .round-button--icon {
-  fill: #ff0000;
-}
-.round-button--large .round-button-play {
-  display: inline-block;
-}
-.round-button--large:focus {
-  -webkit-transition: all 50ms ease-in;
-  transition: all 50ms ease-in;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-.round-button--large:hover {
-  -webkit-transition: all 100ms ease;
-  transition: all 100ms ease;
-  -webkit-transform: scale(1.25);
-          transform: scale(1.25);
-}
 
-.round-button--large:last-child {
-  margin-right: 0;
-}
-.round-button--large.round-button--second .round-button--icon {
-  fill: #FFC502;
-}
-.round-button--large.round-button--third .round-button--icon {
-  fill: #6BD300;
-}
+  @media screen and (max-width: 600px) {
+    .round-button--large {
+      margin-right: 2rem;
+    }
+  }
 
+  .round-button--large .round-button--icon {
+    fill: #ff0000;
+  }
 
-.notificationIconContainer {
-  position: relative;
-}
-.notificationIconContainer .notificationIcon {
-  display: block;
-  position: absolute;
-  top: -5px;
-  left: -15px;
-  background: red;
-  width: 25px;
-  height: 25px;
-  color: white;
-  font-size: 15px;
-  line-height: 26px;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  font-weight: bold;
-  border-radius: 50%;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transform: scale(0);
-          transform: scale(0);
-  -webkit-transition: all 75ms ease;
-  transition: all 75ms ease;
-}
-@media screen and (max-width: 600px) {
+  .round-button--large .round-button-play {
+    display: inline-block;
+  }
+
+  .round-button--large:focus {
+    -webkit-transition: all 50ms ease-in;
+    transition: all 50ms ease-in;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+
+  .round-button--large:hover {
+    -webkit-transition: all 100ms ease;
+    transition: all 100ms ease;
+    -webkit-transform: scale(1.25);
+    transform: scale(1.25);
+  }
+
+  .round-button--large:last-child {
+    margin-right: 0;
+  }
+
+  .round-button--large.round-button--second .round-button--icon {
+    fill: #FFC502;
+  }
+
+  .round-button--large.round-button--third .round-button--icon {
+    fill: #6BD300;
+  }
+
+  .notificationIconContainer {
+    position: relative;
+  }
+
   .notificationIconContainer .notificationIcon {
-    top: -10px;
-    left: -10px;
-    width: 19px;
-    height: 19px;
-    font-size: 13px;
-    line-height: 20px;
+    display: block;
+    position: absolute;
+    top: -5px;
+    left: -15px;
+    background: red;
+    width: 25px;
+    height: 25px;
+    color: white;
+    font-size: 15px;
+    line-height: 26px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 50%;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transition: all 75ms ease;
+    transition: all 75ms ease;
   }
-}
-.notificationIconContainer .notificationIcon.active {
-  opacity: 1;
-  visibility: visible;
-  -webkit-transform: scale(1);
-          transform: scale(1);
-  -webkit-transition: all 100ms ease;
-  transition: all 100ms ease;
-}
-.notificationIconContainer .notificationIcon.emphasize {
-  -webkit-animation-name: pop;
-          animation-name: pop;
-  -webkit-animation-duration: 200ms;
-          animation-duration: 200ms;
-  animation-easing: linear;
-}
 
-@-webkit-keyframes pop {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
+  @media screen and (max-width: 600px) {
+    .notificationIconContainer .notificationIcon {
+      top: -10px;
+      left: -10px;
+      width: 19px;
+      height: 19px;
+      font-size: 13px;
+      line-height: 20px;
+    }
   }
-  25% {
-    -webkit-transform: scale(1.25);
-            transform: scale(1.25);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
 
-@keyframes pop {
-  0% {
+  .notificationIconContainer .notificationIcon.active {
+    opacity: 1;
+    visibility: visible;
     -webkit-transform: scale(1);
-            transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: all 100ms ease;
+    transition: all 100ms ease;
   }
-  25% {
-    -webkit-transform: scale(1.25);
-            transform: scale(1.25);
-  }
-  100% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-}
 
+  .notificationIconContainer .notificationIcon.emphasize {
+    -webkit-animation-name: pop;
+    animation-name: pop;
+    -webkit-animation-duration: 200ms;
+    animation-duration: 200ms;
+    animation-easing: linear;
+  }
 
+  @-webkit-keyframes pop {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+
+    25% {
+      -webkit-transform: scale(1.25);
+      transform: scale(1.25);
+    }
+
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pop {
+    0% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+
+    25% {
+      -webkit-transform: scale(1.25);
+      transform: scale(1.25);
+    }
+
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
 </style>
 <div class="excerpt-text">
   <h3 class="excerpt-subtitle">Charge Messenger</h3>
-  <h4 class="excerpt-title"><span class="notificationIconContainer" id="notificationIconContainer"><span class="notificationIcon" id="notificationIcon">0</span>Notification sounds</span></h4>
+  <h4 class="excerpt-title">
+    <span class="notificationIconContainer" id="notificationIconContainer">
+      <span class="notificationIcon" id="notificationIcon">0</span>
+      Notification sounds
+        
+    </span>
+  </h4>
   <p>Charge Messenger plays a cheery alert sound when a new message is received. I wanted something more distinct than the default iMessage sound, so I decided to use my musical ability to come up with something unique.</p>
   <p>I spent a few days playing with different instruments and keys. I ultimately settling on three Major notes played on an electric piano with a subtle reverb.</p>
-  <p>Below are a few key samples, one of which currently lives in the <a href="https://charge.co/messenger" target="_blank">Charge Messenger app</a>. Play around with them!
+  <p>
+    Below are a few key samples, one of which currently lives in the <a href="https://charge.co/messenger" target="_blank">Charge Messenger app</a>
+    . Play around with them!
+  
+    
   <div class="content-container content-center">
     <button class="round-button--large" id="buttonNotificationJingleA">
       <span class="round-button-play">
         <svg width="72px" height="72px" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <g fill="none" fill-rule="evenodd">
-              <path d="M36,72 C55.882251,72 72,55.882251 72,36 C72,16.117749 55.882251,0 36,0 C16.117749,0 0,16.117749 0,36 C0,55.882251 16.117749,72 36,72 Z M36,69 C54.2253967,69 69,54.2253967 69,36 C69,17.7746033 54.2253967,3 36,3 C17.7746033,3 3,17.7746033 3,36 C3,54.2253967 17.7746033,69 36,69 Z M50,36 L29,48 L29,24 L50,36 Z" class="round-button--icon"></path>
+            <path d="M36,72 C55.882251,72 72,55.882251 72,36 C72,16.117749 55.882251,0 36,0 C16.117749,0 0,16.117749 0,36 C0,55.882251 16.117749,72 36,72 Z M36,69 C54.2253967,69 69,54.2253967 69,36 C69,17.7746033 54.2253967,3 36,3 C17.7746033,3 3,17.7746033 3,36 C3,54.2253967 17.7746033,69 36,69 Z M50,36 L29,48 L29,24 L50,36 Z" class="round-button--icon"></path>
           </g>
         </svg>
       </span>
@@ -168,7 +189,7 @@
       <span class="round-button-play">
         <svg width="72px" height="72px" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <path d="M36,72 C55.882251,72 72,55.882251 72,36 C72,16.117749 55.882251,0 36,0 C16.117749,0 0,16.117749 0,36 C0,55.882251 16.117749,72 36,72 Z M36,69 C54.2253967,69 69,54.2253967 69,36 C69,17.7746033 54.2253967,3 36,3 C17.7746033,3 3,17.7746033 3,36 C3,54.2253967 17.7746033,69 36,69 Z M50,36 L29,48 L29,24 L50,36 Z" class="round-button--icon"></path>
+            <path d="M36,72 C55.882251,72 72,55.882251 72,36 C72,16.117749 55.882251,0 36,0 C16.117749,0 0,16.117749 0,36 C0,55.882251 16.117749,72 36,72 Z M36,69 C54.2253967,69 69,54.2253967 69,36 C69,17.7746033 54.2253967,3 36,3 C17.7746033,3 3,17.7746033 3,36 C3,54.2253967 17.7746033,69 36,69 Z M50,36 L29,48 L29,24 L50,36 Z" class="round-button--icon"></path>
           </g>
         </svg>
       </span>
@@ -177,13 +198,12 @@
       <span class="round-button-play">
         <svg width="72px" height="72px" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-              <path d="M36,72 C55.882251,72 72,55.882251 72,36 C72,16.117749 55.882251,0 36,0 C16.117749,0 0,16.117749 0,36 C0,55.882251 16.117749,72 36,72 Z M36,69 C54.2253967,69 69,54.2253967 69,36 C69,17.7746033 54.2253967,3 36,3 C17.7746033,3 3,17.7746033 3,36 C3,54.2253967 17.7746033,69 36,69 Z M50,36 L29,48 L29,24 L50,36 Z" class="round-button--icon"></path>
+            <path d="M36,72 C55.882251,72 72,55.882251 72,36 C72,16.117749 55.882251,0 36,0 C16.117749,0 0,16.117749 0,36 C0,55.882251 16.117749,72 36,72 Z M36,69 C54.2253967,69 69,54.2253967 69,36 C69,17.7746033 54.2253967,3 36,3 C17.7746033,3 3,17.7746033 3,36 C3,54.2253967 17.7746033,69 36,69 Z M50,36 L29,48 L29,24 L50,36 Z" class="round-button--icon"></path>
           </g>
         </svg>
       </span>
     </button>
   </div>
-
 </div>
 <script>
   var a = document.querySelector('excerpt-title');
@@ -196,12 +216,10 @@
       loadJingleA();
       loadJingleB();
       loadJingleC();
-    }
-    catch(e) {
+    } catch (e) {
       console.log('Web Audio API not supported.');
     }
   }
-
   function loadJingleA() {
     var request = new XMLHttpRequest();
     request.open('GET', 'https://artur.pokusin.com/misc/JingleA.mp3', true);
@@ -212,11 +230,10 @@
       }, function(e) {
         console.log('error loading jingles');
       });
-    };
+    }
+    ;
     request.send();
   }
-
-
   function loadJingleB() {
     var request = new XMLHttpRequest();
     request.open('GET', 'https://artur.pokusin.com/misc/JingleB.mp3', true);
@@ -227,7 +244,8 @@
       }, function(e) {
         console.log('error loading jingles');
       });
-    };
+    }
+    ;
     request.send();
   }
   function loadJingleC() {
@@ -240,51 +258,48 @@
       }, function(e) {
         console.log('error loading jingles');
       });
-    };
+    }
+    ;
     request.send();
   }
-
   var jingleElementA = document.getElementById('buttonNotificationJingleA');
   var jingleElementB = document.getElementById('buttonNotificationJingleB');
   var jingleElementC = document.getElementById('buttonNotificationJingleC');
-
   var notificationElement = document.getElementById('notificationIcon');
   var notificationCount = 0;
-
   jingleElementA.addEventListener('click', function() {
     playSound(JingleABuffer);
   });
-
   jingleElementB.addEventListener('click', function() {
     playSound(JingleBBuffer);
   });
-
   jingleElementC.addEventListener('click', function() {
-playSound(JingleCBuffer);
-});
-
-function playSound(buffer) {
-notificationElement.classList.add('active');
-notificationElement.classList.add('emphasize');
-document.getElementById('notificationIconContainer').addEventListener('click', function() {
-notificationElement.classList.remove('active', 'emphasize');
-notificationCount = 0;
-})
-if (notificationCount >= 99) {
-notificationCount = 99;
-} else {
-notificationCount += 1;
-}
-notificationElement.innerText = notificationCount;
-setTimeout(function() {
-notificationElement.classList.remove('emphasize');
-}, 200);
-var source = context.createBufferSource(); // creates a sound source
-source.buffer = buffer;                    // tell the source which sound to play
-source.connect(context.destination);       // connect the source to the context's destination (the speakers)
-source.start(0);                           // play the source now
-//                                            // note: on older systems, may have to use deprecated noteOn(time);
-}
-
-
+    playSound(JingleCBuffer);
+  });
+  function playSound(buffer) {
+    notificationElement.classList.add('active');
+    notificationElement.classList.add('emphasize');
+    document.getElementById('notificationIconContainer').addEventListener('click', function() {
+      notificationElement.classList.remove('active', 'emphasize');
+      notificationCount = 0;
+    })
+    if (notificationCount >= 99) {
+      notificationCount = 99;
+    } else {
+      notificationCount += 1;
+    }
+    notificationElement.innerText = notificationCount;
+    setTimeout(function() {
+      notificationElement.classList.remove('emphasize');
+    }, 200);
+    var source = context.createBufferSource();
+    // creates a sound source
+    source.buffer = buffer;
+    // tell the source which sound to play
+    source.connect(context.destination);
+    // connect the source to the context's destination (the speakers)
+    source.start(0);
+    // play the source now
+    //                                            // note: on older systems, may have to use deprecated noteOn(time);
+  }
 </script>

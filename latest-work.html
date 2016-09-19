@@ -239,20 +239,24 @@
 //       MODAL code
 
       var modalContainer = document.getElementById('modalContainer');
+      
+      function handleKeyboardNav(keyCode) {
+        if (keyCode === 27) {
+          hideModalOverlay();
+        } else if (keyCode === 39) {
+          document.getElementById('next').click();
+        } else if (keyCode === 37) {
+          document.getElementById('previous').click();
+        }
+      }
 
 
       function displayModalOverlay() {
         modalContainer.classList.add('active');
         document.body.classList.add('modal-active');
         document.getElementById('close-modal').addEventListener('click', hideModalOverlay);
-        document.body.addEventListener('keydown', function(event){
-          if (event.keyCode === 27) {
-            hideModalOverlay();
-          } else if (event.keyCode === 39) {
-            document.getElementById('next').click();
-          } else if (event.keyCode === 37) {
-            document.getElementById('previous').click();
-          }
+        document.body.addEventListener('keydown', function(event) {
+          handleKeyboardNav(event.keyCode);
         });
       }
 
@@ -275,6 +279,15 @@
         };
         //         set previous/next listeners
       }
+//       set listener for iframe keyboard nav
+       window.addEventListener("message", receiveMessage, false);
+       function receiveMessage(event) {
+         if (event.origin !== window.location.origin) {
+           return;
+         }
+         var keyCode = event;
+         handleKeyboardNav(keyCode);
+       }
 
   })();
   </script>
