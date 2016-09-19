@@ -1047,6 +1047,10 @@ a.button.button-primary.button-archives {
 
 
 #mobile-navigation {
+  position: fixed;
+  top: -15vh;
+  left: 0;
+  right: 0;
   display: flex;
   top: 0;
   min-height: 72px;
@@ -1166,12 +1170,16 @@ a.button.button-primary.button-archives {
   #mobile-navigation {
     display: flex;
     z-index: 5;
+    top: 0;
+    z-index: 5;
+    background: white;
   }
   .content-page .site-nav-wrapper {
     display: block;
   }
   .content-page .main-content {
     margin: 0;
+    margin-top: 15vh;
   }
   .content-page #page-navigation {
     width: 100%;
