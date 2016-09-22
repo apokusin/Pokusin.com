@@ -355,7 +355,6 @@ body.modal-active {
     position: fixed;
     z-index: 5;
     /* background: white; */
-    padding-top: 7vh;
 }
 
 .container-site-nav .link-list-contact {
@@ -399,7 +398,7 @@ body.modal-active {
 
 .container-site-nav .title {
     font-size: 1.8rem;
-    margin-top: 5rem;
+    margin-top: 7vh;
     text-align: left;
     padding-left: 2rem;
 }
@@ -434,11 +433,9 @@ body.modal-active {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: white;
-    margin: 4rem;
-    border-radius: 5px;
+    margin: 0;
     box-shadow: 0px 1px 3px rgba(0,0,0,0.1), 0px 1px 36px rgba(0,0,0,0.035);
     position: relative;
-    overflow: hidden;
     border: none;
     min-height: 33vh;
     display: flex;
@@ -1129,6 +1126,34 @@ a.button.button-primary.button-archives {
 
 
 
+.block-content .link-list {
+  padding-left: 1rem;
+  line-height: 1.4em;
+}
+
+.block-content .link-list li {
+  color: rgba(0,0,0,0.54);
+  padding-bottom: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+
+.profile-photo {
+    display: flex;
+    text-align: center;
+    border-radius: 256px;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 3rem;
+    margin-top: -5rem;
+    max-width: 100%;
+}
+
+
+
+
+
 
 /* Media Queries */
 
@@ -1158,13 +1183,24 @@ a.button.button-primary.button-archives {
   }
 
   .main-content {
-    margin-left: 10rem;
+    margin-left: 12rem;
   }
 }
 
 @media screen and (max-width: 600px) {
 /*  Main mobile styles  */
   body.content-page {
+  }
+
+  .profile-photo {
+    width: 128px;
+    height: 128px;
+    margin-top: -5vh;
+  }
+
+  .profile-photo img {
+    width: 128px;
+    height: 128px;
   }
 
   #mobile-navigation {
@@ -1298,7 +1334,7 @@ a.button.button-primary.button-archives {
   }
   
   .link-list, .link-list-contact {
-    margin-top: 10vh;
+    margin-top: 7vh;
   }
 
   .container-site-nav .link-list-contact {
@@ -1350,7 +1386,7 @@ a.button.button-primary.button-archives {
 
 @media screen and (min-width: 1800px) {
   .container-site-nav {
-    width: 21rem;
+    width: 19rem;
   }
 
   .main-content {margin-left: 19rem;}
@@ -1408,16 +1444,4 @@ a.button.button-primary.button-archives {
   .snippet-list .snippet {
   }
 
-}
-
-
-.block-content .link-list {
-  padding-left: 1rem;
-  line-height: 1.4em;
-}
-
-.block-content .link-list li {
-  color: rgba(0,0,0,0.54);
-  padding-bottom: 0.5em;
-  padding-bottom: 0.5em;
 }
