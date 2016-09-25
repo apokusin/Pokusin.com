@@ -906,9 +906,6 @@ a.button.button-primary:hover, a.button.button-primary:focus {
   padding-right: 1rem;
 }
 
-button.button.button-close {
-}
-
 .modal-nav .button:hover, .modal-nav .button:focus {
   transition: all 100ms ease-in;
   opacity: 1;
@@ -1523,6 +1520,4 @@ a.button.button-primary.button-archives {
     align-items: flex-start;
   }
 
-  .snippet-list .snippet {
-  }
 }
