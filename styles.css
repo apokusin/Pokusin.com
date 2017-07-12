@@ -543,7 +543,7 @@ body.content-page {
 .block-item.kiddom {
   background: url('/kiddom-bg.svg');
   background-repeat: no-repeat;
-  background-size: auto;
+  background-size: auto 50%;
   background-position: bottom center;
   /*color: white;*/
   background-color: #FFF3C1;
