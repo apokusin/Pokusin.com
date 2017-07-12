@@ -678,7 +678,6 @@ article.block-item.charge-messenger {
 
 .snippet button:hover, .snippet button:focus {
   transform: scale(1.1);
-  color: white;
   transition: all 100ms ease-in;
   outline: 0;
 }
