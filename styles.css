@@ -447,12 +447,12 @@ body.modal-active {
   box-sizing: border-box;
   padding-top: 7vh;
   padding-bottom: 7vh;
-  /* background-image: url('https://manage.charge.co/images/lady-phone-light.jpg'); */
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   background-color: white;
-  margin: 0;
+  margin: 1rem;
+  border-radius: 6px;
   box-shadow: 0px 1px 3px rgba(0,0,0,0.1), 0px 1px 36px rgba(0,0,0,0.035);
   position: relative;
   border: none;
@@ -545,7 +545,7 @@ body.content-page {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: -75% top;
-  color: white;
+  /*color: white;*/
   background-color: #FFF3C1;
 }
 
@@ -586,10 +586,6 @@ body.content-page {
   color: #ff6152;
   border-radius: 100px;
   border: none;
-}
-
-.kiddom .button:after {
-  display: none;
 }
 
 .charge-wireless .button {
