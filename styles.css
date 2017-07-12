@@ -544,7 +544,7 @@ body.content-page {
   background: url('/kiddom-bg.svg');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center top;
+  background-position: -75% top;
   color: white;
   background-color: #FFF3C1;
 }
@@ -582,10 +582,14 @@ body.content-page {
 }
 
 .kiddom .button {
-  background: #1DBAFF;
-  color: white;
+  background: white;
+  color: #ff6152;
   border-radius: 100px;
   border: none;
+}
+
+.kiddom .button:after {
+  display: none;
 }
 
 .charge-wireless .button {
