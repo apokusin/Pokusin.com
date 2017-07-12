@@ -634,8 +634,8 @@ article.block-item.charge-messenger {
 
 .snippet button {
   border: none;
-  background: transparent;
-  color: rgba(255,255,255,0.8);
+  background: white;
+  color: black;
   text-align: left;
   font-weight: 700;
   padding: 0.75rem;
