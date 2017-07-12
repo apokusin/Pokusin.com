@@ -620,10 +620,9 @@ article.block-item.charge-messenger {
   list-style-type: none;
   padding-left: 0;
   margin: 0;
+  padding-left: 0;
   align-items: center;
   justify-content: flex-start;
-  position: relative;
-  left: -0.8rem;
 }
 
 .snippet-list .snippet {
