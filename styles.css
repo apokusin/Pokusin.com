@@ -540,6 +540,15 @@ body.content-page {
   background: #f3f3f3;
 }
 
+.block-item.kiddom {
+  background: url('/kiddom-bg.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  color: white;
+  background-color: #FFF3C1;
+}
+
 .block-item.charge-wireless {
   background: url('/charge-mobile-carrier-bg.jpg');
   background-repeat: no-repeat;
@@ -570,6 +579,13 @@ body.content-page {
   border-radius: 3px;
   background: white;
   color: #000;
+}
+
+.kiddom .button {
+  background: #1DBAFF;
+  color: white;
+  border-radius: 100px;
+  border: none;
 }
 
 .charge-wireless .button {
