@@ -721,7 +721,8 @@ a.button.button-primary:hover, a.button.button-primary:focus {
 }
 
 .block-snippets.snippets-dark .snippet button {
-  color: rgba(0,0,0,.75);
+  color: white;
+  background: rgba(0,0,0,.75);
   font-weight: 600;
 }
 
@@ -730,7 +731,8 @@ a.button.button-primary:hover, a.button.button-primary:focus {
 }
 
 .block-snippets.snippets-dark .snippet button:hover, .block-snippets.snippets-dark .snippet button:focus {
-  color: black;
+  color: white;
+  background: black;
 }
 
 #page-navigation.faded {
