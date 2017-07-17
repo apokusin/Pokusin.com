@@ -624,7 +624,7 @@ article.block-item.charge-messenger {
 
 .block-snippets {
   display: flex;
-  margin-top: 1;
+  margin-top: 1;  
   display: block;
   margin-top: 4rem;
   margin-bottom: 0;
@@ -869,6 +869,8 @@ a.button.button-primary:hover, a.button.button-primary:focus {
   /* padding-right: 5vh; */
   opacity: 0;
   visibility: hidden;
+  margin: 10vw;
+  border-radius: 6px;
 }
 
 .modal .modal-nav {
