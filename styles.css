@@ -623,7 +623,8 @@ article.block-item.charge-messenger {
 }
 
 .block-snippets {
-  display: flex margin-top: 1;
+  display: flex;
+  margin-top: 1;
   display: block;
   margin-top: 4rem;
   margin-bottom: 0;
