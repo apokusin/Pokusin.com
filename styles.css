@@ -869,7 +869,7 @@ a.button.button-primary:hover, a.button.button-primary:focus {
   /* padding-right: 5vh; */
   opacity: 0;
   visibility: hidden;
-  margin: 10vw;
+  margin: 2vh;
   border-radius: 6px;
 }
 
