@@ -201,26 +201,26 @@
               showExcerpt(index);
           }, false);
       }
-      function updateNav(index) {
-        var nextIndex = index + 1;
-        var prevIndex = index -1;
+      // function updateNav(index) {
+      //   var nextIndex = index + 1;
+      //   var prevIndex = index -1;
         
-        if (nextIndex > -1 && nextIndex < excerpts.length) {
-          nextElTrigger.removeAttribute('disabled');
-          nextElTrigger.setAttribute('data-excerpt-index', nextIndex);
-        } else {
-          nextElTrigger.setAttribute('disabled', 'true');
-        }
+      //   if (nextIndex > -1 && nextIndex < excerpts.length) {
+      //     nextElTrigger.removeAttribute('disabled');
+      //     nextElTrigger.setAttribute('data-excerpt-index', nextIndex);
+      //   } else {
+      //     nextElTrigger.setAttribute('disabled', 'true');
+      //   }
 
-        if (prevIndex > -1 && prevIndex < excerpts.length) {
-          prevElTrigger.removeAttribute('disabled');
-          prevElTrigger.setAttribute('data-excerpt-index', prevIndex);
-        } else {
-          prevElTrigger.setAttribute('disabled', 'true');
-        }
+      //   if (prevIndex > -1 && prevIndex < excerpts.length) {
+      //     prevElTrigger.removeAttribute('disabled');
+      //     prevElTrigger.setAttribute('data-excerpt-index', prevIndex);
+      //   } else {
+      //     prevElTrigger.setAttribute('disabled', 'true');
+      //   }
 
 
-      }
+      // }
       function setExcerptTriggers() {
         for (var i = 0; i < allExcerptTriggers.length; i++) {
           setTrigger(allExcerptTriggers[i]);
@@ -240,7 +240,7 @@
       var modalContainer = document.getElementById('modalContainer');
       // var modalNav = document.getElementById('modalNav');
       var modalClose = document.getElementById('modalClose');
-
+      
       function displayModalOverlay() {
         modalContainer.classList.add('active');
         document.body.classList.add('modal-active');
@@ -262,7 +262,7 @@
         if (!document.body.classList.contains('modal-active')) {
           displayModalOverlay();
         }
-        updateNav(index);
+        // updateNav(index);
         modalContainer.classList.add('loading');
         excerptFrame.contentWindow.document.body.innerHTML = ''; // clear frame contents so scrolling isn't broken dear god i hope this works it's 6am
         excerptFrame.setAttribute('src', url);
