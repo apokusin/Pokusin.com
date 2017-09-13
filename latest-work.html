@@ -188,12 +188,12 @@
       //   handleKeyboardNav(event.keyCode);
       // }
 
-      // function handleNavClick(event) {
-      //   var target = event.target;
-      //   if (target.dataset.excerptIndex) {
-      //     showExcerpt(parseInt(target.dataset.excerptIndex));
-      //   }
-      // }
+      function handleNavClick(event) {
+        var target = event.target;
+        if (target.dataset.excerptIndex) {
+          showExcerpt(parseInt(target.dataset.excerptIndex));
+        }
+      }
 
       function setTrigger(element) {
           var index = parseInt(element.dataset.excerptIndex);
@@ -201,26 +201,26 @@
               showExcerpt(index);
           }, false);
       }
-      // function updateNav(index) {
-      //   var nextIndex = index + 1;
-      //   var prevIndex = index -1;
+      function updateNav(index) {
+        var nextIndex = index + 1;
+        var prevIndex = index -1;
         
-      //   if (nextIndex > -1 && nextIndex < excerpts.length) {
-      //     nextElTrigger.removeAttribute('disabled');
-      //     nextElTrigger.setAttribute('data-excerpt-index', nextIndex);
-      //   } else {
-      //     nextElTrigger.setAttribute('disabled', 'true');
-      //   }
+        if (nextIndex > -1 && nextIndex < excerpts.length) {
+          nextElTrigger.removeAttribute('disabled');
+          nextElTrigger.setAttribute('data-excerpt-index', nextIndex);
+        } else {
+          nextElTrigger.setAttribute('disabled', 'true');
+        }
 
-      //   if (prevIndex > -1 && prevIndex < excerpts.length) {
-      //     prevElTrigger.removeAttribute('disabled');
-      //     prevElTrigger.setAttribute('data-excerpt-index', prevIndex);
-      //   } else {
-      //     prevElTrigger.setAttribute('disabled', 'true');
-      //   }
+        if (prevIndex > -1 && prevIndex < excerpts.length) {
+          prevElTrigger.removeAttribute('disabled');
+          prevElTrigger.setAttribute('data-excerpt-index', prevIndex);
+        } else {
+          prevElTrigger.setAttribute('disabled', 'true');
+        }
 
 
-      // }
+      }
       function setExcerptTriggers() {
         for (var i = 0; i < allExcerptTriggers.length; i++) {
           setTrigger(allExcerptTriggers[i]);
