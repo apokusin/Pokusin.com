@@ -238,20 +238,20 @@
       //   }
       // }
       var modalContainer = document.getElementById('modalContainer');
-      var modalNav = document.getElementById('modalNav');
+      // var modalNav = document.getElementById('modalNav');
       var modalClose = document.getElementById('modalClose');
 
       function displayModalOverlay() {
         modalContainer.classList.add('active');
         document.body.classList.add('modal-active');
-        modalNav.addEventListener('click', handleNavClick, true);
+        // modalNav.addEventListener('click', handleNavClick, true);
         modalClose.addEventListener('click', hideModalOverlay);
-        document.body.addEventListener('keydown', keyboardHandler, false);
+        // document.body.addEventListener('keydown', keyboardHandler, false);
       }
       function hideModalOverlay() {
         document.body.classList.remove('modal-active');
         modalContainer.classList.remove('active');
-        modalNav.removeEventListener('click', handleNavClick, false);
+        // modalNav.removeEventListener('click', handleNavClick, false);
         modalClose.removeEventListener('click', hideModalOverlay, false);
         document.body.removeEventListener('keydown', keyboardHandler, false);
       }
