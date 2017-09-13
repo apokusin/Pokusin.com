@@ -168,9 +168,9 @@
       </div>
     </div>
     <div id="modalNav" class="modal-nav">
-      <button id="previous" class="modalNavButton button button-back popIn delay-1" disabled="true">Previous</button>
-      <button id="next" class="modalNavButton button button-next popIn delay-2" disabled="true">Next</button>
-      <hr class="divider fadeIn delay-3"/>
+      <!-- <button id="previous" class="modalNavButton button button-back popIn delay-1" disabled="true">Previous</button> -->
+      <!-- <button id="next" class="modalNavButton button button-next popIn delay-2" disabled="true">Next</button> -->
+      <!-- <hr class="divider fadeIn delay-3"/> -->
       <button id="modalClose" class="button button-close popIn delay-4">Close</button>
     </div>
   </div>
@@ -178,21 +178,22 @@
   <script src="/headroom.min.js"></script>
   <script>
     function init() {
-      var excerpts = ['/excerpts/charge-wireless-marketing-pages.html', '/excerpts/charge-wireless-usage-charts.html', '/excerpts/charge-messenger-notification-sounds.html'];
+      // var excerpts = ['/excerpts/charge-wireless-marketing-pages.html', '/excerpts/charge-wireless-usage-charts.html', '/excerpts/charge-messenger-notification-sounds.html'];
+      var excerpts = ['/excerpts/charge-messenger-notification-sounds.html'];
       var allExcerptTriggers = document.querySelectorAll('.modal-trigger');
-      var nextElTrigger = document.getElementById('next');
-      var prevElTrigger = document.getElementById('previous');
+      // var nextElTrigger = document.getElementById('next');
+      // var prevElTrigger = document.getElementById('previous');
 
-      function keyboardHandler(event) {
-        handleKeyboardNav(event.keyCode);
-      }
+      // function keyboardHandler(event) {
+      //   handleKeyboardNav(event.keyCode);
+      // }
 
-      function handleNavClick(event) {
-        var target = event.target;
-        if (target.dataset.excerptIndex) {
-          showExcerpt(parseInt(target.dataset.excerptIndex));
-        }
-      }
+      // function handleNavClick(event) {
+      //   var target = event.target;
+      //   if (target.dataset.excerptIndex) {
+      //     showExcerpt(parseInt(target.dataset.excerptIndex));
+      //   }
+      // }
 
       function setTrigger(element) {
           var index = parseInt(element.dataset.excerptIndex);
@@ -200,26 +201,26 @@
               showExcerpt(index);
           }, false);
       }
-      function updateNav(index) {
-        var nextIndex = index + 1;
-        var prevIndex = index -1;
+      // function updateNav(index) {
+      //   var nextIndex = index + 1;
+      //   var prevIndex = index -1;
         
-        if (nextIndex > -1 && nextIndex < excerpts.length) {
-          nextElTrigger.removeAttribute('disabled');
-          nextElTrigger.setAttribute('data-excerpt-index', nextIndex);
-        } else {
-          nextElTrigger.setAttribute('disabled', 'true');
-        }
+      //   if (nextIndex > -1 && nextIndex < excerpts.length) {
+      //     nextElTrigger.removeAttribute('disabled');
+      //     nextElTrigger.setAttribute('data-excerpt-index', nextIndex);
+      //   } else {
+      //     nextElTrigger.setAttribute('disabled', 'true');
+      //   }
 
-        if (prevIndex > -1 && prevIndex < excerpts.length) {
-          prevElTrigger.removeAttribute('disabled');
-          prevElTrigger.setAttribute('data-excerpt-index', prevIndex);
-        } else {
-          prevElTrigger.setAttribute('disabled', 'true');
-        }
+      //   if (prevIndex > -1 && prevIndex < excerpts.length) {
+      //     prevElTrigger.removeAttribute('disabled');
+      //     prevElTrigger.setAttribute('data-excerpt-index', prevIndex);
+      //   } else {
+      //     prevElTrigger.setAttribute('disabled', 'true');
+      //   }
 
 
-      }
+      // }
       function setExcerptTriggers() {
         for (var i = 0; i < allExcerptTriggers.length; i++) {
           setTrigger(allExcerptTriggers[i]);
@@ -227,15 +228,15 @@
       }
       setExcerptTriggers();
       //       MODAL code
-      function handleKeyboardNav(keyCode) {
-        if (keyCode === 27) {
-          hideModalOverlay();
-        } else if (keyCode === 39) {
-          document.getElementById('next').click();
-        } else if (keyCode === 37) {
-          document.getElementById('previous').click();
-        }
-      }
+      // function handleKeyboardNav(keyCode) {
+      //   if (keyCode === 27) {
+      //     hideModalOverlay();
+      //   } else if (keyCode === 39) {
+      //     document.getElementById('next').click();
+      //   } else if (keyCode === 37) {
+      //     document.getElementById('previous').click();
+      //   }
+      // }
       var modalContainer = document.getElementById('modalContainer');
       var modalNav = document.getElementById('modalNav');
       var modalClose = document.getElementById('modalClose');
