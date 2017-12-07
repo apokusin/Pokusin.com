@@ -108,7 +108,7 @@ body.modal-active {
   width: 450px;
   max-width: 100%;
   margin: 0 auto;
-  padding-top: 5vh;
+  /* padding-top: 5vh; */
   box-sizing: border-box;
   height: 100%;
 }
@@ -202,7 +202,6 @@ body.modal-active {
   padding: 0;
   width: 500px;
   border-radius: 5rem;
-  height: 46px;
   max-width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
@@ -228,6 +227,8 @@ body.modal-active {
   transition: all 200ms ease-out;
   opacity: 0.8;
   position: relative;
+  padding: 1vh 0;
+  display: inline-block;
 }
 
 .link-list-contact li a:after {
@@ -1168,16 +1169,14 @@ a.button.button-primary.button-archives {
 .profile-photo {
   margin-right: 1em;
   text-align: center;
-  border-radius: 66px;
+  border-radius: 100%;
   overflow: hidden;
-  width: 64px;
-  height: 64px;
+  width: 80px;
+  height: 80px;
   max-width: 100%;
-  float: left;
-  opacity: 0.8;
-  position: absolute;
-  left: -99px;
-  top: 4.5vh;
+  opacity: 1;
+  margin-bottom: 5vh;
+  /* box-shadow: 0px 1px 3px rgba(0,0,0,0.1), 0px 1px 36px rgba(0,0,0,0.035); */
 }
 
 /* Media Queries */
@@ -1333,7 +1332,6 @@ a.button.button-primary.button-archives {
   .container-center-page {
     display: block;
     height: initial;
-    padding-left: 0;
     padding-right: 0;
     box-sizing: border-box;
   }
@@ -1478,6 +1476,6 @@ a.button.button-primary.button-archives {
 
 
 main {
-  padding-top: 5vh;
+  padding-top: 16vh;
   position: relative;
 }
