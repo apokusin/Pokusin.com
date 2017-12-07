@@ -59,7 +59,7 @@ body.modal-active {
 }
 
 .subtitle {
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: rgba(0,0,0,0.6);
   line-height: 1em;
   margin: 0;
@@ -69,6 +69,7 @@ body.modal-active {
   text-rendering: optimizeLegibility;
   letter-spacing: -0.05em;
   animation-delay: 250ms;
+  font-weight: 600;
 }
 
 .text-tighter {
@@ -139,7 +140,7 @@ body.modal-active {
 .link-list .link a {
   font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
   text-decoration: none;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   font-weight: 700;
   color: inherit;
   display: block;
@@ -436,7 +437,7 @@ body.modal-active {
 }
 
 .block-item .block-title {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin: 0;
   letter-spacing: -0.02em;
@@ -471,11 +472,11 @@ body.modal-active {
 
 .block-item .block-description {
   font-size: 1rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 1.5em;
   color: inherit;
   line-height: 1.5em;
-  max-width: 600px;
+  max-width: 580px;
   opacity: 0.7;
 }
 
@@ -1175,8 +1176,9 @@ a.button.button-primary.button-archives {
   height: 80px;
   max-width: 100%;
   opacity: 1;
-  margin-bottom: 5vh;
+  /* margin-bottom: 5vh; */
   /* box-shadow: 0px 1px 3px rgba(0,0,0,0.1), 0px 1px 36px rgba(0,0,0,0.035); */
+  margin-bottom: 4vh;
 }
 
 /* Media Queries */
