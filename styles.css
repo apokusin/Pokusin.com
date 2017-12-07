@@ -60,7 +60,7 @@ body.modal-active {
 
 .subtitle {
   font-size: 2rem;
-  color: rgba(0,0,0,0.6);
+  color: rgba(0,0,0,0.5);
   line-height: 1em;
   margin: 0;
   position: relative;
@@ -68,7 +68,7 @@ body.modal-active {
   margin-top: 0.5em;
   text-rendering: optimizeLegibility;
   animation-delay: 250ms;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .text-tighter {
