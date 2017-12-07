@@ -67,7 +67,6 @@ body.modal-active {
   overflow: visible;
   margin-top: 0.5em;
   text-rendering: optimizeLegibility;
-  letter-spacing: -0.05em;
   animation-delay: 250ms;
   font-weight: 600;
 }
@@ -171,7 +170,6 @@ body.modal-active {
 }
 
 .link-blue {
-  animation-delay: 850ms;
   color: #3981ED;
 }
 
@@ -180,7 +178,6 @@ body.modal-active {
 }
 
 .link-green {
-  animation-delay: 1000ms;
   color: #56B863;
 }
 
@@ -189,7 +186,6 @@ body.modal-active {
 }
 
 .link-orange {
-  animation-delay: 1150ms;
   color: #F78D3F;
 }
 
@@ -437,8 +433,8 @@ body.modal-active {
 }
 
 .block-item .block-title {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.7rem;
+  font-weight: bold;
   margin: 0;
   letter-spacing: -0.02em;
 }
@@ -481,7 +477,7 @@ body.modal-active {
 }
 
 .block-item .block-subtitle {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   color: inherit;
