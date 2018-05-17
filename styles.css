@@ -8,36 +8,34 @@ body {
   font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
   font-style: normal;
   font-weight: 500;
-  color: rgba(0,0,0,0.87);
+  color: rgba(62, 70, 82, 0.87);
   font-size: 24px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
   backface-visibility: hidden;
-  /* transform: translateZ(0); */
+  transform: translateZ(0);
   background: #f3f3f3;
-}
-
-body.modal-active {
-  overflow: hidden;
 }
 
 
 .title {
-  font-weight: 700;
+  font-weight: 100;
   font-size: 3.625rem;
   letter-spacing: -0.005em;
   text-rendering: optimizeLegibility;
   line-height: 1em;
   margin: 0;
-  text-align: left;
+  text-align: center;
   position: relative;
+  color: rgba(62, 70, 82, 1);
 }
 
 .title a {
   text-decoration: none;
   color: inherit;
   display: block;
+  padding: 3vh;
 }
 
 .page-title {
@@ -59,16 +57,17 @@ body.modal-active {
 }
 
 .subtitle {
-  font-size: 2rem;
-  color: rgba(0,0,0,0.5);
-  line-height: 1em;
+  font-size: 1.5rem;
+  line-height: 1.5em;
   margin: 0;
   position: relative;
   overflow: visible;
   margin-top: 0.5em;
   text-rendering: optimizeLegibility;
   animation-delay: 250ms;
-  font-weight: bold;
+  /* font-weight: 600; */
+  color: rgba(62, 70, 82, 1);
+  text-align: center;
 }
 
 .text-tighter {
@@ -105,7 +104,7 @@ body.modal-active {
 
 /* Layout */
 .container-center-page {
-  width: 450px;
+  width: 384px;
   max-width: 100%;
   margin: 0 auto;
   /* padding-top: 5vh; */
@@ -139,62 +138,28 @@ body.modal-active {
 .link-list .link a {
   font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
   text-decoration: none;
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: inherit;
+  font-size: 1.2rem;
   display: block;
-  padding: 2vh 0;
+  padding: 2vh 2vw;
   position: relative;
   transition: all 200ms ease-out;
+  margin-top: 1vh;
 }
 
 .link-list .link a:hover, .link-list .link a:focus {
   transform: scale(1.0225);
   transition: all 75ms cubic-bezier(0.4, 0, 1, 1);
   outline: 0;
-  transform-origin: right;
+  /* transform-origin: right; */
   all 200ms ease-out:;
-}
-
-.link-list .link:after {
-  /* content: ''; */
-  width: 20px;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-position: center center;
-  position: absolute;
-  height: 45px;
-  top: 0;
-  background-size: 70% auto;
-  bottom: 0;
 }
 
 .link-blue {
   color: #3981ED;
 }
 
-.link-blue:after {
-  background-image: url('/link-arrow-right-blue.svg');
-}
-
-.link-green {
-  color: #56B863;
-}
-
-.link-green:after {
-  background: url('/link-arrow-right-green.svg');
-}
-
-.link-orange {
-  color: #F78D3F;
-}
-
-.link-orange:after {
-  background-image: url('/link-arrow-right-orange.svg');
-}
 
 .link-list-contact {
-  animation-delay: 1350ms;
   list-style-type: none;
   padding: 0;
   width: 500px;
@@ -218,18 +183,19 @@ body.modal-active {
 .link-list-contact li a {
   text-decoration: none;
   font-family: "Whitney SSm A", "Whitney SSm B", sans-serif;
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 600;
   color: inherit;
   transition: all 200ms ease-out;
   opacity: 0.8;
   position: relative;
-  padding: 1vh 0;
-  display: inline-block;
+  padding: 1vh 2vw;
+  display: block;
+  margin-top: 1vh;
 }
 
 .link-list-contact li a:after {
-  content: '';
+  /* content: ''; */
   background: transparent url('/link-arrow-right-small.svg') center center no-repeat;
   display: inline-block;
   margin: 0;
@@ -315,13 +281,11 @@ body.modal-active {
   position: relative;
   width: 17.5rem;
   flex: initial;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: stretch;
-  position: fixed;
   z-index: 5;
   /* background: white; */
+  padding: 0 2vh;
+  box-sizing: border-box;
+  float: left;
 }
 
 .container-site-nav .link-list-contact {
@@ -339,8 +303,8 @@ body.modal-active {
   text-align: left;
   display: block;
   font-size: 1rem;
-  width: 100%;
-  padding: 0.25rem 0 0.25rem 2rem;
+  /* width: 100%; */
+  /* padding: 0.25rem 0 0.25rem 2rem; */
 }
 
 .container-site-nav footer.page-footer {
@@ -353,27 +317,27 @@ body.modal-active {
 }
 
 .site-nav-wrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* align-items: flex-start; */
   height: 100%;
-  max-width: 1840px;
+  /* max-width: 1840px; */
   margin: 0 auto;
   box-sizing: border-box;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .container-site-nav .link-list .link a {
   font-size: 1.2rem;
-  opacity: 0.75;
-  padding: 1rem 0 1rem 2rem;
+  /* opacity: 0.75; */
+  /* padding: 1rem 0 1rem 2rem; */
 }
 
 .container-site-nav .title {
   font-size: 1.8rem;
   margin-top: 7vh;
   text-align: left;
-  padding-left: 2rem;
+  /* padding-left: 2rem; */
 }
 
 .container-site-nav .link-list .link:after {
@@ -467,13 +431,13 @@ body.modal-active {
 }
 
 .block-item .block-description {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-top: 1rem;
   margin-bottom: 1.5em;
   color: inherit;
   line-height: 1.5em;
   max-width: 560px;
-  opacity: 0.7;
+  opacity: 1;
 }
 
 .block-item .block-subtitle {
@@ -563,6 +527,13 @@ article.block-item.charge-messenger {
 
 .block-description a {
   color: inherit;
+  border-top: 0;
+  border-left: 0;
+  border-right:  0;
+  border-radius:  0;
+  padding-left: 0;
+  padding-right:  0;
+  padding-bottom: 1px;
 }
 
 .preserve a.button.button-primary {
@@ -691,7 +662,7 @@ a.button.button-primary:hover, a.button.button-primary:focus {
 }
 
 #page-navigation.faded {
-  opacity: 0.95;
+  /* opacity: 0.95; */
   transition: all 500ms ease-out;
 }
 
