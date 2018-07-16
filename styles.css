@@ -26,7 +26,7 @@ body {
 
 a {
   color: #ddd;
-  text-decoration: dotted;
+  text-decoration: none;
   background: #222;
   border-radius: 0.3em;
   padding: 0.15em 0.25em;
@@ -67,8 +67,6 @@ h1 {
 }
 
 .intro {
-  width: 400px;
-  max-width: 100%;
   text-align: center;
   margin-top: -64px;
 }
