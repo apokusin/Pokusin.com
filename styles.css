@@ -25,12 +25,11 @@ body {
 }
 
 a {
-  color: white;
+  color: #ddd;
   text-decoration: dotted;
-  background: #333;
+  background: #222;
   border-radius: 0.3em;
   padding: 0.15em 0.25em;
-  color: white;
   box-shadow: 0px 0px 0px 0px black;
   transition: all 50ms;
 }
@@ -40,9 +39,9 @@ a:focus {
 }
 
 a:hover, a:focus {
-  /*background: #444;*/
-  /*background: #222;*/
-  box-shadow: 0px 0px 0px 2px #333;
+  color: white;
+  background: #444;
+  /*box-shadow: 0px 0px 0px 2px #444;*/
   transition: all 50ms;
 }
 
@@ -51,7 +50,7 @@ a:active {
 }
 
 a:visited {
-  opacity: 0.5;
+  /*opacity: 0.5;*/
 }
 
 h1 {
@@ -71,4 +70,5 @@ h1 {
   width: 400px;
   max-width: 100%;
   text-align: center;
+  margin-top: -64px;
 }
