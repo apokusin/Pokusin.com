@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 
+:root {
+  --bg-color: black;
+  --text-color: rgba(255,255,255,0.5);
+  --link-color: rgba(255,255,255,0.6);
+  --link-bg-color: rgba(255,255,255,0.1);
+} 
+
 * {
   margin: 0;
   padding: 0;
@@ -12,8 +19,8 @@ body, html {
 /* Typography */
 body {
   font-family: 'Roboto';
-  background: black;
-  color: #aaa;
+  background: var(--bg-color);
+  color: var(--text-color);
   font-size: 24px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -25,40 +32,46 @@ body {
 }
 
 a {
-  color: #ddd;
+  color: var(--link-color);
   text-decoration: none;
-  background: #222;
+  background: var(--link-bg-color);
   border-radius: 0.3em;
   padding: 0.15em 0.25em;
-  box-shadow: 0px 0px 0px 0px black;
   transition: all 50ms;
-}
-
-a:focus {
-  /*box-shadow: 0px 0px 0px 4px white;*/
+  display: inline-block;
+  transition: all 50ms ease-in-out;
 }
 
 a:hover, a:focus {
-  color: white;
-  background: #444;
-  /*box-shadow: 0px 0px 0px 2px #444;*/
-  transition: all 50ms;
+  color: var(--bg-color);
+  background: var(--link-color);
+  transition: all 25ms linear;
+  outline: 0;
+}
+
+a:focus {
+  /* color: var(--bg-color); */
+  background: var(--link-color);
 }
 
 a:active {
-  transform: translateY(20px);
+  position: relative;
+  top: 2px;
+  transform: scale(0.95);
+  transition: all 50ms ease-in-out;
 }
 
 a:visited {
   /*opacity: 0.5;*/
 }
 
+
 h1 {
   color: white;
 }
 
 .subtitle {
-  margin-top: 0.5em;
+  margin-top: 1rem;
 }
 
 .avatar {
@@ -69,4 +82,38 @@ h1 {
 .intro {
   text-align: center;
   margin-top: -64px;
+}
+
+footer {
+  font-size: 1rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem 1rem;
+}
+
+footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+footer ul li {
+  margin-left: 1rem;
+}
+
+footer ul li:first-child {
+  margin-left: 0;
+}
+
+footer a {
+  padding: 0.5em 0.8em;
+  color: var(--link-color);
+  /* border-radius: 100px; */
+  /* background: rgba(255,255,255,0.3) */
+  background: var(--link-bg-color);
 }
