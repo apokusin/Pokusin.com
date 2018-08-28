@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import url('https://rsms.me/inter/inter-ui.css');
 
 :root {
   --bg-color: black;
@@ -14,14 +14,15 @@
 
 body, html {
   height: 100%;
+  font-size: 24px;
+  letter-spacing: -0.013rem;
 }
 
 /* Typography */
 body {
-  font-family: 'Roboto';
+  font-family: 'Inter UI', sans-serif;
   background: var(--bg-color);
   color: var(--text-color);
-  font-size: 24px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   backface-visibility: hidden;
@@ -67,11 +68,13 @@ a:visited {
 
 
 h1 {
+  font-size: 2rem;
+  letter-spacing: -0.016em;
   color: white;
 }
 
 .subtitle {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
 }
 
 .avatar {
@@ -85,7 +88,8 @@ h1 {
 }
 
 footer {
-  font-size: 1rem;
+  font-size: 0.75rem;
+  letter-spacing: -0.008rem;
   position: fixed;
   bottom: 0;
   left: 0;
