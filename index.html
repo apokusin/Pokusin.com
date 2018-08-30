@@ -27,8 +27,11 @@
 <link rel="stylesheet" href="/styles.css">
 
 <link rel="shortcut icon" href="https://gravatar.com/avatar/5c858c5daef12e779828769ee705f46b?s=64">
-
-<body>
+<body class="loading-noscript">
+  <script>
+    document.body.classList.remove('loading-noscript');
+    document.body.classList.add('loading-start');
+  </script>
   <div class="intro">
     <img class="avatar" src="https://s.gravatar.com/avatar/5c858c5daef12e779828769ee705f46b?s=256" width="128" height="128" />
     <h1>Artur Pokusin</h1>
@@ -50,5 +53,13 @@
     ga('create', 'UA-9559262-2', 'auto');
     ga('send', 'pageview');
 
+  </script>
+  <script>
+    const loaded = () => {
+      document.body.classList.remove('loading-start');
+      document.body.classList.add('loading-finish');
+    }
+
+    window.onload = loaded;
   </script>
 </body>
