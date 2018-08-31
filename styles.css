@@ -30,7 +30,14 @@ body, html {
   letter-spacing: -0.013rem;
 }
 
-
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 .loading-finish {
   opacity: 1;
@@ -40,15 +47,6 @@ body, html {
 .loading-start {
   opacity: 0;
   transition: opacity 1s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
 }
 
 .loading-noscript {

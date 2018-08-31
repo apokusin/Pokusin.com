@@ -27,7 +27,7 @@
 <link rel="stylesheet" href="/styles.css">
 
 <link rel="shortcut icon" href="https://gravatar.com/avatar/5c858c5daef12e779828769ee705f46b?s=64">
-<body class="loading-noscript">
+<body class="loading-noscript" style="opacity: 0; transition: opacity 1s ease-out;">
   <script>
     document.body.classList.remove('loading-noscript');
     document.body.classList.add('loading-start');
@@ -56,6 +56,7 @@
   </script>
   <script>
     const loaded = () => {
+      document.body.style = '';
       document.body.classList.remove('loading-start');
       document.body.classList.add('loading-finish');
     }
