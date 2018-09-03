@@ -38,6 +38,7 @@
       <input autocomplete="off" id="ctrl-input" name="ctrl-input" type="text" class="ctrl-input" />
       <button id="ctrl-submit" class="ctrl-submit disabled" type="submit">→</button>
     </form>
+    <div id="ctrl-activeControls"></div>
   </div>
   <div class="intro">
     <div id="ctrl-trigger"></div>
@@ -89,8 +90,32 @@
     const controlTrigger = document.getElementById('ctrl-trigger');
     controlTrigger.onclick = showControls;
     
+    const localItems = JSON.parse(localStorage.getItem('controls')) || [];
+    
+    localItems.map(function(e) { 
+      document.body.classList.toggle(e);
+    })
+    
+    const addLocalItem = (item) => {
+      const existingItem = localItems.indexOf(item);
+      if (existingItem > -1) {
+        localItems.splice(existingItem, 1);
+      } else {
+        localItems.push(item);
+      }
+      localStorage.setItem('controls', JSON.stringify(localItems));
+    }
+    
 
     const startControls = () => {
+      const activeControls = localItems.join(', ');
+      const activeControlsArea = document.getElementById('ctrl-activeControls');
+      
+      const updateLocalactiveControls = function()  {
+        activeControlsArea.innerHTML = activeControls.length > 0 ? activeControls : 'No active controls';
+      }
+
+
       const input = document.getElementById('ctrl-input');
       const form = document.getElementById('ctrl-form');
       const selectInput = function () {
@@ -113,19 +138,23 @@
 
       const handleSubmit = function (e) {
         e.preventDefault();
-        document.body.classList.toggle(input.value || 'toggle-empty');
+        const value = new String(input.value.toLowerCase());
+        document.body.classList.toggle(value || 'toggle-empty');
+        addLocalItem(input.value);
         input.value = '';
+        unsetReadyState();
         hideControls();
       } 
 
       input.onkeyup = handleChange;
       form.onsubmit = handleSubmit;
-      const options = new Typed('#typed6', {
-        strings: ['One second...', 'Loaded!', ''],
-        typeSpeed: 40,
-        backSpeed: 30,
+      const intro = new Typed('#typed6', {
+        strings: ['You tapped my nose!', 'Activated console!', ''],
+        typeSpeed: 30,
+        backSpeed: 20,
         smartBackspace: true, // this is a default
         loop: false,
+        fadeOut: true,
         showCursor: false,
         onComplete: selectInput,
       });
