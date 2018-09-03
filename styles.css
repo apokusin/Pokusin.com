@@ -3,6 +3,7 @@
 :root {
   --bg-color: #e2e9ef;
   --heading-color: #123;
+  --highlight-color: #299BFF;
   --text-color: #123;
   --link-color: #123;
   --link-bg-color: rgba(17,34,51,0.05);
@@ -189,4 +190,127 @@ footer a {
   footer ul li a {
     display: block;
   }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.ctrl-area {
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation-delay: 1s;
+  animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-fill-mode:forwards;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.ctrl-area.top {
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  padding-top: 0;
+  animation-name: slideInDown;
+}
+.ctrl-area.bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 0;
+  animation-name: slideInUp;
+}
+
+
+.ctrl-form {
+  background: black;
+  width: 100%;
+  display: flex;
+  font: inherit; 
+  border-radius: 16px;
+}
+
+.top .ctrl-form {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.bottom .ctrl-form {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+.ctrl-area label,
+.ctrl-area input,
+.ctrl-submit {
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  font-family: monospace;
+  background: transparent;
+  border: 0;
+  padding: 0.5rem 1rem;
+}
+
+
+.ctrl-area label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 0rem;
+  color: var(--highlight-color);
+}
+
+.ctrl-area input {
+  outline: 0;
+  flex: 1;
+  padding-left: 0;
+}
+
+.ctrl-submit {
+  background: white;
+  border-radius: 50%;
+  margin: 1rem;
+  color: black;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  padding: 0;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 250ms ease-out;
+}
+
+.ctrl-submit.disabled {
+  opacity: 0;
+  transition: opacity 250ms ease-out;
 }
