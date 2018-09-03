@@ -105,20 +105,16 @@
         document.getElementById('ctrl-submit').classList.remove('enabled');
         document.getElementById('ctrl-submit').classList.add('disabled');
       };
-
-      const checkValue = function(value) {
-        e.target.value ? setReadyState() : unsetReadyState()
-      }
+      
 
       const handleChange = function (e) {
-        checkValue();
+        return e.target.value ? setReadyState() : unsetReadyState();
       };
 
       const handleSubmit = function (e) {
         e.preventDefault();
         document.body.classList.toggle(input.value || 'toggle-empty');
         input.value = '';
-        checkValue(input.value);
         hideControls();
       } 
 
