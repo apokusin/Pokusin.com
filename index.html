@@ -32,7 +32,15 @@
     document.body.classList.remove('loading-noscript');
     document.body.classList.add('loading-start');
   </script>
+  <div id="ctrl-area" class="ctrl-area top ctrl-hidden">
+    <form id="ctrl-form" class="ctrl-form ctrl-form-init">
+      <label for="ctrl-input">&gt;&nbsp;<span id="typed6"></span></label>
+      <input autocomplete="off" id="ctrl-input" name="ctrl-input" type="text" class="ctrl-input" />
+      <button id="ctrl-submit" class="ctrl-submit disabled" type="submit">→</button>
+    </form>
+  </div>
   <div class="intro">
+    <div id="ctrl-trigger"></div>
     <img class="avatar" src="https://s.gravatar.com/avatar/5c858c5daef12e779828769ee705f46b?s=256" width="128" height="128" />
     <h1>Artur Pokusin</h1>
     <p class="subtitle">UX Engineer at <a href="https://kiddom.co" target="_blank">Kiddom</a></p>
@@ -62,5 +70,66 @@
     }
 
     window.onload = loaded;
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
+  <script>
+    const controls = document.getElementById('ctrl-area');
+
+    const showControls = function() {
+      controls.classList.add('ctrl-visible');
+      controls.classList.remove('ctrl-hidden');
+      startControls();
+    }
+    
+    const hideControls = function() {
+      controls.classList.remove('ctrl-visible');
+      controls.classList.add('ctrl-hidden');
+    };
+
+    const controlTrigger = document.getElementById('ctrl-trigger');
+    controlTrigger.onclick = showControls;
+    
+
+    const startControls = () => {
+      const input = document.getElementById('ctrl-input');
+      const form = document.getElementById('ctrl-form');
+      const selectInput = function () {
+        input.focus();
+      };
+      const setReadyState = function() {
+        document.getElementById('ctrl-submit').classList.add('enabled');
+        document.getElementById('ctrl-submit').classList.remove('disabled');
+      };
+
+      const unsetReadyState = function() {
+        document.getElementById('ctrl-submit').classList.remove('enabled');
+        document.getElementById('ctrl-submit').classList.add('disabled');
+      };
+      
+
+      const handleChange = function (e) {
+        return e.target.value ? setReadyState() : unsetReadyState();
+      };
+
+      const handleSubmit = function (e) {
+        e.preventDefault();
+        document.body.classList.toggle(input.value || 'toggle-empty');
+        input.value = '';
+        hideControls();
+      } 
+
+      input.onkeyup = handleChange;
+      form.onsubmit = handleSubmit;
+      const options = new Typed('#typed6', {
+        strings: ['One second...', 'Loaded!', ''],
+        typeSpeed: 40,
+        backSpeed: 30,
+        smartBackspace: true, // this is a default
+        loop: false,
+        showCursor: false,
+        onComplete: selectInput,
+      });
+    }
+
   </script>
 </body>

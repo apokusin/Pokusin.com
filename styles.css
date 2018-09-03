@@ -3,9 +3,10 @@
 :root {
   --bg-color: #e2e9ef;
   --heading-color: #123;
+  --highlight-color: #299BFF;
   --text-color: #123;
   --link-color: #123;
-  --link-bg-color: rgba(17,34,51,0.05);
+  --link-bg-color: rgba(17,44,65,0.05);
 } 
 
 @media (prefers-dark-interface) {
@@ -17,6 +18,24 @@
     --link-color: rgba(255,255,255,0.6);
     --link-bg-color: rgba(255,255,255,0.1);
   }
+}
+
+  /* For when this is supported */
+body.night {
+  --bg-color: black;
+  --heading-color: white;
+  --text-color: rgba(255,255,255,0.5);
+  --link-color: rgba(255,255,255,0.6);
+  --link-bg-color: rgba(255,255,255,0.1);
+  transition: all 1s ease-in-out;
+}
+body.day {
+  --bg-color: #e2e9ef;
+  --heading-color: #123;
+  --highlight-color: #299BFF;
+  --text-color: #123;
+  --link-color: #123;
+  --link-bg-color: rgba(17,34,51,0.05);
 }
 
 * {
@@ -129,6 +148,7 @@ h1 {
 .intro {
   text-align: center;
   margin-top: -64px;
+  position: relative;
 }
 
 
@@ -189,4 +209,149 @@ footer a {
   footer ul li a {
     display: block;
   }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 1;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.ctrl-area {
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.ctrl-area.top {
+  position: fixed;
+  right: 0;
+  top: 0;
+  left: 0;
+  padding-top: 0;
+  animation-name: slideInDown;
+}
+.ctrl-area.bottom {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 0;
+  animation-name: slideInUp;
+}
+
+
+.ctrl-form {
+  background: var(--heading-color);
+  transition: all 500ms ease-in-out;
+  width: 100%;
+  display: flex;
+  font: inherit; 
+  border-radius: 16px;
+}
+
+.top .ctrl-form {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.bottom .ctrl-form {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+.ctrl-area label,
+.ctrl-area input,
+.ctrl-submit {
+  font-size: 18px;
+  color: var(--bg-color);
+  font-weight: bold;
+  font-family: monospace;
+  background: transparent;
+  border: 0;
+  padding: 0.5rem 1rem;
+}
+
+
+.ctrl-area label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 0rem;
+  color: var(--highlight-color);
+}
+
+.ctrl-area input {
+  outline: 0;
+  flex: 1;
+  padding-left: 0;
+}
+
+.ctrl-submit {
+  background: var(--bg-color);
+  border-radius: 50%;
+  margin: 1rem;
+  color: var(--heading-color);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  padding: 0;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 250ms ease-out;
+}
+
+.ctrl-submit.disabled {
+  opacity: 0;
+  transition: opacity 250ms ease-out;
+}
+
+#ctrl-area.ctrl-visible {
+  animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation-fill-mode:forwards;
+  opacity: 0;
+  display: initial;
+}
+
+#ctrl-area.ctrl-hidden {
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+
+#ctrl-trigger {
+  position: absolute;
+  z-index: 50;
+  width: 10px;
+  height: 10px;
+  background:transparent;
+  top: 85px;
+  left: 50%;
+  transform: translateX(-50%)
 }
