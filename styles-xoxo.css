@@ -65,7 +65,8 @@ footer.slug {
         font-size: 2vh;
     }
     .intro {
-        padding-right: 25vw;
+        padding-right: 30vw;
+        padding-left: 8px;
     }
     .product-screenshot {
         right: 0;
