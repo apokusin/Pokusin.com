@@ -62,12 +62,20 @@ footer.slug {
 
 @media (max-width: 768px) {
     .intro {
-        padding-right: 39vw;
+        padding-right: 15vw;
+        padding-left: 16px;
     }
     .product-screenshot {
         right: 0;
         left: initial;
-        transform: translateX(80%);
+        transform: translateX(90%);
+    }
+    #open-slack {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 }
 
