@@ -19,7 +19,7 @@ body, html {
     display: grid;
     padding-right: 50vh;
     text-align: left;
-    margin-top: 0;
+    margin-top: -64px;
 }
 
 .inline-icon {
@@ -75,11 +75,7 @@ footer.slug {
         transform: translateX(85%);
     }
     #open-slack {
-        position: fixed;
-        top: 50%;
-        left: 0;
-        right: 0;
-        transform: translateY(-50%);
+        position: static;
         z-index: 99;
     }
 
