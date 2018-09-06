@@ -74,10 +74,19 @@ footer.slug {
         left: initial;
         transform: translateX(85%);
     }
-    #open-slack {
+    #copied-success {
         position: static;
         z-index: 99;
     }
+
+    #copied-success .desktop {
+        display: none;
+    }
+
+    #copied-success .mobile {
+        display: block;
+    }
+    
 
 }
 
@@ -146,7 +155,7 @@ input {
     background: var(--accent-color);
 }
 
-#open-slack {
+#copied-success .btn {
     position: fixed;
     top: 0;
     left: 0;
@@ -162,12 +171,16 @@ input {
     box-sizing: border-box;
 }
 
-#open-slack:hover {
+#copied-success .mobile {
+    display: none;
+}
+
+#copied-success .btn:hover {
     color: white;
 }
 
 
-#open-slack.active {
+#copied-success.active {
     visibility: visible;
     pointer-events: initial;
     opacity: 1;
