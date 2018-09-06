@@ -180,12 +180,19 @@ input {
         z-index: 99;
     }
 
+    #copied-success .btn {
+        position: static;
+        margin-top: 2rem;
+    }
+
     #copied-success .desktop {
         display: none;
     }
 
     #copied-success .mobile {
         display: block;
+        visibility: visible;
+        opacity: 1;
     }
     
 
