@@ -51,9 +51,11 @@ body, html {
 .product-screenshot {
     position: fixed;
     left: 50vw;
+    height: 80vh;
+    max-height: 768px;
 }
 .product-screenshot img {
-    height: 80vh;
+    height: 100%;
 }
 
 footer.slug {
@@ -166,6 +168,15 @@ input {
     html, body {
         font-size: 2vh;
     }
+
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: inherit;
+    }
+
     .intro {
         padding-right: 40vw;
         padding-left: 16px;
@@ -182,6 +193,7 @@ input {
 
     #copied-success .btn {
         position: static;
+        margin-top: 3rem;
     }
 
     #copied-success .desktop {
