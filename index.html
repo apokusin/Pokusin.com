@@ -13,13 +13,13 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="apokusin">
 <meta name="twitter:title" content="Artur Pokusin">
-<meta name="twitter:description" content="UX engineer at Kiddom. Creator of CLUB FAIL.">
+<meta name="twitter:description" content="Designer / Developer. Creator of CLUB FAIL.">
 <meta name="twitter:image:src" content="https://gravatar.com/avatar/5c858c5daef12e779828769ee705f46b?s=400">
 
 <meta property="og:title" content="Artur Pokusin">
 <meta property="og:site_name" content="Artur Pokusin">
 <meta property="og:url" content="https://pokusin.com">
-<meta property="og:description" content="UX engineer at Kiddom. Creator of CLUB FAIL.">
+<meta property="og:description" content="Designer / Developer. Creator of CLUB FAIL.">
 <meta property="og:type" content="website">
 <meta property="fb:app_id" content="257445234976524">
 <meta property="og:image" content="https://gravatar.com/avatar/5c858c5daef12e779828769ee705f46b?s=400">
@@ -32,19 +32,10 @@
     document.body.classList.remove('loading-noscript');
     document.body.classList.add('loading-start');
   </script>
-  <div id="ctrl-area" class="ctrl-area top ctrl-hidden">
-    <form id="ctrl-form" class="ctrl-form ctrl-form-init">
-      <label for="ctrl-input">&gt;&nbsp;<span id="typed6"></span></label>
-      <input autocomplete="off" id="ctrl-input" name="ctrl-input" type="text" class="ctrl-input" />
-      <button id="ctrl-submit" class="ctrl-submit disabled" type="submit">→</button>
-    </form>
-    <div id="ctrl-activeControls"></div>
-  </div>
   <div class="intro">
-    <div id="ctrl-trigger"></div>
     <img class="avatar" src="https://s.gravatar.com/avatar/5c858c5daef12e779828769ee705f46b?s=256" width="128" height="128" />
     <h1>Artur Pokusin</h1>
-    <p class="subtitle">UX Engineer at <a href="https://kiddom.co" target="_blank">Kiddom</a></p>
+    <p class="subtitle">Designer / Developer</p>
     <p class="subtitle">Creator of <a href="https://club.fail" target="_blank">CLUB FAIL</a></p>
    </div>
    <footer  class="contact">
@@ -54,16 +45,6 @@
      </ul>
    </footer>
   <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-9559262-2', 'auto');
-    ga('send', 'pageview');
-
-  </script>
-  <script>
     const loaded = () => {
       document.body.style = '';
       document.body.classList.remove('loading-start');
@@ -72,93 +53,14 @@
 
     window.onload = loaded;
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.9"></script>
   <script>
-    const controls = document.getElementById('ctrl-area');
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    const showControls = function() {
-      controls.classList.add('ctrl-visible');
-      controls.classList.remove('ctrl-hidden');
-      startControls();
-    }
-    
-    const hideControls = function() {
-      controls.classList.remove('ctrl-visible');
-      controls.classList.add('ctrl-hidden');
-    };
-
-    const controlTrigger = document.getElementById('ctrl-trigger');
-    controlTrigger.onclick = showControls;
-    
-    const localItems = JSON.parse(localStorage.getItem('controls')) || [];
-    
-    localItems.map(function(e) { 
-      document.body.classList.toggle(e);
-    })
-    
-    const addLocalItem = (item) => {
-      const existingItem = localItems.indexOf(item);
-      if (existingItem > -1) {
-        localItems.splice(existingItem, 1);
-      } else {
-        localItems.push(item);
-      }
-      localStorage.setItem('controls', JSON.stringify(localItems));
-    }
-    
-
-    const startControls = () => {
-      const activeControls = localItems.join(', ');
-      const activeControlsArea = document.getElementById('ctrl-activeControls');
-      
-      const updateLocalactiveControls = function()  {
-        activeControlsArea.innerHTML = activeControls.length > 0 ? activeControls : 'No active controls';
-      }
-
-
-      const input = document.getElementById('ctrl-input');
-      const form = document.getElementById('ctrl-form');
-      const selectInput = function () {
-        input.focus();
-      };
-      const setReadyState = function() {
-        document.getElementById('ctrl-submit').classList.add('enabled');
-        document.getElementById('ctrl-submit').classList.remove('disabled');
-      };
-
-      const unsetReadyState = function() {
-        document.getElementById('ctrl-submit').classList.remove('enabled');
-        document.getElementById('ctrl-submit').classList.add('disabled');
-      };
-      
-
-      const handleChange = function (e) {
-        return e.target.value ? setReadyState() : unsetReadyState();
-      };
-
-      const handleSubmit = function (e) {
-        e.preventDefault();
-        const value = new String(input.value.toLowerCase());
-        document.body.classList.toggle(value || 'toggle-empty');
-        addLocalItem(input.value);
-        input.value = '';
-        unsetReadyState();
-        hideControls();
-      } 
-
-      input.onkeyup = handleChange;
-      form.onsubmit = handleSubmit;
-      const intro = new Typed('#typed6', {
-        strings: ['You tapped my nose!', 'Activated console!', ''],
-        typeSpeed: 30,
-        backSpeed: 20,
-        smartBackspace: true, // this is a default
-        loop: false,
-        fadeOut: true,
-        showCursor: false,
-        onComplete: selectInput,
-      });
-    }
+    ga('create', 'UA-9559262-2', 'auto');
+    ga('send', 'pageview');
 
   </script>
 </body>
