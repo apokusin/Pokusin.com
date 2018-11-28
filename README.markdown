@@ -4,7 +4,7 @@
 
 # [pokusin.com](http://pokusin.com)
 
-Hey! Welcome to the readme for my personal site!
+Welcome to the documentation for my personal site!
 
 Here are some interesting things about it:
 - My avatar photo updates through Gravatar automatically, as if by magic.
