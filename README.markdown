@@ -4,4 +4,9 @@
 
 # [pokusin.com](http://pokusin.com)
 
-Look, I'm online.
+Hey! Welcome to the readme for my personal site!
+
+Here are some interesting things about it:
+- My avatar photo updates through Gravatar automatically, as if by magic.
+- I added a secret console to tweak parameters of the site, which I use to test experiments/variations. (currently disabled)
+- The site has a fade-in animation. It has a JS layer that waits for the page to finish loading all resources before fading in. No JS? The animation runs with a 300ms delay by default.
