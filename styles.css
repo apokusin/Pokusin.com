@@ -186,7 +186,7 @@ footer ul li:first-child {
 }
 
 footer a {
-  padding: 0.5em 0.8em;
+  padding: 0.5em 0.6em;
   color: var(--link-color);
   /* border-radius: 100px; */
   /* background: rgba(255,255,255,0.3) */
@@ -209,7 +209,7 @@ footer a {
 
   footer ul li {
     margin-left: 0;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 
   footer ul li a {
