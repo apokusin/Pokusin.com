@@ -1,5 +1,3 @@
-@import url('https://rsms.me/inter/inter-ui.css');
-
 :root {
   --bg-color: #e2e9ef;
   --heading-color: #123;
@@ -76,7 +74,7 @@ body, html {
 }
 
 body {
-  font-family: 'Inter UI', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   background: var(--bg-color);
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
