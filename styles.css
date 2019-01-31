@@ -136,6 +136,15 @@ h1 {
   color: var(--heading-color);
 }
 
+h2 {
+  text-transform: uppercase;
+  opacity: 0.5;
+  font-size: 0.6em;
+  margin-top: 4em;
+  font-weight: bold;
+  letter-spacing: 0.6px;
+}
+
 .subtitle {
   margin-top: 0.5rem;
 }
@@ -144,6 +153,7 @@ h1 {
   opacity: 0.5;
   font-size: 0.8em;
   line-height: 1.6em;
+  list-style-type: none;
 }
 
 .avatar {
@@ -160,8 +170,8 @@ h1 {
 footer {
   font-size: 0.75rem;
   letter-spacing: -0.008rem;
-  margin-top: 2em;
-  display: flex;
+  margin-top: 3em;
+  /* display: flex; */
 }
 
 footer ul {
