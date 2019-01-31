@@ -104,7 +104,6 @@ a {
   transition: all 50ms;
   display: inline-block;
   transition: all 50ms ease-in-out;
-  font-weight: bold;
 }
 
 a:hover, a:focus {
@@ -142,7 +141,7 @@ h1 {
 }
 
 .subtitle.secondary {
-  opacity: 0.5em;
+  opacity: 0.5;
   font-size: 0.8em;
   line-height: 1.6em;
 }
@@ -153,9 +152,7 @@ h1 {
 }
 
 .intro {
-  text-align: center;
-  margin-top: -64px;
-  position: relative;
+  text-align: left;
   padding: 2em;
 }
 
@@ -163,6 +160,7 @@ h1 {
 footer {
   font-size: 0.75rem;
   letter-spacing: -0.008rem;
+  margin-top: 1em;
 }
 
 footer ul {
