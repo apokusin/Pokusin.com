@@ -104,6 +104,7 @@ a {
   transition: all 50ms;
   display: inline-block;
   transition: all 50ms ease-in-out;
+  font-weight: bold;
 }
 
 a:hover, a:focus {
@@ -140,6 +141,12 @@ h1 {
   margin-top: 0.5rem;
 }
 
+.subtitle.secondary {
+  opacity: 0.5em;
+  font-size: 0.8em;
+  line-height: 1.6em;
+}
+
 .avatar {
   border-radius: 50%;
   margin-bottom: 0.5em;
@@ -149,30 +156,21 @@ h1 {
   text-align: center;
   margin-top: -64px;
   position: relative;
+  padding: 2em;
 }
 
 
 footer {
   font-size: 0.75rem;
   letter-spacing: -0.008rem;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 2rem 1rem;
 }
 
 footer ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  width: 100%;
-  justify-content: center;
 }
 
 footer ul li {
-  margin-left: 1rem;
+  margin-top: 1rem;
 }
 
 footer ul li:first-child {
