@@ -2,4 +2,4 @@
 
 # [pokusin.com](http://pokusin.com)
 
-![](http://images.shrinktheweb.com/xino.php?stwembed=1&stwaccesskeyid=dc7aedf795a8ec0&stwsize=400x300&stwurl=http://www.pokusin.com)
+![](https://shrinktheweb.snapito.io/v2/webshot/spu-ea68c8-ogi2-3cwn3bmfojjlb56e?size=800x0&screen=1024x768&url=http%3A%2F%2Fpokusin.com)
