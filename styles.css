@@ -4,7 +4,7 @@
   --highlight-color: #299BFF;
   --text-color: #123;
   --link-color: #123;
-  --link-bg-color: rgba(17,44,65,0.05);
+  --link-bg-color: transparent;
 } 
 
 @media (prefers-dark-interface) {
@@ -99,9 +99,20 @@ a {
   background: var(--link-bg-color);
   border-radius: 0.3em;
   padding: 0.15em 0.25em;
+  position: relative;
+  left: -0.50em;
   transition: all 50ms;
   display: inline-block;
+  vertical-align: middle;
   transition: all 50ms ease-in-out;
+  /* display: flex; */
+}
+
+a svg {
+  color: inherit;
+  margin-right: 0.5em;
+  position: relative;
+  top: 1px;
 }
 
 a:hover, a:focus {
@@ -187,11 +198,13 @@ footer ul li:first-child {
 }
 
 footer a {
-  padding: 0.5em 0.6em;
+  padding: 0.8em 1.4em;
   color: var(--link-color);
-  /* border-radius: 100px; */
+  border-radius: 100px;
   /* background: rgba(255,255,255,0.3) */
   background: var(--link-bg-color);
+  position: relative;
+  left: -1.4em;
 }
 
 
@@ -215,6 +228,7 @@ footer a {
 
   footer ul li a {
     display: block;
+    vertical-align: middle;
   }
 }
 
