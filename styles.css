@@ -175,6 +175,7 @@ footer {
 footer ul {
   list-style-type: none;
   display: flex;
+  flex-direction: column;
 }
 
 footer ul li {
