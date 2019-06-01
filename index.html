@@ -15,7 +15,6 @@
 <meta property="og:url" content="http://pokusin.com">
 <meta property="og:description" content="A designer/developer in California">
 <meta property="og:type" content="website">
-<link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7839872/7150772/css/fonts.css" />
 <link rel="stylesheet" href="/normalize.css">
 <link rel="stylesheet" href="/styles.css">
 <link rel="shortcut icon" href="https://gravatar.com/avatar/25b8108f22fc2f177b74437f2d219f2d?s=64">
@@ -42,12 +41,12 @@
         <a href="https://twitter.com/apokusin" target="_blank">Twitter</a>
       </li>
       <li>
-        <a href="https://dribbble.com/apokusin" target="_blank">Dribbble</a>
+        <a href="https://dribbble.com/playfulcyanide" target="_blank">Dribbble</a>
       </li>
     </ul>
   </div>
   <footer role="contentinfo" class="page-footer">
-    Copyright on the twelfth of September in the year of our Lord, two thousand and seventeen; all rights reserved.
+    <span id="copyright-text">Copyright on the year of our Lord, two thousand and twenty. All rights reserved.</span>
   </footer>
 
   <script>
@@ -59,5 +58,16 @@
     ga('create', 'UA-9559262-2', 'auto');
     ga('send', 'pageview');
 
+  </script>
+  <script>
+    const copyrightEl = document.getElementById('copyright-text');
+    if (copyrightEl) {
+      const now = new Date();
+      const days = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth', 'seventh', 'eighth', 'ninth', 'tenth', 'eleventh', 'twelfth', 'thirteenth', 'fourteenth', 'fifteenth', 'sixteenth', 'seventeenth', 'eighteenth', 'nineteenth', 'twentieth', 'twenty-first', 'twenty-second', 'twenty-third', 'twenty-fourth', 'twenty-fifth', 'twenty-sixth', 'twenty-seventh', 'twenty-eighth', 'twenty-ninth', 'thirtieth', 'thirty-first'];
+      const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+      const years = ['nineteen', 'twenty', 'twenty-one', 'twenty-two', 'twenty-three', 'twenty-four', 'twenty-five', 'twenty-six'];
+      
+      copyrightEl.innerHTML = "Copyright on the " + days[now.getDate() - 1] + " of " + months[now.getMonth()] + ' in the year of our Lord, two thousand and ' + years[now.getFullYear() - 2019] + '. All rights reserved.';
+    }
   </script>
 </body>
