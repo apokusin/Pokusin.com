@@ -13,6 +13,10 @@ function init() {
     this.classList.add('faded');
   });
 
+  if (document.referrer.indexOf('pokusin.com') > -1) {
+    elementToHide.classList.add('faded');
+  }
+
   var mobileNavHeadroom = new Headroom(document.getElementById('mobile-navigation'));
   mobileNavHeadroom.init();
 
