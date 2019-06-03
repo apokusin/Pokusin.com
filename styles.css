@@ -1385,9 +1385,10 @@ a.button.button-primary.button-archives {
     box-sizing: border-box;
     padding: 3vh 10vw;
   }
-  .link-list-contact a,
-  main {
-    padding: inherit 10vw;
+  .link-list-contact li a,
+  .title, .subtitle {
+    padding-left: 10vw;
+    padding-right: 10vw;
   }
 
   .link-list .link a {
