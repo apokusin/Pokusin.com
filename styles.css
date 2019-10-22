@@ -7,7 +7,7 @@
   --link-bg-color: transparent;
 } 
 
-@media (prefers-dark-interface) {
+@media (prefers-color-scheme: dark) {
   /* For when this is supported */
   :root {
     --bg-color: black;
