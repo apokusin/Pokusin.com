@@ -50,6 +50,12 @@ main {
   text-align: center;
 }
 
+footer {
+  padding-top: 2em;
+  font-size: 0.65rem;
+  opacity: 0.5;
+}
+
 a {
   color: var(--link-color);
   background: var(--link-bg-color);
@@ -93,6 +99,9 @@ h1 {
 .avatar {
   border-radius: 50%;
   margin-bottom: 1em;
+  width: 2em;
+  height: 2em;
+  font-size: 2em;
 }
 
 .links {
